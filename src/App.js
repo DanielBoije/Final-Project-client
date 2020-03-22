@@ -18,7 +18,7 @@ function App() {
           <Route path="/lomakkeet" component={Lomakkeet}/>
           <Route path="/tilastot" component={Tilastot}/>
       </Switch>
-    </div>
+      </div>
     </Router>
   );
 }
