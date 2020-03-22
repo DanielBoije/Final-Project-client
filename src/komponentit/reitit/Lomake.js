@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 
-class Lomakkeet extends Component {
+class Lomake extends Component {
     render() {
         return (
             <div>
                 <br></br>
-                <h2>Lomakkeet tähän</h2>
+                <h2>Henkilöstön tuotantolomake tähän</h2>
             </div>
         );
     }
 }
 
-export default Lomakkeet;
+export default Lomake;
