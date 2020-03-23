@@ -37,7 +37,8 @@ class Lomake extends Component {
     }
 
     render() {
-        const { step, pvm, vuoro, tuote, lisääHäiriö, tehdytTunnit, viesti } = this.state;
+        const { step } = this.state;
+        const { pvm, vuoro, tuote, lisääHäiriö, tehdytTunnit, viesti } = this.state
         const values = { step, pvm, vuoro, tuote, lisääHäiriö, tehdytTunnit, viesti }
         
         switch(step) {
