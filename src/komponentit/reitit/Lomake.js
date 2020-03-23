@@ -49,7 +49,6 @@ class Lomake extends Component {
                     <LomakeTiedot
                         nextstep={this.nextStep}
                         handleChange={this.handleChange}
-                        handleDateChange={this.handleDateChange}
                         values={values}
                     />
                 )
