@@ -28,11 +28,6 @@ class Lomake extends Component {
         })
     }
 
-    // handleDateChange = (event, date) => {
-    //     console.log(date)
-    //     this.setState({ pvm: date})
-    // }
-
     //lomakekentän muutokset
     handleChange = input => e => {
         console.log(e.target.value)
@@ -47,7 +42,7 @@ class Lomake extends Component {
             case 1:
                 return (
                     <LomakeTiedot
-                        nextstep={this.nextStep}
+                        nextStep={this.nextStep}
                         handleChange={this.handleChange}
                         values={values}
                     />
