@@ -25,7 +25,8 @@ class LomakeTiedot extends Component {
                     defaultValue={values.pvm}/>
                     <TextField 
                     hintText="Testi" 
-                    onChange={handleChange("viesti")}/>
+                    onChange={handleChange("viesti")}
+                    defaultValue={values.viesti}/>
                     <br></br>
                     <RaisedButton
                     label="Jatka"
