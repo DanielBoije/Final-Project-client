@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import LomakeTiedot from "../LomakeTiedot"
+import LomakeVahvistus from "../LomakeVahvistus"
+import LomakeLähetetty from "../LomakeLahetetty"
 
 class Lomake extends Component {
     state = {
@@ -48,9 +50,17 @@ class Lomake extends Component {
                     />
                 )
             case 2:
-                return <h1>LomakeVahvistus</h1>
+                return (
+                    <LomakeVahvistus
+                        nextStep={this.nextStep}
+                        prevStep={this.prevStep}
+                        values={values}
+                    />
+                )
             case 3:
-                return <h1>LomakeLähetetty</h1>
+                return (
+                    <LomakeLähetetty/>
+                )
         }
     }
 }
