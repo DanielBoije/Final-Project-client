@@ -43,8 +43,12 @@ class LomakeVahvistus extends Component {
                             secondaryText={values.lisääHäiriö}
                         />
                         <ListItem
+                            primaryText="Häiriön kesto"
+                            secondaryText={values.häiriönKesto + " tuntia"}
+                        />                        
+                        <ListItem
                             primaryText="Tehdyt tunnit"
-                            secondaryText={values.tehdytTunnit}
+                            secondaryText={values.tehdytTunnit + " tuntia"}
                         />
                         <ListItem
                             primaryText="Viesti"
@@ -71,7 +75,7 @@ class LomakeVahvistus extends Component {
     }
 }
 const padding = {
-    padding: "20px 50px 50px 50px"
+    padding: "0px 50px 50px 50px"
 }
 
 const shadow = {

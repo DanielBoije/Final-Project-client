@@ -48,6 +48,15 @@ class LomakeTiedot extends Component {
                     show={this.state.modalShow}
                     onHide={modalClose}
                     /><br></br>
+                    <TextField
+                    type="number"
+                    min="0"
+                    step="0.5"
+                    required
+                    hintText="Tehdyt tunnit (0,5 = 30min)"  
+                    onChange={handleChange("tehdytTunnit")}
+                    defaultValue={values.tehdytTunnit}
+                    /><br></br>
                     <TextField 
                     hintText="Viesti" 
                     onChange={handleChange("viesti")}
