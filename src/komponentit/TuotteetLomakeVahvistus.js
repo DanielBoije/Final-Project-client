@@ -25,6 +25,7 @@ export default class TuotteetLomakeVahvistus extends Component {
 
                     <TextField 
                         hintText="Tuotenumero" 
+                        
                         //onChange={handleChange("tuotenro")}
                         defaultValue={values.tuotenro}/>
                         <br></br>
