@@ -33,7 +33,16 @@ class Lomake extends Component {
     //päivämäärän muutokset
     handleDateChange = (event, date) => {
         console.log(date)
-        this.setState({ pvm: date})
+        let päivä = date.toString()
+        päivä = päivä.slice(4,16)
+        // let alkuperainen = JSON.stringify(date);
+        // let dateStr = Date.parse(alkuperainen)
+        // let pv = Date.prototype.getUTCDate(dateStr);
+        //let xx = date.getUTCDate()
+        
+        // päivä = päivä.slice(1,11)
+        console.log(päivä)
+        this.setState({ pvm: päivä})
     }
 
     //lomakekentän muutokset
@@ -53,6 +62,7 @@ class Lomake extends Component {
                     <LomakeTiedot
                         nextStep={this.nextStep}
                         handleChange={this.handleChange}
+                        handleDateChange={this.handleDateChange}
                         values={values}
                     />
                 )

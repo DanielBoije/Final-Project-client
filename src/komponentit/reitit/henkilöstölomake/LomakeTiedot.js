@@ -5,18 +5,24 @@ import DatePicker from "material-ui/DatePicker";
 import RaisedButton from "material-ui/RaisedButton"
 import AppBar from "material-ui/AppBar"
 import SimpleSelect from "./Select"
+import LisääHäiriö from "./LisaaHairio"
 
 
 class LomakeTiedot extends Component {
+
+    state = {
+        modalShow: false
+    }
+
     continue = e => {
         e.preventDefault();
         this.props.nextStep();
     }
-
        
     render() {
         const { values, handleChange, handleDateChange } = this.props;
         // const selectedDate= new Date();
+        let modalClose = () => this.setState({modalShow: false});
         
         return (            
             <MuiThemeProvider>
@@ -29,13 +35,21 @@ class LomakeTiedot extends Component {
                     hintText="Päivämäärä" 
                     // selected={selectedDate} 
                     onChange={handleDateChange} 
-                    defaultValue={values.pvm}/>
+                    // defaultValue={values.pvm}
+                    />
                     <SimpleSelect 
                     values={values}
                     handleChange={handleChange}
                     /><br></br>
+                    <RaisedButton style={häiriö} label="Lisää häiriö" onClick={()=> this.setState({modalShow:true})}></RaisedButton>
+                    <LisääHäiriö
+                    values={values}
+                    handleChange={handleChange}
+                    show={this.state.modalShow}
+                    onHide={modalClose}
+                    /><br></br>
                     <TextField 
-                    hintText="Testi" 
+                    hintText="Viesti" 
                     onChange={handleChange("viesti")}
                     defaultValue={values.viesti}/>
                     <br></br><br></br>
@@ -51,6 +65,10 @@ class LomakeTiedot extends Component {
             </MuiThemeProvider>
         );
     }
+}
+
+const häiriö = {
+    opacity: "50%"
 }
 
 const padding = {
