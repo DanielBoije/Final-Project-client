@@ -7,8 +7,9 @@ import Select from '@material-ui/core/Select';
 
 const useStyles = makeStyles(theme => ({
     formControl: {
+      opacity: "65%",
       margin: theme.spacing(1),
-      minWidth: 120,
+      minWidth: 256,
     },
     selectEmpty: {
       marginTop: theme.spacing(2),
@@ -32,7 +33,20 @@ const useStyles = makeStyles(theme => ({
             <MenuItem value={"B"}>B</MenuItem>
             <MenuItem value={"C"}>C</MenuItem>
           </Select>
-        </FormControl>
+        </FormControl><br></br>
+        <FormControl className={classes.formControl}>
+          <InputLabel id="tuote">Tuote</InputLabel>
+          <Select
+            labelId="tuote"
+            id="tuote"
+            onChange={props.handleChange("tuote")}
+            defaultValue={props.values.tuote}
+          >
+            <MenuItem value={"tuote1"}>tuote 1</MenuItem>
+            <MenuItem value={"tuote2"}>tuote 2</MenuItem>
+            <MenuItem value={"tuote3"}>tuote 3</MenuItem>
+          </Select>
+        </FormControl><br></br>
         <FormControl className={classes.formControl}>
           <InputLabel id="häiriö">Häiriö</InputLabel>
           <Select
