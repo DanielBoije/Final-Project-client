@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import {List, ListItem} from "material-ui/List"
-import DatePicker from "material-ui/DatePicker";
 import RaisedButton from "material-ui/RaisedButton"
 
-class LomakeTiedot extends Component {
+class LomakeVahvistus extends Component {
     continue = e => {
         e.preventDefault();
         //lähetetään apiin
@@ -74,4 +73,4 @@ const styles = {
 
 
 
-export default LomakeTiedot;
+export default LomakeVahvistus;

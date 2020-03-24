@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import LomakeTiedot from "../LomakeTiedot"
-import LomakeVahvistus from "../LomakeVahvistus"
-import LomakeLähetetty from "../LomakeLahetetty"
+import LomakeTiedot from "./henkilöstölomake/LomakeTiedot"
+import LomakeVahvistus from "./henkilöstölomake/LomakeVahvistus"
+import LomakeLähetetty from "./henkilöstölomake/LomakeLahetetty"
 
 class Lomake extends Component {
     state = {
@@ -28,6 +28,12 @@ class Lomake extends Component {
         this.setState({
             step: step - 1
         })
+    }
+
+    //päivämäärän muutokset
+    handleDateChange = (event, date) => {
+        console.log(date)
+        this.setState({ pvm: date})
     }
 
     //lomakekentän muutokset
@@ -62,6 +68,7 @@ class Lomake extends Component {
                 return (
                     <LomakeLähetetty/>
                 )
+            default: 
         }
     }
 }
