@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import {List, ListItem} from "material-ui/List"
-import DatePicker from "material-ui/DatePicker";
 import RaisedButton from "material-ui/RaisedButton"
+import AppBar from "material-ui/AppBar"
 
-class LomakeTiedot extends Component {
+class LomakeVahvistus extends Component {
     continue = e => {
         e.preventDefault();
         //lähetetään apiin
@@ -22,7 +22,9 @@ class LomakeTiedot extends Component {
         return (            
             <MuiThemeProvider>
                 <React.Fragment>
-                    <br></br>
+                    <div style={shadow}>
+                    <AppBar title="Tuotanto" showMenuIconButton={false}/>
+                    <div style={padding}>
                     <List>
                         <ListItem
                             primaryText="Päivämäärä"
@@ -48,7 +50,7 @@ class LomakeTiedot extends Component {
                             primaryText="Viesti"
                             secondaryText={values.viesti}
                         />
-                    </List><br></br>
+                    </List>
                     <RaisedButton
                         label="Takaisin"
                         primary={false}
@@ -61,11 +63,27 @@ class LomakeTiedot extends Component {
                         style={styles.button}
                         onClick={this.continue}
                     />
+                    </div>
+                    </div>
                 </React.Fragment>
             </MuiThemeProvider>
         );
     }
 }
+const padding = {
+    padding: "20px 50px 50px 50px"
+}
+
+const shadow = {
+    textAlign: "center",
+    margin: "50px",
+    borderRadius: "10px",
+    width: "fit-content",
+    height: "fit-content",
+    display: "inline-block",
+    boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"
+}
+
 const styles = {
     button: {
         margin: 15
@@ -74,4 +92,4 @@ const styles = {
 
 
 
-export default LomakeTiedot;
+export default LomakeVahvistus;
