@@ -16,38 +16,12 @@ const useStyles = makeStyles(theme => ({
     },
   }));
   
-  export default function SimpleSelect(props) {
+  export default function Hairio(props) {
     const classes = useStyles();
           
     return (
       <div>
         <FormControl className={classes.formControl}>
-          <InputLabel id="vuoro">Vuoro</InputLabel>
-          <Select
-            labelId="vuoro"
-            id="vuoro"
-            onChange={props.handleChange("vuoro")}
-            defaultValue={props.values.vuoro}
-          >
-            <MenuItem value={"A"}>A</MenuItem>
-            <MenuItem value={"B"}>B</MenuItem>
-            <MenuItem value={"C"}>C</MenuItem>
-          </Select>
-        </FormControl><br></br>
-        <FormControl className={classes.formControl}>
-          <InputLabel id="tuote">Tuote</InputLabel>
-          <Select
-            labelId="tuote"
-            id="tuote"
-            onChange={props.handleChange("tuote")}
-            defaultValue={props.values.tuote}
-          >
-            <MenuItem value={"tuote1"}>tuote 1</MenuItem>
-            <MenuItem value={"tuote2"}>tuote 2</MenuItem>
-            <MenuItem value={"tuote3"}>tuote 3</MenuItem>
-          </Select>
-        </FormControl><br></br>
-        {/* <FormControl className={classes.formControl}>
           <InputLabel id="häiriö">Häiriö</InputLabel>
           <Select
             labelId="häiriö"
@@ -59,7 +33,7 @@ const useStyles = makeStyles(theme => ({
             <MenuItem value={"häiriö2"}>häiriö 2</MenuItem>
             <MenuItem value={"häiriö3"}>häiriö 3</MenuItem>
           </Select>
-        </FormControl> */}
+        </FormControl>
         </div>
   );
 }
