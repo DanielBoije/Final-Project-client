@@ -1,4 +1,4 @@
-// var appURL = "http://dannyboy.eba-uiqipt5d.eu-north-1.elasticbeanstalk.com/users"
+//var appURL = "http://localhost:3000/api"
 var axios = require('axios');
 
 

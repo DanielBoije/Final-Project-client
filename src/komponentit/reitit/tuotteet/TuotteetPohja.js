@@ -9,10 +9,31 @@ export default class TuotteetPohja extends Component {
         tuotenro: "",
         tuotenimi: "",
         tuntitavoite: "",
+        virhe: "",
+    }
+
+    //syötteiden tarkastaminen ja virheen määritys
+    checkValues = () => {
+        const tnro = this.state.tuotenro;
+        const tnimi = this.state.tuotenimi;
+        const tavoite = this.state.tuntitavoite;
+        if (tnro < 1 || isNaN(tnro) || tnro.match(/e/gi) || tnro === "") {
+            this.setState({ virhe: "Tuotenumero puuttuu tai virheellinen" });
+            return false;
+        } else if (tnimi.length < 1) {
+            this.setState({ virhe: "Tuotenimi puuttuu"})
+            return false;
+        } else if (tavoite < 0 || isNaN(tavoite) || tavoite.match(/e/gi) || tavoite === "") {
+            this.setState({ virhe: "Tavoite puuttuu tai virheellinen" })
+            return false;
+        } else {
+            return true;
+        }
     }
 
     //seuraava steppi
     nextStep = () => {
+        this.setState({ virhe: "" })
         const { step } = this.state;
         this.setState({
             step: step + 1
@@ -33,10 +54,12 @@ export default class TuotteetPohja extends Component {
         this.setState({ [input]: e.target.value})
     }
 
+
+
     render() {
         const { step } = this.state;
-        const { tuotenro, tuotenimi, tuntitavoite } = this.state
-        const values = { step, tuotenro, tuotenimi, tuntitavoite }
+        const { tuotenro, tuotenimi, tuntitavoite, virhe } = this.state
+        const values = { step, tuotenro, tuotenimi, tuntitavoite, virhe }
 
         
         switch(step) {
@@ -46,6 +69,7 @@ export default class TuotteetPohja extends Component {
                         nextStep={this.nextStep}
                         handleChange={this.handleChange}
                         values={values}
+                        checkValues={this.checkValues}
                     />
                 )
             case 2:
@@ -53,7 +77,7 @@ export default class TuotteetPohja extends Component {
                     <TuotteetLomakeVahvistus
                         nextStep={this.nextStep}
                         prevStep={this.prevStep}
-                        handleChange={this.handleChange}
+                        //handleChange={this.handleChange}
                         values={values}
                     />
                 )
