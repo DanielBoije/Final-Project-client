@@ -22,11 +22,10 @@ class LomakeTiedot extends Component {
     render() {
         const { values, handleChange, handleDateChange } = this.props;
         // const selectedDate= new Date();
-        let modalClose = () => this.setState({modalShow: false});
+        let modalClose = () => this.setState({modalShow: false})
         
         return (            
             <MuiThemeProvider>
-                
                 <React.Fragment>
                     <div style={shadow}>
                     <AppBar title="Tuotanto" showMenuIconButton={false}/>
