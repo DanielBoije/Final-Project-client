@@ -9,7 +9,7 @@ import './Lomaketiedot.css'
 class LomakeVahvistus extends Component {
     continue = e => {
         e.preventDefault();
-        //lähetetään apiin
+        this.props.laheta(this.props.values);    //lähetetään apiin    
         this.props.nextStep();
     }
 
@@ -24,6 +24,7 @@ class LomakeVahvistus extends Component {
         return (
             <MuiThemeProvider>
                 <React.Fragment>
+
                     <div className="vahvistus">
                         <Paper>
                             <div style={shadow}>
@@ -74,6 +75,7 @@ class LomakeVahvistus extends Component {
                                 </div>
                             </div>
                         </Paper>
+
                     </div>
                 </React.Fragment>
             </MuiThemeProvider>
