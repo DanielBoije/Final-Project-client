@@ -1,0 +1,10 @@
+.test {
+    background: 
+      url(kuutio.jpg);
+    
+    height: 100vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
