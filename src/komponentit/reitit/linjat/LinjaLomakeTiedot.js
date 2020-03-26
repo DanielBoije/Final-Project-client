@@ -7,7 +7,7 @@ import AppBar from "material-ui/AppBar";
 
 
 
-export default class TuotteetLomakeTiedot extends Component {
+export default class LinjaLomakeTiedot extends Component {
     
 
     //syötteiden tarkastaminen ja siirtyminen seuraavaan vaiheeseen
@@ -18,7 +18,7 @@ export default class TuotteetLomakeTiedot extends Component {
         if (check) {
             this.props.nextStep();
         } else {
-            console.log("syöte virheellinen tai löytyy jo kannasta");
+            console.log("syöte virheellinen tai vastaava linja löytyy jo kannasta");
         }
     }
     
@@ -29,34 +29,16 @@ export default class TuotteetLomakeTiedot extends Component {
             <MuiThemeProvider>
                 <React.Fragment>
                 <div style={shadow}>
-                    <AppBar title="Tuotteet" showMenuIconButton={false}/>
+                    <AppBar title="Linjat" showMenuIconButton={false}/>
                     <div style={padding}>
 
-                        <TextField 
-                            type="number"
-                            size="medium"
-                            required
-                            label="Tuotenumero"
-                            onChange={handleChange("tuotenro")}
-                            defaultValue={values.tuotenro}
-                        />
-                        <br></br>
                         <TextField 
                             type="text"
                             size="medium"
                             required
-                            label="Tuotenimi" 
-                            onChange={handleChange("tuotenimi")}
-                            defaultValue={values.tuotenimi}
-                        />
-                        <br></br>
-                        <TextField 
-                            type="number"
-                            size="medium"
-                            required
-                            label="Tuntitavoite" 
-                            onChange={handleChange("tuntitavoite")}
-                            defaultValue={values.tuntitavoite}
+                            label="Linjan nimi" 
+                            onChange={handleChange("nimi")}
+                            defaultValue={values.nimi}
                         />
                         <br></br>
                         <p style={punainen}>

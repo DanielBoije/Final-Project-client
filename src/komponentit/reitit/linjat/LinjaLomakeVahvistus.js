@@ -4,20 +4,17 @@ import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import TextField from '@material-ui/core/TextField';
 import AppBar from "material-ui/AppBar"
 import RaisedButton from "material-ui/RaisedButton"
-import { addTuotteet } from './tuoteService';
+import { addLinja } from './linjaService';
 
-export default class TuotteetLomakeVahvistus extends Component {
-    tuote = {
-        tuotenro: parseInt(this.props.values.tuotenro),
-        tuotenimi: this.props.values.tuotenimi,
-        tuntitavoite: parseInt(this.props.values.tuntitavoite)
+export default class LinjaLomakeVahvistus extends Component {
+    linja = {
+        nimi: this.props.values.nimi
     }
     
     continue = e => {
         e.preventDefault();
         //lähetetään apiin
-        console.log(this.tuote);
-        let tallennettu = addTuotteet(this.tuote);
+        let tallennettu = addLinja(this.linja);
         console.log(tallennettu);
         this.props.nextStep();
     }
@@ -34,26 +31,12 @@ export default class TuotteetLomakeVahvistus extends Component {
             <MuiThemeProvider>
                 <React.Fragment>
                 <div style={shadow}>
-                    <AppBar title="Tuotteet" showMenuIconButton={false}/>
+                    <AppBar title="Linjat" showMenuIconButton={false}/>
                     <div style={padding}>
                         <TextField 
-                            label="Tuotenumero" 
+                            label="Linja" 
                             size="medium"
-                            defaultValue={values.tuotenro}
-                            InputProps={{ readOnly: true }}
-                        />
-                            <br></br>
-                        <TextField 
-                            label="Tuotteen nimi" 
-                            size="medium"
-                            defaultValue={values.tuotenimi}
-                            InputProps={{ readOnly: true }}
-                        />
-                            <br></br>
-                        <TextField 
-                            label="Tuntitavoite kpl/tunti" 
-                            size="medium"
-                            defaultValue={values.tuntitavoite}
+                            defaultValue={values.nimi}
                             InputProps={{ readOnly: true }}
                         />
                             <br></br>
