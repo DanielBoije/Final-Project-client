@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import TuotteetLomakeTiedot from './TuotteetLomakeTiedot';
 import TuotteetLomakeLahetetty from './TuotteetLomakeLahetetty';
 import TuotteetLomakeVahvistus from './TuotteetLomakeVahvistus';
+import { getYksiTuote } from './tuoteService';
 
 export default class TuotteetPohja extends Component {
     state = {
@@ -13,21 +14,28 @@ export default class TuotteetPohja extends Component {
     }
 
     //syötteiden tarkastaminen ja virheen määritys
-    checkValues = () => {
+    checkValues = async () => {
         const tnro = this.state.tuotenro;
         const tnimi = this.state.tuotenimi;
         const tavoite = this.state.tuntitavoite;
-        if (tnro < 1 || isNaN(tnro) || tnro.match(/e/gi) || tnro === "") {
-            this.setState({ virhe: "Tuotenumero puuttuu tai virheellinen" });
-            return false;
-        } else if (tnimi.length < 1) {
-            this.setState({ virhe: "Tuotenimi puuttuu"})
-            return false;
-        } else if (tavoite < 0 || isNaN(tavoite) || tavoite.match(/e/gi) || tavoite === "") {
-            this.setState({ virhe: "Tavoite puuttuu tai virheellinen" })
-            return false;
+        const kannantuotteet = await getYksiTuote(tnro)
+        //annettua tuotenumeroa ei ole vielä tietokannassa
+        if (kannantuotteet.length === 0) {
+            if (tnro < 1 || isNaN(tnro) || tnro.match(/e/gi) || tnro === "") {
+                this.setState({ virhe: "Tuotenumero puuttuu tai virheellinen" });
+                return false;
+            } else if (tnimi.length < 1 || tnimi.length > 50) {
+                this.setState({ virhe: "Tuotenimi puuttuu, tai yli 50 merkkiä pitkä"})
+                return false;
+            } else if (tavoite < 0 || isNaN(tavoite) || tavoite.match(/e/gi) || tavoite === "") {
+                this.setState({ virhe: "Tavoite puuttuu tai virheellinen" })
+                return false;
+            } else {
+                return true;
+            }
         } else {
-            return true;
+            this.setState({ virhe: "Tuotenumero löytyy jo tietokannasta" })
+            return false;
         }
     }
 
@@ -54,14 +62,11 @@ export default class TuotteetPohja extends Component {
         this.setState({ [input]: e.target.value})
     }
 
-
-
     render() {
         const { step } = this.state;
         const { tuotenro, tuotenimi, tuntitavoite, virhe } = this.state
         const values = { step, tuotenro, tuotenimi, tuntitavoite, virhe }
 
-        
         switch(step) {
             case 1:
                 return (
@@ -77,7 +82,6 @@ export default class TuotteetPohja extends Component {
                     <TuotteetLomakeVahvistus
                         nextStep={this.nextStep}
                         prevStep={this.prevStep}
-                        //handleChange={this.handleChange}
                         values={values}
                     />
                 )
@@ -85,6 +89,11 @@ export default class TuotteetPohja extends Component {
                 return (
                     <TuotteetLomakeLahetetty/>
                 )
+            default:
+                return (
+                <TuotteetLomakeTiedot/>
+                )
+                    
         }
     }
 }
