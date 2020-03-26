@@ -1,4 +1,4 @@
-//var appURL = "http://localhost:3000/api"
+var appURL = "http://localhost:3000/api/tyovuorot"
 var axios = require('axios');
 
 
