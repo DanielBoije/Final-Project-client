@@ -4,7 +4,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-import {getData} from "./Service"
+import {getVuoro, getLinja, getTuote} from "./Service"
 
 const useStyles = makeStyles(theme => ({
     formControl: {
@@ -20,20 +20,43 @@ const useStyles = makeStyles(theme => ({
   export default function SimpleSelect(props) {    
     const classes = useStyles();
     const [vuoro, setVuoro] = useState({tyovuoro:[]})
+    const [linja, setLinja] = useState({nimi:[]})
+    const [tuote, setTuote] = useState({tuotenimi:[]})
 
     useEffect(()=>{
-      importTopics();
+      importLinja();
+      importVuoro();
+      importTuote();
     },[]);
 
-    var importTopics= ()=>{
-       getData().then(res => {
+    var importLinja= ()=>{
+      getLinja().then(res => {
+          console.log(res.data)
+          setLinja({nimi: res.data})
+          });
+    }
+    var importVuoro= ()=>{
+       getVuoro().then(res => {
            console.log(res.data)
            setVuoro({tyovuoro: res.data})
            });
     }
+    var importTuote= ()=>{
+      getTuote().then(res => {
+          console.log(res.data)
+          setTuote({tuotenimi: res.data})
+          });
+   }
     
-    var hello = vuoro.tyovuoro.map( b => {
+    
+    var vuorolista = vuoro.tyovuoro.map( b => {
       return ( <MenuItem key={b.id} value={b.tyovuoro}>{b.tyovuoro}</MenuItem>) ;
+      })
+    var linjalista = linja.nimi.map( b => {
+      return ( <MenuItem key={b.id} value={b.nimi}>{b.nimi}</MenuItem>) ;
+      })
+    var tuotelista = tuote.tuotenimi.map( b => {
+      return ( <MenuItem key={b.tuotenro} value={b.tuotenimi}>{b.tuotenimi} ( tavoite {b.tuntitavoite}/h )</MenuItem>) ;
       })
 
     return (
@@ -46,10 +69,24 @@ const useStyles = makeStyles(theme => ({
             onChange={props.handleChange("vuoro")}
             defaultValue={props.values.vuoro}
           >
-            {hello}
+            {vuorolista}
             {/* <MenuItem value={"A"}>A</MenuItem>
             <MenuItem value={"B"}>B</MenuItem>
             <MenuItem value={"C"}>C</MenuItem> */}
+          </Select>
+        </FormControl><br></br>
+        <FormControl className={classes.formControl}>
+          <InputLabel id="linja">Linja</InputLabel>
+          <Select
+            labelId="linja"
+            id="linja"
+            onChange={props.handleChange("linja")}
+            defaultValue={props.values.linja}
+          >
+            {linjalista}
+            {/* <MenuItem value={"tuote1"}>tuote 1</MenuItem>
+            <MenuItem value={"tuote2"}>tuote 2</MenuItem>
+            <MenuItem value={"tuote3"}>tuote 3</MenuItem> */}
           </Select>
         </FormControl><br></br>
         <FormControl className={classes.formControl}>
@@ -60,9 +97,10 @@ const useStyles = makeStyles(theme => ({
             onChange={props.handleChange("tuote")}
             defaultValue={props.values.tuote}
           >
-            <MenuItem value={"tuote1"}>tuote 1</MenuItem>
+            {tuotelista}
+            {/* <MenuItem value={"tuote1"}>tuote 1</MenuItem>
             <MenuItem value={"tuote2"}>tuote 2</MenuItem>
-            <MenuItem value={"tuote3"}>tuote 3</MenuItem>
+            <MenuItem value={"tuote3"}>tuote 3</MenuItem> */}
           </Select>
         </FormControl><br></br>
         {/* <FormControl className={classes.formControl}>

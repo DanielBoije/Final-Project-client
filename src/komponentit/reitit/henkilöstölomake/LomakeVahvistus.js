@@ -35,6 +35,10 @@ class LomakeVahvistus extends Component {
                             secondaryText={values.vuoro}
                         />
                         <ListItem
+                            primaryText="Linja"
+                            secondaryText={values.linja}
+                        />
+                        <ListItem
                             primaryText="Tuote"
                             secondaryText={values.tuote}
                         />
