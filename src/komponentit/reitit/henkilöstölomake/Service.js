@@ -1,9 +1,10 @@
-var appURL = "http://localhost:3000/api/tyovuorot"
+var tyovuorotURL = "http://localhost:3000/api/tyovuorot"
+var appURL = "http://localhost:3000/api/toteuma"
 var axios = require('axios');
 
 
 function getData() {
-       return  axios.get(appURL)
+       return  axios.get(tyovuorotURL)
 }
 
 function addData(nq) {

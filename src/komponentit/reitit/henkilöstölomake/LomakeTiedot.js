@@ -18,12 +18,12 @@ class LomakeTiedot extends Component {
         e.preventDefault();
         this.props.nextStep();
     }
-       
+    
     render() {
         const { values, handleChange, handleDateChange } = this.props;
         // const selectedDate= new Date();
         let modalClose = () => this.setState({modalShow: false})
-        
+
         return (            
             <MuiThemeProvider>
                 <React.Fragment>

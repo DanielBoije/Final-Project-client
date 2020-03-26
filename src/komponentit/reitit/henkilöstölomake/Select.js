@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
+import {getData} from "./Service"
 
 const useStyles = makeStyles(theme => ({
     formControl: {
@@ -15,10 +16,26 @@ const useStyles = makeStyles(theme => ({
       marginTop: theme.spacing(2),
     },
   }));
-  
-  export default function SimpleSelect(props) {
+
+  export default function SimpleSelect(props) {    
     const classes = useStyles();
-          
+    const [vuoro, setVuoro] = useState({tyovuoro:[]})
+
+    useEffect(()=>{
+      importTopics();
+    },[]);
+
+    var importTopics= ()=>{
+       getData().then(res => {
+           console.log(res.data)
+           setVuoro({tyovuoro: res.data})
+           });
+    }
+    
+    var hello = vuoro.tyovuoro.map( b => {
+      return ( <MenuItem key={b.id} value={b.tyovuoro}>{b.tyovuoro}</MenuItem>) ;
+      })
+
     return (
       <div>
         <FormControl className={classes.formControl}>
@@ -29,9 +46,10 @@ const useStyles = makeStyles(theme => ({
             onChange={props.handleChange("vuoro")}
             defaultValue={props.values.vuoro}
           >
-            <MenuItem value={"A"}>A</MenuItem>
+            {hello}
+            {/* <MenuItem value={"A"}>A</MenuItem>
             <MenuItem value={"B"}>B</MenuItem>
-            <MenuItem value={"C"}>C</MenuItem>
+            <MenuItem value={"C"}>C</MenuItem> */}
           </Select>
         </FormControl><br></br>
         <FormControl className={classes.formControl}>

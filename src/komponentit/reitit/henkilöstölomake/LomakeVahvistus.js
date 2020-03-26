@@ -7,7 +7,7 @@ import AppBar from "material-ui/AppBar"
 class LomakeVahvistus extends Component {
     continue = e => {
         e.preventDefault();
-        //lähetetään apiin
+        this.props.laheta(this.props.values);    //lähetetään apiin    
         this.props.nextStep();
     }
 
