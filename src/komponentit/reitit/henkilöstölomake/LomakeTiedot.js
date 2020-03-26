@@ -6,6 +6,9 @@ import RaisedButton from "material-ui/RaisedButton"
 import AppBar from "material-ui/AppBar"
 import SimpleSelect from "./Select"
 import LisääHäiriö from "./LisaaHairio"
+import { Paper } from '@material-ui/core';
+import './Lomaketiedot.css'
+
 
 
 class LomakeTiedot extends Component {
@@ -18,59 +21,70 @@ class LomakeTiedot extends Component {
         e.preventDefault();
         this.props.nextStep();
     }
-    
+
+
     render() {
         const { values, handleChange, handleDateChange } = this.props;
         // const selectedDate= new Date();
-        let modalClose = () => this.setState({modalShow: false})
+        let modalClose = () => this.setState({ modalShow: false })
 
-        return (            
+        return (
+
             <MuiThemeProvider>
                 <React.Fragment>
-                    <div style={shadow}>
-                    <AppBar title="Tuotanto" showMenuIconButton={false}/>
-                    <div style={padding}>
-                    <DatePicker 
-                    hintText="Päivämäärä" 
-                    // selected={selectedDate} 
-                    onChange={handleDateChange} 
-                    // defaultValue={values.pvm}
-                    />
-                    <SimpleSelect 
-                    values={values}
-                    handleChange={handleChange}
-                    /><br></br>
-                    <RaisedButton style={häiriö} label="Lisää häiriö" onClick={()=> this.setState({modalShow:true})}></RaisedButton>
-                    <LisääHäiriö
-                    values={values}
-                    handleChange={handleChange}
-                    show={this.state.modalShow}
-                    onHide={modalClose}
-                    /><br></br>
-                    <TextField
-                    type="number"
-                    min="0"
-                    step="0.5"
-                    required
-                    hintText="Tehdyt tunnit (0,5 = 30min)"  
-                    onChange={handleChange("tehdytTunnit")}
-                    defaultValue={values.tehdytTunnit}
-                    /><br></br>
-                    <TextField 
-                    hintText="Viesti" 
-                    onChange={handleChange("viesti")}
-                    defaultValue={values.viesti}/>
-                    <br></br><br></br>
-                    <RaisedButton
-                    label="Jatka"
-                    primary={true}
-                    style={styles.button}
-                    onClick={this.continue}
-                    />
-                    </div>
+                    <div className="testi">
+                        <div className="testi2">
+                            <Paper>
+                                <div style={shadow}>
+                                    <AppBar title="Tuotanto" showMenuIconButton={false} />
+                                    <div style={padding}>
+                                        <DatePicker
+                                            hintText="Päivämäärä"
+                                            // selected={selectedDate} 
+                                            onChange={handleDateChange}
+                                        // defaultValue={values.pvm}
+                                        />
+                                        <SimpleSelect
+                                            values={values}
+                                            handleChange={handleChange}
+                                        /><br></br>
+                                        <RaisedButton style={häiriö} label="Lisää häiriö" onClick={() => this.setState({ modalShow: true })}></RaisedButton>
+                                        <LisääHäiriö
+                                            values={values}
+                                            handleChange={handleChange}
+                                            show={this.state.modalShow}
+                                            onHide={modalClose}
+                                        /><br></br>
+                                        <TextField
+                                            type="number"
+                                            min="0"
+                                            step="0.5"
+                                            required
+                                            hintText="Tehdyt tunnit (0,5 = 30min)"
+                                            onChange={handleChange("tehdytTunnit")}
+                                            defaultValue={values.tehdytTunnit}
+                                        /><br></br>
+                                        <TextField
+                                            hintText="Viesti"
+                                            onChange={handleChange("viesti")}
+                                            defaultValue={values.viesti} />
+                                        <br></br><br></br>
+                                        <RaisedButton
+                                            label="Jatka"
+                                            primary={true}
+                                            // size=
+                                            style={styles.button}
+                                            onClick={this.continue}
+                                        />
+
+                                    </div>
+                                </div>
+                            </Paper>
+                        </div>
                     </div>
                 </React.Fragment>
             </MuiThemeProvider>
+
         );
     }
 }
@@ -80,17 +94,19 @@ const häiriö = {
 }
 
 const padding = {
-    padding: "50px"
+    padding: "30px"
 }
 
 const shadow = {
     textAlign: "center",
-    margin: "50px",
+    margin: "0px",
     borderRadius: "10px",
     width: "fit-content",
     height: "fit-content",
     display: "inline-block",
-    boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"
+    boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
+
+
 }
 
 const styles = {

@@ -5,6 +5,7 @@ import TuotteetLomakeVahvistus from './TuotteetLomakeVahvistus';
 import { getYksiTuote } from './tuoteService';
 
 export default class TuotteetPohja extends Component {
+    
     state = {
         step:1,
         tuotenro: "",
@@ -14,7 +15,12 @@ export default class TuotteetPohja extends Component {
     }
 
     //syötteiden tarkastaminen ja virheen määritys
+
+
+        
+
     checkValues = async () => {
+
         const tnro = this.state.tuotenro;
         const tnimi = this.state.tuotenimi;
         const tavoite = this.state.tuntitavoite;
@@ -89,11 +95,15 @@ export default class TuotteetPohja extends Component {
                 return (
                     <TuotteetLomakeLahetetty/>
                 )
+
+                
+
             default:
                 return (
                 <TuotteetLomakeTiedot/>
                 )
                     
+
         }
     }
 }

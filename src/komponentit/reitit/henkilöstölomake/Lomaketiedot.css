@@ -1,0 +1,44 @@
+.testi {
+   
+    background: 
+      url(kuutio2.jpg) center
+        center/cover no-repeat;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+  }
+
+  .vahvistus {
+   
+    background: 
+      url(kokop.jpg) center
+        center/cover no-repeat;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+  }
+
+  .lomakelahetetty {
+   
+    background: 
+      url(kokop.jpg) center
+        center/cover no-repeat;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+  }
+
+
+
+
+
+
