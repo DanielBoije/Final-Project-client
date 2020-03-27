@@ -7,10 +7,9 @@ import AppBar from "material-ui/AppBar";
 
 
 
-
-
-export default class TuotteetLomakeTiedot extends Component {
+export default class VuoroLomakeTiedot extends Component {
     
+
     //syötteiden tarkastaminen ja siirtyminen seuraavaan vaiheeseen
     //tai virheilmoituksen näyttäminen lomakkeella
     continue = async (e) => {
@@ -19,7 +18,7 @@ export default class TuotteetLomakeTiedot extends Component {
         if (check) {
             this.props.nextStep();
         } else {
-            console.log("syöte virheellinen tai löytyy jo kannasta");
+            console.log("syöte virheellinen tai vastaava vuoro löytyy jo kannasta");
         }
     }
     
@@ -30,34 +29,16 @@ export default class TuotteetLomakeTiedot extends Component {
             <MuiThemeProvider>
                 <React.Fragment>
                 <div style={shadow}>
-                    <AppBar title="Tuotteet" showMenuIconButton={false}/>
+                    <AppBar title="Työvuorot" showMenuIconButton={false}/>
                     <div style={padding}>
 
-                        <TextField 
-                            type="number"
-                            size="medium"
-                            required
-                            label="Tuotenumero"
-                            onChange={handleChange("tuotenro")}
-                            defaultValue={values.tuotenro}
-                        />
-                        <br></br>
                         <TextField 
                             type="text"
                             size="medium"
                             required
-                            label="Tuotenimi" 
-                            onChange={handleChange("tuotenimi")}
-                            defaultValue={values.tuotenimi}
-                        />
-                        <br></br>
-                        <TextField 
-                            type="number"
-                            size="medium"
-                            required
-                            label="Tuntitavoite" 
-                            onChange={handleChange("tuntitavoite")}
-                            defaultValue={values.tuntitavoite}
+                            label="Vuoro" 
+                            onChange={handleChange("tyovuoro")}
+                            defaultValue={values.tyovuoro}
                         />
                         <br></br>
                         <p style={punainen}>
@@ -71,21 +52,19 @@ export default class TuotteetLomakeTiedot extends Component {
                             onClick={this.continue}
                         />
                     </div>
-                </div> 
+                </div>
                 </React.Fragment>
             </MuiThemeProvider>
         );
     }
 }
-
 const padding = {
-    padding: "70px",
-    
+    padding: "50px"
 }
 
 const shadow = {
     textAlign: "center",
-    margin: "0px",
+    margin: "50px",
     borderRadius: "10px",
     width: "fit-content",
     height: "fit-content",
