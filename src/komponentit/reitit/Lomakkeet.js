@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-//import TuotteetLomakeTiedot from './tuotteet/TuotteetLomakeTiedot';
 import TuotteetPohja from './tuotteet/TuotteetPohja';
 import LinjaPohja from './linjat/LinjaPohja';
+import './Lomakkeet.css';
+import {Paper} from '@material-ui/core';
+
 
 class Lomakkeet extends Component {
     render() {
@@ -9,11 +11,19 @@ class Lomakkeet extends Component {
             <div>
                 <br></br>
                 <h3>Pohjatietoja</h3>
+                <div className="test">
+                    <Paper>
                 <TuotteetPohja/>
-                <LinjaPohja/>
+                </Paper>
+                <Paper>
+                <LinjaPohja />
+                </Paper>
+                </div>
             </div>
         );
     }
 }
+
+
 
 export default Lomakkeet;

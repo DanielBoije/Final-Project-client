@@ -4,8 +4,9 @@ import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import TextField from '@material-ui/core/TextField';
 import RaisedButton from "material-ui/RaisedButton";
 import AppBar from "material-ui/AppBar";
-import './Tuotteet.css';
-import {Paper} from '@material-ui/core';
+
+
+
 
 
 export default class TuotteetLomakeTiedot extends Component {
@@ -29,8 +30,6 @@ export default class TuotteetLomakeTiedot extends Component {
         return (            
             <MuiThemeProvider>
                 <React.Fragment>
-                <div className="test">
-                    <Paper>
                 <div style={shadow}>
                     <AppBar title="Tuotteet" showMenuIconButton={false}/>
                     <div style={padding}>
@@ -73,16 +72,16 @@ export default class TuotteetLomakeTiedot extends Component {
                             onClick={this.continue}
                         />
                     </div>
-                </div>
-                </Paper>
-                </div>
+                </div> 
                 </React.Fragment>
             </MuiThemeProvider>
         );
     }
 }
+
 const padding = {
-    padding: "70px"
+    padding: "70px",
+    
 }
 
 const shadow = {

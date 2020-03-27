@@ -1,7 +1,7 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
 import './Navigaatio.css'
-import { Component } from 'react';
+
 
 // class Navigaatio extends Component {
 //     render() {

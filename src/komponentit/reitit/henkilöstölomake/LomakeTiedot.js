@@ -94,7 +94,8 @@ const häiriö = {
 }
 
 const padding = {
-    padding: "30px"
+    padding: "10px",
+    width:"400px"
 }
 
 const shadow = {
