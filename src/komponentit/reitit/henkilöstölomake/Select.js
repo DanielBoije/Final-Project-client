@@ -4,7 +4,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-import {getVuoro, getLinja, getTuote} from "./Service"
+import {getVuoro, getLinja, getTuote} from "./lomakeService"
 
 const useStyles = makeStyles(theme => ({
     formControl: {
@@ -70,9 +70,6 @@ const useStyles = makeStyles(theme => ({
             defaultValue={props.values.vuoro}
           >
             {vuorolista}
-            {/* <MenuItem value={"A"}>A</MenuItem>
-            <MenuItem value={"B"}>B</MenuItem>
-            <MenuItem value={"C"}>C</MenuItem> */}
           </Select>
         </FormControl><br></br>
         <FormControl className={classes.formControl}>
@@ -84,9 +81,6 @@ const useStyles = makeStyles(theme => ({
             defaultValue={props.values.linja}
           >
             {linjalista}
-            {/* <MenuItem value={"tuote1"}>tuote 1</MenuItem>
-            <MenuItem value={"tuote2"}>tuote 2</MenuItem>
-            <MenuItem value={"tuote3"}>tuote 3</MenuItem> */}
           </Select>
         </FormControl><br></br>
         <FormControl className={classes.formControl}>
@@ -98,24 +92,8 @@ const useStyles = makeStyles(theme => ({
             defaultValue={props.values.tuote}
           >
             {tuotelista}
-            {/* <MenuItem value={"tuote1"}>tuote 1</MenuItem>
-            <MenuItem value={"tuote2"}>tuote 2</MenuItem>
-            <MenuItem value={"tuote3"}>tuote 3</MenuItem> */}
           </Select>
         </FormControl><br></br>
-        {/* <FormControl className={classes.formControl}>
-          <InputLabel id="häiriö">Häiriö</InputLabel>
-          <Select
-            labelId="häiriö"
-            id="häiriö"
-            onChange={props.handleChange("lisääHäiriö")}
-            defaultValue={props.values.lisääHäiriö}
-          >
-            <MenuItem value={"häiriö1"}>häiriö 1</MenuItem>
-            <MenuItem value={"häiriö2"}>häiriö 2</MenuItem>
-            <MenuItem value={"häiriö3"}>häiriö 3</MenuItem>
-          </Select>
-        </FormControl> */}
         </div>
   );
 }

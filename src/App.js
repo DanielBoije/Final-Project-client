@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Koti from "./komponentit/reitit/Koti"
 import Lomakkeet from "./komponentit/reitit/Lomakkeet"
 import Tilastot from "./komponentit/reitit/Tilastot"
 import Lista from "./komponentit/reitit/Lista"
@@ -17,8 +16,7 @@ function App() {
      <MainNavigation />
      <main>
       <Switch>
-      <Route exact path='/' component={Etusivu} />
-          <Route exact path="/" component={Koti}/>
+          <Route exact path='/' component={Etusivu} />
           <Route exact path="/lomakkeet" component={Lomakkeet}/>
           <Route path="/tilastot" component={Tilastot}/>
           <Route path="/lista" component={Lista}/>
