@@ -31,6 +31,7 @@ export default class LinjaLomakeVahvistus extends Component {
             <MuiThemeProvider>
                 <React.Fragment>
                 <div style={shadow}>
+                   
                     <AppBar title="Linjat" showMenuIconButton={false}/>
                     <div style={padding}>
                         <TextField 
@@ -52,13 +53,17 @@ export default class LinjaLomakeVahvistus extends Component {
                             style={styles.button}
                             onClick={this.continue}
                         />
+                        </div>
                     </div>
-                </div>
+               
                 </React.Fragment>
             </MuiThemeProvider>
         );
     }
 }
+
+
+
 const padding = {
     padding: "20px 50px 50px 50px"
 }

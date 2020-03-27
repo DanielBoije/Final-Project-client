@@ -25,6 +25,7 @@
   .main-navigation__title {
     color: white;
     margin: auto;
+    text-align: center;
     font-family: 'Open Sans Condensed', sans-serif;
 
     /* font-weight: lighter; */

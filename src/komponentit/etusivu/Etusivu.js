@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Typography } from '@material-ui/core';
+
 import './Etusivu.css';
 
 class Etusivu extends Component {

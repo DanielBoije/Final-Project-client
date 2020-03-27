@@ -31,7 +31,6 @@ export default class LinjaLomakeTiedot extends Component {
                 <div style={shadow}>
                     <AppBar title="Linjat" showMenuIconButton={false}/>
                     <div style={padding}>
-
                         <TextField 
                             type="text"
                             size="medium"
@@ -51,20 +50,24 @@ export default class LinjaLomakeTiedot extends Component {
                             style={styles.button}
                             onClick={this.continue}
                         />
-                    </div>
-                </div>
+                        </div>
+                        </div>
+                
                 </React.Fragment>
             </MuiThemeProvider>
         );
     }
 }
+
+
 const padding = {
-    padding: "50px"
+    padding: "70px",
+    height:"390px"
 }
 
 const shadow = {
     textAlign: "center",
-    margin: "50px",
+    margin: "0px",
     borderRadius: "10px",
     width: "fit-content",
     height: "fit-content",

@@ -77,7 +77,7 @@ export default class TuotteetLomakeVahvistus extends Component {
     }
 }
 const padding = {
-    padding: "20px 50px 50px 50px"
+    padding: "70"
 }
 
 const shadow = {
