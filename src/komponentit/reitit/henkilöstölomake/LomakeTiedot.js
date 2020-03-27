@@ -79,7 +79,7 @@ class LomakeTiedot extends Component {
 
                                     </div>
                                 </div>
-                            </Paper>
+                            </Paper> 
                         </div>
                     </div>
                 </React.Fragment>

@@ -4,6 +4,7 @@ import LomakeVahvistus from "./henkilöstölomake/LomakeVahvistus"
 import LomakeLähetetty from "./henkilöstölomake/LomakeLahetetty"
 import {addData} from "../../Service"
 
+
 class Lomake extends Component {
     state = {
         step:1,
@@ -63,7 +64,7 @@ class Lomake extends Component {
         switch(step) {
             case 1:
                 return (
-                    <LomakeTiedot
+                    <LomakeTiedot 
                         nextStep={this.nextStep}
                         handleChange={this.handleChange}
                         handleDateChange={this.handleDateChange}
