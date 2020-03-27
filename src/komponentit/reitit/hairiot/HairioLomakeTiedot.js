@@ -4,12 +4,12 @@ import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import TextField from '@material-ui/core/TextField';
 import RaisedButton from "material-ui/RaisedButton";
 import AppBar from "material-ui/AppBar";
-import './Tuotteet.css';
-import {Paper} from '@material-ui/core';
 
 
-export default class TuotteetLomakeTiedot extends Component {
+
+export default class HairioLomakeTiedot extends Component {
     
+
     //syötteiden tarkastaminen ja siirtyminen seuraavaan vaiheeseen
     //tai virheilmoituksen näyttäminen lomakkeella
     continue = async (e) => {
@@ -18,7 +18,7 @@ export default class TuotteetLomakeTiedot extends Component {
         if (check) {
             this.props.nextStep();
         } else {
-            console.log("syöte virheellinen tai löytyy jo kannasta");
+            console.log("syöte virheellinen tai vastaava häiriö löytyy jo kannasta");
         }
     }
     
@@ -28,37 +28,17 @@ export default class TuotteetLomakeTiedot extends Component {
         return (            
             <MuiThemeProvider>
                 <React.Fragment>
-                <div className="test">
-                    <Paper>
                 <div style={shadow}>
-                    <AppBar title="Tuotteet" showMenuIconButton={false}/>
+                    <AppBar title="Häiriöt" showMenuIconButton={false}/>
                     <div style={padding}>
 
-                        <TextField 
-                            type="number"
-                            size="medium"
-                            required
-                            label="Tuotenumero"
-                            onChange={handleChange("tuotenro")}
-                            defaultValue={values.tuotenro}
-                        />
-                        <br></br>
                         <TextField 
                             type="text"
                             size="medium"
                             required
-                            label="Tuotenimi" 
-                            onChange={handleChange("tuotenimi")}
-                            defaultValue={values.tuotenimi}
-                        />
-                        <br></br>
-                        <TextField 
-                            type="number"
-                            size="medium"
-                            required
-                            label="Tuntitavoite" 
-                            onChange={handleChange("tuntitavoite")}
-                            defaultValue={values.tuntitavoite}
+                            label="Häiriö" 
+                            onChange={handleChange("hairio")}
+                            defaultValue={values.hairio}
                         />
                         <br></br>
                         <p style={punainen}>
@@ -73,20 +53,18 @@ export default class TuotteetLomakeTiedot extends Component {
                         />
                     </div>
                 </div>
-                </Paper>
-                </div>
                 </React.Fragment>
             </MuiThemeProvider>
         );
     }
 }
 const padding = {
-    padding: "70px"
+    padding: "50px"
 }
 
 const shadow = {
     textAlign: "center",
-    margin: "0px",
+    margin: "50px",
     borderRadius: "10px",
     width: "fit-content",
     height: "fit-content",

@@ -15,10 +15,6 @@ export default class TuotteetPohja extends Component {
     }
 
     //syötteiden tarkastaminen ja virheen määritys
-
-
-        
-
     checkValues = async () => {
 
         const tnro = this.state.tuotenro;
@@ -95,15 +91,10 @@ export default class TuotteetPohja extends Component {
                 return (
                     <TuotteetLomakeLahetetty/>
                 )
-
-                
-
             default:
                 return (
                 <TuotteetLomakeTiedot/>
                 )
-                    
-
         }
     }
 }

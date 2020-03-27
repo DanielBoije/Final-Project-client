@@ -15,7 +15,6 @@ async function getYksiTuote(tnro) {
 async function addTuotteet(tuote) {
     await axios.post(`${appURL}`, tuote)
     .then(res => {
-        console.dir(res);
         console.log(res.data);
         return res.data;
     });

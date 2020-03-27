@@ -1,41 +1,41 @@
 import React, { Component } from 'react'
-import LinjaLomakeTiedot from './LinjaLomakeTiedot';
-import LinjaLomakeLahetetty from './LinjaLomakeLahetetty';
-import LinjaLomakeVahvistus from './LinjaLomakeVahvistus';
-import { getLinjat } from './linjaService';
+import HairioLomakeTiedot from './HairioLomakeTiedot';
+import HairioLomakeLahetetty from './HairioLomakeLahetetty';
+import HairioLomakeVahvistus from './HairioLomakeVahvistus';
+import { getHairiot } from './hairioService';
 
-export default class LinjaPohja extends Component {
+export default class HairioPohja extends Component {
     state = {
         step:1,
-        nimi: "",
+        hairio: "",
         virhe: "",
     }
 
     //syötteiden tarkastaminen ja virheen määritys
      checkValues = async () => {
-        const nimi = this.state.nimi.trim();
+        const hairio = this.state.hairio.trim();
 
         //haetaan linjat kannasta ja vertaillaan
         //onko samanniminen linja jo olemassa
-        const kannanlinjat = await getLinjat()
+        const kannanhairiot = await getHairiot()
         let eiloydy = true;
-        for (let i = 0; i < kannanlinjat.length; i++) {
-            if ( kannanlinjat[i].nimi === nimi) {
+        for (let i = 0; i < kannanhairiot.length; i++) {
+            if (kannanhairiot[i].hairio.toLowerCase() === hairio.toLowerCase()) {
                 eiloydy = false;
             }
         }
 
         //annettua linjan nimenä ei ole vielä tietokannassa
         if (eiloydy) {
-            if (nimi.length < 1 || nimi.length > 50) {
-                this.setState({ virhe: "Linjan nimi puuttuu, tai on yli 50 merkkiä pitkä"})
+            if (hairio.length < 1 || hairio.length > 50) {
+                this.setState({ virhe: "Häiriö puuttuu, tai on yli 50 merkkiä pitkä"})
                 return false;
             } else {
                  return true;
             }
         } else {
             console.log('löytyi kannasta');
-            this.setState({ virhe: "Linjan nimi löytyy jo tietokannasta" })
+            this.setState({ virhe: "Häiriö löytyy jo tietokannasta" })
             return false;
         }
       }
@@ -65,13 +65,13 @@ export default class LinjaPohja extends Component {
 
     render() {
         const { step } = this.state;
-        const { nimi, virhe } = this.state
-        const values = { step, nimi, virhe }
+        const { hairio, virhe } = this.state
+        const values = { step, hairio, virhe }
 
         switch(step) {
             case 1:
                 return (
-                    <LinjaLomakeTiedot
+                    <HairioLomakeTiedot
                         nextStep={this.nextStep}
                         handleChange={this.handleChange}
                         values={values}
@@ -80,7 +80,7 @@ export default class LinjaPohja extends Component {
                 )
             case 2:
                 return (
-                    <LinjaLomakeVahvistus
+                    <HairioLomakeVahvistus
                         nextStep={this.nextStep}
                         prevStep={this.prevStep}
                         values={values}
@@ -88,11 +88,11 @@ export default class LinjaPohja extends Component {
                 )
             case 3:
                 return (
-                    <LinjaLomakeLahetetty/>
+                    <HairioLomakeLahetetty/>
                 )
             default:
                 return (
-                    <LinjaLomakeTiedot/>
+                    <HairioLomakeTiedot/>
                 )        
         }
     }
