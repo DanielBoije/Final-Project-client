@@ -1,14 +1,21 @@
 import React, { Component } from 'react';
+import Häiriöt from "./tilastot/Häiriöt"
+import Tavoitteet from "./tilastot/Tavoitteet"
 
-class Tilastot extends Component {
+class tilastot extends Component {
     render() {
         return (
-            <div>
-                <br></br>
-                <h2>Tilastot tähän</h2>
+            <div style={divi}>
+                <Häiriöt/>
+                <Tavoitteet/>
             </div>
         );
     }
 }
 
-export default Tilastot;
+const divi = {
+    margin: "100px",
+    display: "flex"
+}
+
+export default tilastot;
