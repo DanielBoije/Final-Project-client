@@ -59,12 +59,13 @@ export default class HairioLomakeTiedot extends Component {
     }
 }
 const padding = {
-    padding: "50px"
+    padding: "70px",
+    height:"390px"
 }
 
 const shadow = {
     textAlign: "center",
-    margin: "50px",
+    margin: "0px",
     borderRadius: "10px",
     width: "fit-content",
     height: "fit-content",
