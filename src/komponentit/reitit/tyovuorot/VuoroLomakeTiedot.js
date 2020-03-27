@@ -75,7 +75,9 @@ const shadow = {
 
 const styles = {
     button: {
-        margin: 15
+        margin: 15,
+        font:"fantacy"
+        
     }
 }
 
