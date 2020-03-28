@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import LomakeTiedot from "./henkilöstölomake/LomakeTiedot"
 import LomakeVahvistus from "./henkilöstölomake/LomakeVahvistus"
 import LomakeLähetetty from "./henkilöstölomake/LomakeLahetetty"
-import {addData} from "../../Service"
+import {addToteumat} from "./henkilöstölomake/lomakeService"
+import moment from 'moment'
 
 
 class Lomake extends Component {
@@ -16,18 +17,9 @@ class Lomake extends Component {
         lisääHäiriö: "",
         häiriönKesto: "",
         tehdytTunnit: "",
-        viesti:"",
+        tehdytKappaleet:"",
+        viesti:""
     }
-
-    // lahetys = {
-    //     pvm: this.state.pvm,
-    //     vuoro_id: "",
-    //     tuotenro: "",
-    //     tehtytunnit: this.state.tehdytTunnit,
-    //     tehdytkappaleet: "",
-    //     viesti:this.state.viesti,
-    //     linja_id:""
-    // }
 
     //seuraava steppi
     nextStep = () => {
@@ -48,14 +40,14 @@ class Lomake extends Component {
     //päivämäärän muutokset
     handleDateChange = (event, date) => {
         console.log(date)
-        let päivä = date.toString()
-        päivä = päivä.slice(4,16)
+        let päivä = moment(date).format();
+        päivä = päivä.slice(0,10)
         console.log(päivä)
         this.setState({ pvm: päivä})
     }
 
     //lomakekentän muutokset
-    handleChange = input => (e) => {
+    handleChange = (input) => (e) => {
         console.log(e.target.value)
         console.log(e.target.name)
         this.setState({ [input]: e.target.value})
@@ -64,15 +56,13 @@ class Lomake extends Component {
 
     sendData = data => {    
         console.log(data)
-        addData(data)
-        // .then(res=>{this.importTopics();
-        // })        
+        addToteumat(data)  
     }
 
     render() {
         const { step } = this.state;
-        const { pvm, vuoro, linja, tuote, lisääHäiriö, häiriönKesto, tehdytTunnit, viesti } = this.state
-        const values = { step, pvm, vuoro, linja, tuote, lisääHäiriö, häiriönKesto, tehdytTunnit, viesti }
+        const { pvm, vuoro, linja, tuote, lisääHäiriö, häiriönKesto, tehdytTunnit, viesti, tehdytKappaleet } = this.state
+        const values = { step, pvm, vuoro, linja, tuote, lisääHäiriö, häiriönKesto, tehdytTunnit, viesti, tehdytKappaleet }
         
         switch(step) {
             case 1:
@@ -89,8 +79,8 @@ class Lomake extends Component {
                     <LomakeVahvistus
                         nextStep={this.nextStep}
                         prevStep={this.prevStep}
-                        laheta={this.sendData}
-                        values={values}                      
+                        values={values}
+                        laheta={this.sendData}                      
                     />
                 )
             case 3:

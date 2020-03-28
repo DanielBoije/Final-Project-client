@@ -10,9 +10,9 @@ class LomakeLahetetty extends Component {
         return (
             <div className="lomakelahetetty">
                 
-                {/* <br></br><br></br><br></br><br></br><br></br>
+                <br></br><br></br><br></br><br></br><br></br>
                 <h2> Lomake Lähetetty! </h2>
-                <br></br> */}
+                <br></br>
                
                 <Paper>
                 <MuiThemeProvider>

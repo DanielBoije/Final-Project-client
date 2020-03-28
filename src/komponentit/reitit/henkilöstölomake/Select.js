@@ -52,7 +52,7 @@ const useStyles = makeStyles(theme => ({
       return ( <MenuItem key={b.id} name={b.id} value={b.id}>{b.tyovuoro}</MenuItem>) ;
       })
     var linjalista = linja.nimi.map( b => {
-      return ( <MenuItem key={b.id} value={b.nimi}>{b.id}</MenuItem>) ;
+      return ( <MenuItem key={b.id} value={b.id}>{b.nimi}</MenuItem>) ;
       })
     var tuotelista = tuote.tuotenimi.map( b => {
       return ( <MenuItem key={b.tuotenro} value={b.tuotenro}>{b.tuotenimi} ( tavoite {b.tuntitavoite}/h )</MenuItem>) ;

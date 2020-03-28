@@ -2,7 +2,7 @@ var tyovuorotURL = "http://localhost:3000/api/tyovuorot"
 var linjatURL = "http://localhost:3000/api/linjat"
 var tuotteetURL = "http://localhost:3000/api/tuotteet"
 var hairioURL = "http://localhost:3000/api/hairiot"
-// var appURL = "http://localhost:3000/api/toteuma"
+var toteumatURL = "http://localhost:3000/api/toteumat"
 var axios = require('axios');
 
 function getVuoro() {
@@ -21,5 +21,10 @@ function getHairio() {
     return  axios.get(hairioURL)
 }
 
+function addToteumat(nq) {
+    console.log(nq)
+    return axios.post(toteumatURL,nq)
+}
 
-export {getVuoro, getLinja, getTuote, getHairio};
+
+export {getVuoro, getLinja, getTuote, getHairio, addToteumat};
