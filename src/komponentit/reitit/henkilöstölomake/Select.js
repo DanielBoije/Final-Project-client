@@ -47,16 +47,15 @@ const useStyles = makeStyles(theme => ({
           setTuote({tuotenimi: res.data})
           });
    }
-    
-    
+    // NÄISSÄ KAIKISSA VALUE VAIHDETTU IDksi KOSKA EI LÖYTYNYT MUUTA RATKAISUA
     var vuorolista = vuoro.tyovuoro.map( b => {
-      return ( <MenuItem key={b.id} value={b.tyovuoro}>{b.tyovuoro}</MenuItem>) ;
+      return ( <MenuItem key={b.id} name={b.id} value={b.id}>{b.tyovuoro}</MenuItem>) ;
       })
     var linjalista = linja.nimi.map( b => {
-      return ( <MenuItem key={b.id} value={b.nimi}>{b.nimi}</MenuItem>) ;
+      return ( <MenuItem key={b.id} value={b.nimi}>{b.id}</MenuItem>) ;
       })
     var tuotelista = tuote.tuotenimi.map( b => {
-      return ( <MenuItem key={b.tuotenro} value={b.tuotenimi}>{b.tuotenimi} ( tavoite {b.tuntitavoite}/h )</MenuItem>) ;
+      return ( <MenuItem key={b.tuotenro} value={b.tuotenro}>{b.tuotenimi} ( tavoite {b.tuntitavoite}/h )</MenuItem>) ;
       })
 
     return (

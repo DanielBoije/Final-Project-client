@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
+import {getHairio} from "./lomakeService"
 
 const useStyles = makeStyles(theme => ({
     formControl: {
@@ -18,6 +19,22 @@ const useStyles = makeStyles(theme => ({
   
   export default function Hairio(props) {
     const classes = useStyles();
+
+    const [häiriö, setHäiriö] = useState({hairio:[]})
+
+    useEffect(()=>{
+      importHairio();
+    },[]);
+
+    var importHairio= ()=>{
+      getHairio().then(res => {
+          console.log(res.data)
+          setHäiriö({hairio: res.data})
+          });
+    }
+    var häiriölista = häiriö.hairio.map( b => {
+      return ( <MenuItem key={b.id} value={b.id}>{b.hairio}</MenuItem>) ;
+      })
           
     return (
       <div>
@@ -29,9 +46,10 @@ const useStyles = makeStyles(theme => ({
             onChange={props.handleChange("lisääHäiriö")}
             defaultValue={props.values.lisääHäiriö}
           >
-            <MenuItem value={"häiriö1"}>häiriö 1</MenuItem>
+            {häiriölista}
+            {/* <MenuItem value={"häiriö1"}>häiriö 1</MenuItem>
             <MenuItem value={"häiriö2"}>häiriö 2</MenuItem>
-            <MenuItem value={"häiriö3"}>häiriö 3</MenuItem>
+            <MenuItem value={"häiriö3"}>häiriö 3</MenuItem> */}
           </Select>
         </FormControl>
         </div>
