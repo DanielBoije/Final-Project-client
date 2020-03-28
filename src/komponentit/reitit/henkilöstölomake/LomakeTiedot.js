@@ -72,7 +72,6 @@ class LomakeTiedot extends Component {
                                         <RaisedButton
                                             label="Jatka"
                                             primary={true}
-                                            // size=
                                             style={styles.button}
                                             onClick={this.continue}
                                         />

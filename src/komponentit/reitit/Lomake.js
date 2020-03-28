@@ -10,6 +10,7 @@ class Lomake extends Component {
         step:1,
         pvm: "",
         vuoro: "",
+        vuoro_id: "",
         linja: "",
         tuote: "",
         lisääHäiriö: "",
@@ -17,6 +18,16 @@ class Lomake extends Component {
         tehdytTunnit: "",
         viesti:"",
     }
+
+    // lahetys = {
+    //     pvm: this.state.pvm,
+    //     vuoro_id: "",
+    //     tuotenro: "",
+    //     tehtytunnit: this.state.tehdytTunnit,
+    //     tehdytkappaleet: "",
+    //     viesti:this.state.viesti,
+    //     linja_id:""
+    // }
 
     //seuraava steppi
     nextStep = () => {
@@ -44,9 +55,11 @@ class Lomake extends Component {
     }
 
     //lomakekentän muutokset
-    handleChange = input => e => {
+    handleChange = input => (e) => {
         console.log(e.target.value)
+        console.log(e.target.name)
         this.setState({ [input]: e.target.value})
+        // console.log(this.lahetys)
     }
 
     sendData = data => {    
@@ -77,7 +90,7 @@ class Lomake extends Component {
                         nextStep={this.nextStep}
                         prevStep={this.prevStep}
                         laheta={this.sendData}
-                        values={values}                        
+                        values={values}                      
                     />
                 )
             case 3:
