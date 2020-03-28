@@ -7,9 +7,20 @@ import { Paper } from '@material-ui/core';
 import './Lomaketiedot.css'
 
 class LomakeVahvistus extends Component {
+    state = {
+        pvm: this.props.values.pvm,
+        vuoro_id: this.props.values.vuoro,
+        tuotenro: this.props.values.tuote,
+        tehtytunnit: parseFloat(this.props.values.tehdytTunnit),
+        tehdytkappaleet: parseInt(this.props.values.tehdytKappaleet), 
+        viesti:this.props.values.viesti,
+        linja_id:this.props.values.linja
+    }
+
     continue = e => {
         e.preventDefault();
-        this.props.laheta(this.props.values);    //lähetetään apiin    
+        console.log(this.state)
+        this.props.laheta(this.state);    //lähetetään apiin    
         this.props.nextStep();
     }
 
@@ -40,6 +51,10 @@ class LomakeVahvistus extends Component {
                                             secondaryText={values.vuoro}
                                         />
                                         <ListItem
+                                            primaryText="Linja"
+                                            secondaryText={values.linja}
+                                        />
+                                        <ListItem
                                             primaryText="Tuote"
                                             secondaryText={values.tuote}
                                         />
@@ -54,6 +69,10 @@ class LomakeVahvistus extends Component {
                                         <ListItem
                                             primaryText="Tehdyt tunnit"
                                             secondaryText={values.tehdytTunnit + " tuntia"}
+                                        />
+                                        <ListItem
+                                            primaryText="Tehdyt kappaleet"
+                                            secondaryText={values.tehdytKappaleet + " tuntia"}
                                         />
                                         <ListItem
                                             primaryText="Viesti"

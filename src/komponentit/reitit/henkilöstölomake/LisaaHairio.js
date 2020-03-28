@@ -5,6 +5,7 @@ import Hairio from "./Hairio"
 
 
 class LisaaHairio extends Component {
+    
     render() {
         const { values, handleChange } = this.props;
         return (

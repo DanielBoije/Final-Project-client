@@ -65,6 +65,15 @@ class LomakeTiedot extends Component {
                                             defaultValue={values.tehdytTunnit}
                                         /><br></br>
                                         <TextField
+                                            type="number"
+                                            min="0"
+                                            step="1"
+                                            required
+                                            hintText="Tehdyt kappaleet"
+                                            onChange={handleChange("tehdytKappaleet")}
+                                            defaultValue={values.tehdytKappaleet}
+                                        /><br></br>
+                                        <TextField
                                             hintText="Viesti"
                                             onChange={handleChange("viesti")}
                                             defaultValue={values.viesti} />
