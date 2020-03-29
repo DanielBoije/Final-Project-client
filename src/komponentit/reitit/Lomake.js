@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import LomakeTiedot from "./henkilöstölomake/LomakeTiedot"
 import LomakeVahvistus from "./henkilöstölomake/LomakeVahvistus"
 import LomakeLähetetty from "./henkilöstölomake/LomakeLahetetty"
-import {addToteumat} from "./henkilöstölomake/lomakeService"
+import {addToteumat, updateToteumat} from "./henkilöstölomake/lomakeService"
 import moment from 'moment'
 
 
@@ -11,7 +11,6 @@ class Lomake extends Component {
         step:1,
         pvm: "",
         vuoro: "",
-        vuoro_id: "",
         linja: "",
         tuote: "",
         lisääHäiriö: "",
@@ -59,6 +58,11 @@ class Lomake extends Component {
         addToteumat(data)  
     }
 
+    updateData = data => { // tähän putti
+        console.log(data)
+        updateToteumat(data)  
+    }
+
     render() {
         const { step } = this.state;
         const { pvm, vuoro, linja, tuote, lisääHäiriö, häiriönKesto, tehdytTunnit, viesti, tehdytKappaleet } = this.state
@@ -72,6 +76,7 @@ class Lomake extends Component {
                         handleChange={this.handleChange}
                         handleDateChange={this.handleDateChange}
                         values={values}
+                        laheta={this.sendData} 
                     />
                 )
             case 2:
@@ -80,7 +85,7 @@ class Lomake extends Component {
                         nextStep={this.nextStep}
                         prevStep={this.prevStep}
                         values={values}
-                        laheta={this.sendData}                      
+                        paivita={this.updateData}                                            
                     />
                 )
             case 3:

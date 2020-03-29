@@ -2,9 +2,28 @@ import React, { Component } from 'react';
 import { Modal, Button } from "react-bootstrap"
 import TextField from "material-ui/TextField"
 import Hairio from "./Hairio"
+import {getToteuma, addTot_hai} from "./lomakeService"
 
 
 class LisaaHairio extends Component {
+    state= {
+        tot_id: "",
+        hair_id: "",
+        hairiokesto:""
+    }
+
+    onClose = async () => {
+        this.props.onHide()
+        await getToteuma().then(res => {
+            console.log(res.data[res.data.length-1].id)
+            this.setState({
+                tot_id: res.data[res.data.length-1].id,
+                hair_id:this.props.values.lisääHäiriö,
+                hairiokesto:parseFloat(this.props.values.häiriönKesto)
+            });
+        })
+        addTot_hai(this.state)
+    }
     
     render() {
         const { values, handleChange } = this.props;
@@ -39,7 +58,7 @@ class LisaaHairio extends Component {
                         />
                     </Modal.Body>
                     <Modal.Footer>
-                        <Button primary={true} onClick={this.props.onHide}>Tallenna ja Sulje</Button>
+                        <Button primary={true} onClick={this.onClose}>Tallenna ja Sulje</Button>
                     </Modal.Footer>
                 </Modal>
             </div>
