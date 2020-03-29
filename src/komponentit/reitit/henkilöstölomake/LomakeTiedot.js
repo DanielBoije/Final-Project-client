@@ -14,7 +14,14 @@ import './Lomaketiedot.css'
 class LomakeTiedot extends Component {
 
     state = {
-        modalShow: false
+        modalShow: false,
+        vahvistettu: {
+            pvm:"",
+            vuoro_id:"",
+            tuotenro:"",
+            linja_id:""
+        }
+        
     }
 
     continue = e => {
@@ -22,12 +29,25 @@ class LomakeTiedot extends Component {
         this.props.nextStep();
     }
 
+    showModal = async () => {
+        await this.setState({ 
+        modalShow: true,
+        vahvistettu: {
+            pvm:this.props.values.pvm,
+            vuoro_id:this.props.values.vuoro,
+            tuotenro:this.props.values.tuote,
+            linja_id:this.props.values.linja
+            }
+        })
+        console.log(this.state.vahvistettu)
+        this.props.laheta(this.state.vahvistettu);    //lähetetään apiin   
+    }
 
     render() {
         const { values, handleChange, handleDateChange } = this.props;
-        // const selectedDate= new Date();
-        let modalClose = () => this.setState({ modalShow: false })
-
+        let modalClose = () => {
+            this.setState({ modalShow: false })
+        }
         return (
 
             <MuiThemeProvider>
@@ -48,7 +68,7 @@ class LomakeTiedot extends Component {
                                             values={values}
                                             handleChange={handleChange}
                                         /><br></br>
-                                        <RaisedButton style={häiriö} label="Lisää häiriö" onClick={() => this.setState({ modalShow: true })}></RaisedButton>
+                                        <RaisedButton style={häiriö} label="Lisää häiriö" onClick={this.showModal}></RaisedButton>
                                         <LisääHäiriö
                                             values={values}
                                             handleChange={handleChange}
