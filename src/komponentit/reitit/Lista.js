@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
+import ListaTiedot from "./lista/ListaTiedot"
 
 class Lista extends Component {
     render() {
         return (
             <div>
-                <br></br>
-                <h2>Lista tähän</h2>
+                <ListaTiedot/>
             </div>
         );
     }
