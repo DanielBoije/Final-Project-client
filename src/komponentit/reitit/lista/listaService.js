@@ -1,4 +1,4 @@
-var appURL = "http://localhost:3000/api/toteumat"
+var appURL = "http://localhost:3000/api/lista"
 var axios = require('axios');
 
 
