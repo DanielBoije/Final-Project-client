@@ -15,38 +15,51 @@ class LomakeTiedot extends Component {
 
     state = {
         modalShow: false,
-        vahvistettu: {
-            pvm:"",
-            vuoro_id:"",
-            tuotenro:"",
-            linja_id:""
-        }
-        
+        virhe: ""
+        // vahvistettu: {
+        //     pvm:"",
+        //     vuoro_id:"",
+        //     tuotenro:"",
+        //     linja_id:""
+        // }        
     }
 
+     
     continue = e => {
+        if (this.props.values.pvm && this.props.values.vuoro && this.props.values.tuote && this.props.values.linja) {
         e.preventDefault();
+        console.log("kaikki ok")
         this.props.nextStep();
+        } else {
+            e.preventDefault();
+            this.setState({virhe: "Tarkista pakolliset kentät"})
+            console.log("tarkista")
+            console.log(this.props.values)           
+        }
     }
 
     showModal = async () => {
         await this.setState({ 
         modalShow: true,
-        vahvistettu: {
-            pvm:this.props.values.pvm,
-            vuoro_id:this.props.values.vuoro,
-            tuotenro:this.props.values.tuote,
-            linja_id:this.props.values.linja
-            }
-        })
-        console.log(this.state.vahvistettu)
-        this.props.laheta(this.state.vahvistettu);    //lähetetään apiin   
-    }
+        // vahvistettu: {
+        //     pvm:this.props.values.pvm,
+        //     vuoro_id:this.props.values.vuoro,
+        //     tuotenro:this.props.values.tuote,
+        //     linja_id:this.props.values.linja
+        //     }
+        // })
+        // console.log(this.state.vahvistettu)
+        // this.props.laheta(this.state.vahvistettu);    //lähetetään apiin   
+    })}
+
+    message = ""; //muuttuu modalClose funktiossa
 
     render() {
         const { values, handleChange, handleDateChange } = this.props;
+        
         let modalClose = () => {
             this.setState({ modalShow: false })
+            if (values.lisääHäiriö && values.häiriönKesto) { this.message = <i>Häiriö lisätty</i> }
         }
         return (
 
@@ -59,7 +72,7 @@ class LomakeTiedot extends Component {
                                     <AppBar title="Tuotanto" showMenuIconButton={false} />
                                     <div style={padding}>
                                         <DatePicker
-                                            hintText="Päivämäärä"
+                                            hintText="Päivämäärä*"
                                             // selected={selectedDate} 
                                             onChange={handleDateChange}
                                         // defaultValue={values.pvm}
@@ -67,7 +80,8 @@ class LomakeTiedot extends Component {
                                         <SimpleSelect
                                             values={values}
                                             handleChange={handleChange}
-                                        /><br></br>
+                                        />
+                                        {this.message}<br></br>
                                         <RaisedButton style={häiriö} label="Lisää häiriö" onClick={this.showModal}></RaisedButton>
                                         <LisääHäiriö
                                             values={values}
@@ -78,9 +92,9 @@ class LomakeTiedot extends Component {
                                         <TextField
                                             type="number"
                                             min="0"
-                                            step="0.5"
+                                            step="0.1"
                                             required
-                                            hintText="Tehdyt tunnit (0,5 = 30min)"
+                                            hintText="Tehdyt tunnit (0,1 = 6min)"
                                             onChange={handleChange("tehdytTunnit")}
                                             defaultValue={values.tehdytTunnit}
                                         /><br></br>
@@ -97,14 +111,15 @@ class LomakeTiedot extends Component {
                                             hintText="Viesti"
                                             onChange={handleChange("viesti")}
                                             defaultValue={values.viesti} />
-                                        <br></br><br></br>
+                                            <br></br>                                        
+                                        <i style={punainen}>{this.state.virhe}</i>
+                                        <br></br>
                                         <RaisedButton
                                             label="Jatka"
                                             primary={true}
                                             style={styles.button}
                                             onClick={this.continue}
                                         />
-
                                     </div>
                                 </div>
                             </Paper> 
@@ -115,6 +130,10 @@ class LomakeTiedot extends Component {
 
         );
     }
+}
+
+const punainen = {
+    color: "red"
 }
 
 const häiriö = {

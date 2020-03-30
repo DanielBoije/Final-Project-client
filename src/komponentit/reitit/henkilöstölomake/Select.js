@@ -61,7 +61,7 @@ const useStyles = makeStyles(theme => ({
     return (
       <div>
         <FormControl className={classes.formControl}>
-          <InputLabel id="vuoro">Vuoro</InputLabel>
+          <InputLabel id="vuoro">Vuoro*</InputLabel>
           <Select
             labelId="vuoro"
             id="vuoro"
@@ -72,7 +72,7 @@ const useStyles = makeStyles(theme => ({
           </Select>
         </FormControl><br></br>
         <FormControl className={classes.formControl}>
-          <InputLabel id="linja">Linja</InputLabel>
+          <InputLabel id="linja">Linja*</InputLabel>
           <Select
             labelId="linja"
             id="linja"
@@ -83,7 +83,7 @@ const useStyles = makeStyles(theme => ({
           </Select>
         </FormControl><br></br>
         <FormControl className={classes.formControl}>
-          <InputLabel id="tuote">Tuote</InputLabel>
+          <InputLabel id="tuote">Tuote*</InputLabel>
           <Select
             labelId="tuote"
             id="tuote"

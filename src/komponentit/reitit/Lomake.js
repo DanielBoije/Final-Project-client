@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import LomakeTiedot from "./henkilöstölomake/LomakeTiedot"
 import LomakeVahvistus from "./henkilöstölomake/LomakeVahvistus"
 import LomakeLähetetty from "./henkilöstölomake/LomakeLahetetty"
-import {addToteumat, updateToteumat} from "./henkilöstölomake/lomakeService"
+import {addToteumat} from "./henkilöstölomake/lomakeService"
 import moment from 'moment'
+import {getToteuma, addTot_hai} from "./henkilöstölomake/lomakeService"
 
 
 class Lomake extends Component {
@@ -48,20 +49,29 @@ class Lomake extends Component {
     //lomakekentän muutokset
     handleChange = (input) => (e) => {
         console.log(e.target.value)
-        console.log(e.target.name)
+        // console.log(e.target.name)
+        // console.log(e.target.id)
         this.setState({ [input]: e.target.value})
         // console.log(this.lahetys)
     }
 
-    sendData = data => {    
+    sendData = async data => {    
         console.log(data)
-        addToteumat(data)  
+        await addToteumat(data)
+        getToteuma().then(res => {
+            console.log(res.data[res.data.length-1].id)
+            addTot_hai({
+                tot_id: res.data[res.data.length-1].id,
+                hair_id:this.state.lisääHäiriö,
+                hairiokesto:parseFloat(this.state.häiriönKesto)
+            });
+        });
     }
 
-    updateData = data => { // tähän putti
-        console.log(data)
-        updateToteumat(data)  
-    }
+    // updateData = data => { 
+    //     console.log(data)
+    //     updateToteumat(data)  
+    // }
 
     render() {
         const { step } = this.state;
@@ -76,7 +86,7 @@ class Lomake extends Component {
                         handleChange={this.handleChange}
                         handleDateChange={this.handleDateChange}
                         values={values}
-                        laheta={this.sendData} 
+                        // laheta={this.sendData} 
                     />
                 )
             case 2:
@@ -85,7 +95,8 @@ class Lomake extends Component {
                         nextStep={this.nextStep}
                         prevStep={this.prevStep}
                         values={values}
-                        paivita={this.updateData}                                            
+                        laheta={this.sendData} 
+                        // paivita={this.updateData}                                            
                     />
                 )
             case 3:
