@@ -34,7 +34,7 @@ function addToteumat(nq) {
 
 function updateToteumat(id) {
     console.log(id)
-    return axios.put(toteumatURL+`${id}`)
+    return axios.put(toteumatURL+id)
 }
 
 function addTot_hai(nq) {

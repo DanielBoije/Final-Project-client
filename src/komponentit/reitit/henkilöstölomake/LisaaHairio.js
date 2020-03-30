@@ -2,27 +2,27 @@ import React, { Component } from 'react';
 import { Modal, Button } from "react-bootstrap"
 import TextField from "material-ui/TextField"
 import Hairio from "./Hairio"
-import {getToteuma, addTot_hai} from "./lomakeService"
+// import {getToteuma, addTot_hai} from "./lomakeService"
 
 
 class LisaaHairio extends Component {
-    state= {
-        tot_id: "",
-        hair_id: "",
-        hairiokesto:""
-    }
+    // state= {
+    //     tot_id: "",
+    //     hair_id: "",
+    //     hairiokesto:""
+    // }
 
     onClose = async () => {
         this.props.onHide()
-        await getToteuma().then(res => {
-            console.log(res.data[res.data.length-1].id)
-            this.setState({
-                tot_id: res.data[res.data.length-1].id,
-                hair_id:this.props.values.lisääHäiriö,
-                hairiokesto:parseFloat(this.props.values.häiriönKesto)
-            });
-        })
-        addTot_hai(this.state)
+        // await getToteuma().then(res => {
+        //     console.log(res.data[res.data.length-1].id)
+        //     this.setState({
+        //         tot_id: res.data[res.data.length-1].id,
+        //         hair_id:this.props.values.lisääHäiriö,
+        //         hairiokesto:parseFloat(this.props.values.häiriönKesto)
+        //     });
+        // })
+        // addTot_hai(this.state)
     }
     
     render() {
@@ -50,9 +50,9 @@ class LisaaHairio extends Component {
                             style={kesto}
                             type="number"
                             min="0"
-                            step="0.5"
+                            step="0.1"
                             required
-                            hintText="Häiriön kesto (0,5 = 30min)"
+                            hintText="Häiriön kesto (0,1 = 6min)"
                             onChange={handleChange("häiriönKesto")}
                             defaultValue={values.häiriönKesto}
                         />
