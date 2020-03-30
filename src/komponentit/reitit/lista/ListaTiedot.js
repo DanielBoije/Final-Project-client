@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {getData} from "./listaService"
+import moment from "moment"
 class ListaPohja extends Component {
 
     state = {
@@ -22,28 +23,22 @@ class ListaPohja extends Component {
             return ( 
             <tr>
                 <td key={b.id} value={b.id}>{b.id}</td>
-                <td key={b.id} value={b.id}>{b.pvm}</td>
-                <td key={b.id} value={b.id}>{b.vuoro_id}</td>
-                <td key={b.id} value={b.id}>{b.tuotenro}</td>
-                <td key={b.id} value={b.id}>{b.tehtytunnit}</td>
-                <td key={b.id} value={b.id}>{b.tehdytkappaleet}</td>
-                <td key={b.id} value={b.id}>{b.viesti}</td>
-                <td key={b.id} value={b.id}>{b.linja_id}</td>
+                <td key={b.id} value={b.id}>{moment(b.pvm).format('DD/MM/YYYY')}</td>
+                <td key={b.id} value={b.id}>{b.nimi}</td>
+                <td key={b.id} value={b.id}>{b.tyovuoro}</td>
+                <td key={b.id} value={b.id}>{b.tuotenimi}</td>
             </tr>) ;
             })
         return (
-            <div>
+            <div style={taulukko}>
                 <br></br><br></br><br></br><br></br><br></br><br></br>
                 <table>
                     <tr>
-                        <th>Jotain</th>
-                        <th>Jotain</th>
-                        <th>Jotain</th>
-                        <th>Jotain</th>
-                        <th>Jotain</th>
-                        <th>Jotain</th>
-                        <th>Jotain</th>
-                        <th>Jotain</th>
+                        <th>ID</th>
+                        <th>Päivämäärä</th>
+                        <th>Linja</th>
+                        <th>Työvuoro</th>
+                        <th>Tuotteen nimi</th>
                     </tr>
                         {lista}                    
                 </table>
@@ -52,4 +47,9 @@ class ListaPohja extends Component {
     }
 }
 
+const taulukko = {
+    margin: "100px",
+    display: 'flex', 
+    justifyContent: 'center'
+}
 export default ListaPohja;
