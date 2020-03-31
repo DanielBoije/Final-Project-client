@@ -44,7 +44,6 @@ const useStyles = makeStyles(theme => ({
     }
     var importTuote= ()=>{
       getTuote().then(res => {
-        console.log('importTuote')
           console.log(res.data)
           setTuote({tuotenimi: res.data})
           });
@@ -67,7 +66,7 @@ const useStyles = makeStyles(theme => ({
           <Select
             labelId="vuoro"
             id="vuoro"
-            // onChange={props.handleChange("vuoro")}
+            onChange={props.handleChange("vuoro")}
             defaultValue={props.values.vuoro.id}
           >
             {vuorolista}
