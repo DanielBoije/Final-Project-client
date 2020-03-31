@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC|Open+Sans+Condensed:300&display=swap');
+
+
+.font {
+
+    /* background: 
+      url(putki.jpg) center
+        center/cover no-repeat; */
+    margin:100px;
+  
+    /* display: flex;  */
+    /* justify-content: center; */
+    /* border-collapse: collapse; */
+    width: 87%;
+    
+    
+    /* align-content: center;*/
+
+
+
+
+    font-family: 'Open Sans Condensed', sans-serif;
+
+
+}
+
+
