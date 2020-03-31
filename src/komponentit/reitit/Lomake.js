@@ -60,11 +60,15 @@ class Lomake extends Component {
         await addToteumat(data)
         getToteuma().then(res => {
             console.log(res.data[res.data.length-1].id)
+            console.log(this.state.lisääHäiriö)
+            console.log(this.state.häiriönKesto)
+        if (this.state.lisääHäiriö && this.state.hairiokesto) {
             addTot_hai({
                 tot_id: res.data[res.data.length-1].id,
                 hair_id:this.state.lisääHäiriö,
                 hairiokesto:parseFloat(this.state.häiriönKesto)
             });
+            }
         });
     }
 
