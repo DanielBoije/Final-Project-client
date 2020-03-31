@@ -4,7 +4,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-import {getVuoro, getLinja, getTuote} from "./Service"
+import {getVuoro, getLinja, getTuote} from "./lomakeService"
 
 const useStyles = makeStyles(theme => ({
     formControl: {
@@ -49,26 +49,21 @@ const useStyles = makeStyles(theme => ({
           setTuote({tuotenimi: res.data})
           });
    }
-    
-    
+    // NÄISSÄ KAIKISSA VALUE VAIHDETTU IDksi KOSKA EI LÖYTYNYT MUUTA RATKAISUA
     var vuorolista = vuoro.tyovuoro.map( b => {
-      return ( <MenuItem 
-          onChange={props.handleChange(b.id)} 
-          key={b.id}
-          value={b.tyovuoro}>{b.tyovuoro}
-        </MenuItem>) ;
-      })
+      return ( <MenuItem key={b.id} name={b.id} value={b.id}>{b.tyovuoro}</MenuItem>) ;
+    })
     var linjalista = linja.nimi.map( b => {
-      return ( <MenuItem key={b.id} value={b.nimi}>{b.nimi}</MenuItem>) ;
+      return ( <MenuItem key={b.id} value={b.id}>{b.nimi}</MenuItem>) ;
       })
     var tuotelista = tuote.tuotenimi.map( b => {
-      return ( <MenuItem key={b.tuotenro} value={b.tuotenimi}>{b.tuotenimi} ( tavoite {b.tuntitavoite}/h )</MenuItem>) ;
+      return ( <MenuItem key={b.tuotenro} value={b.tuotenro}>{b.tuotenimi} ( tavoite {b.tuntitavoite}/h )</MenuItem>) ;
       })
 
     return (
       <div>
         <FormControl className={classes.formControl}>
-          <InputLabel id="vuoro">Vuoro</InputLabel>
+          <InputLabel id="vuoro">Vuoro*</InputLabel>
           <Select
             labelId="vuoro"
             id="vuoro"
@@ -76,13 +71,10 @@ const useStyles = makeStyles(theme => ({
             defaultValue={props.values.vuoro.id}
           >
             {vuorolista}
-            {/* <MenuItem value={"A"}>A</MenuItem>
-            <MenuItem value={"B"}>B</MenuItem>
-            <MenuItem value={"C"}>C</MenuItem> */}
           </Select>
         </FormControl><br></br>
         <FormControl className={classes.formControl}>
-          <InputLabel id="linja">Linja</InputLabel>
+          <InputLabel id="linja">Linja*</InputLabel>
           <Select
             labelId="linja"
             id="linja"
@@ -90,13 +82,10 @@ const useStyles = makeStyles(theme => ({
             defaultValue={props.values.linja}
           >
             {linjalista}
-            {/* <MenuItem value={"tuote1"}>tuote 1</MenuItem>
-            <MenuItem value={"tuote2"}>tuote 2</MenuItem>
-            <MenuItem value={"tuote3"}>tuote 3</MenuItem> */}
           </Select>
         </FormControl><br></br>
         <FormControl className={classes.formControl}>
-          <InputLabel id="tuote">Tuote</InputLabel>
+          <InputLabel id="tuote">Tuote*</InputLabel>
           <Select
             labelId="tuote"
             id="tuote"
@@ -104,24 +93,8 @@ const useStyles = makeStyles(theme => ({
             defaultValue={props.values.tuote}
           >
             {tuotelista}
-            {/* <MenuItem value={"tuote1"}>tuote 1</MenuItem>
-            <MenuItem value={"tuote2"}>tuote 2</MenuItem>
-            <MenuItem value={"tuote3"}>tuote 3</MenuItem> */}
           </Select>
         </FormControl><br></br>
-        {/* <FormControl className={classes.formControl}>
-          <InputLabel id="häiriö">Häiriö</InputLabel>
-          <Select
-            labelId="häiriö"
-            id="häiriö"
-            onChange={props.handleChange("lisääHäiriö")}
-            defaultValue={props.values.lisääHäiriö}
-          >
-            <MenuItem value={"häiriö1"}>häiriö 1</MenuItem>
-            <MenuItem value={"häiriö2"}>häiriö 2</MenuItem>
-            <MenuItem value={"häiriö3"}>häiriö 3</MenuItem>
-          </Select>
-        </FormControl> */}
         </div>
   );
 }

@@ -38,7 +38,7 @@ const MainNavigation = props => {
                     <Link to='/'>HOME</Link>
                 </h1>
                 <nav className='main-navigation__header-nav' >
-                    <Navigaatio />
+                    {/* <Navigaatio /> */}
                 </nav>
             </MainHeader>
         </React.Fragment>
