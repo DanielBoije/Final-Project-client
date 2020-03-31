@@ -19,7 +19,7 @@ const useStyles = makeStyles(theme => ({
 
   export default function SimpleSelect(props) {    
     const classes = useStyles();
-    const [vuoro, setVuoro] = useState({tyovuoro:[]})
+    const [vuoro, setVuoro] = useState({tyovuoro:[], id:[]})
     const [linja, setLinja] = useState({nimi:[]})
     const [tuote, setTuote] = useState({tuotenimi:[]})
 
@@ -39,10 +39,12 @@ const useStyles = makeStyles(theme => ({
        getVuoro().then(res => {
            console.log(res.data)
            setVuoro({tyovuoro: res.data})
+           console.log(vuoro);
            });
     }
     var importTuote= ()=>{
       getTuote().then(res => {
+        console.log('importTuote')
           console.log(res.data)
           setTuote({tuotenimi: res.data})
           });
@@ -50,7 +52,11 @@ const useStyles = makeStyles(theme => ({
     
     
     var vuorolista = vuoro.tyovuoro.map( b => {
-      return ( <MenuItem key={b.id} value={b.tyovuoro}>{b.tyovuoro}</MenuItem>) ;
+      return ( <MenuItem 
+          onChange={props.handleChange(b.id)} 
+          key={b.id}
+          value={b.tyovuoro}>{b.tyovuoro}
+        </MenuItem>) ;
       })
     var linjalista = linja.nimi.map( b => {
       return ( <MenuItem key={b.id} value={b.nimi}>{b.nimi}</MenuItem>) ;
@@ -66,8 +72,8 @@ const useStyles = makeStyles(theme => ({
           <Select
             labelId="vuoro"
             id="vuoro"
-            onChange={props.handleChange("vuoro")}
-            defaultValue={props.values.vuoro}
+            // onChange={props.handleChange("vuoro")}
+            defaultValue={props.values.vuoro.id}
           >
             {vuorolista}
             {/* <MenuItem value={"A"}>A</MenuItem>

@@ -1,4 +1,5 @@
 const appURL = "http://localhost:3000/api/hairiot"
+const appURLtothai = "http://localhost:3000/api/tot_hai"
 const axios = require('axios');
 
 
@@ -21,4 +22,19 @@ async function addHairio(nimi) {
     });
  }
 
- export {addHairio, getYksiHairio, getHairiot};
+ async function deleteHairio(id) {
+     console.log(id);
+     await axios.delete(`${appURL}/${id}`)
+     .then(res => {
+         console.dir(res);
+         console.log(res.data)
+         return res.data;
+     })
+ }
+
+ async function getToteumaHairiot() {
+    let res = await axios.get(`${appURLtothai}`)
+    return res.data;
+}
+
+ export {addHairio, getYksiHairio, getHairiot, deleteHairio, getToteumaHairiot};

@@ -1,14 +1,48 @@
 import React, { Component } from 'react'
 import VuoroLomakeTiedot from './VuoroLomakeTiedot';
-import VuoroLomakeLahetetty from './VuoroLomakeLahetetty';
+//import VuoroLomakeLahetetty from './VuoroLomakeLahetetty';
 import VuoroLomakeVahvistus from './VuoroLomakeVahvistus';
-import { getVuorot } from './vuoroService';
+import { getVuorot, deleteVuoro, getToteumat } from './vuoroService';
 
 export default class VuoroPohja extends Component {
     state = {
         step:1,
         tyovuoro: "",
         virhe: "",
+        lista: [{
+            id: "",
+            tyovuoro: "",
+        }],
+    }
+
+    componentDidMount = () => {
+        this.paivitaLista();
+    }
+
+    paivitaLista = async () => {
+        let data = await getVuorot();
+        this.setState({lista: data});
+    }
+
+    poistaVuoro = async (id) => {
+        console.log('poista');
+        let varatut = await getToteumat();
+        console.log('varatut:');
+        console.dir(varatut);
+        let onjo = false;
+        for(let i = 0; i < varatut.length; i++) {
+            if(id === varatut[i].vuoro_id) {
+                onjo = true;
+            }
+        }
+        console.log(onjo);
+        if(onjo) {
+            this.setState({ virhe: "Vuoro liittyy työhön, ei voi poistaa" })
+        } else {
+            await deleteVuoro(id);
+            this.setState(this.state);
+            this.paivitaLista();
+        }
     }
 
     //syötteiden tarkastaminen ja virheen määritys
@@ -38,7 +72,7 @@ export default class VuoroPohja extends Component {
             this.setState({ virhe: "Vuoron nimi löytyy jo tietokannasta" })
             return false;
         }
-      }
+    }
 
     //seuraava steppi
     nextStep = () => {
@@ -47,6 +81,20 @@ export default class VuoroPohja extends Component {
         this.setState({
             step: step + 1
         })
+        console.log(this.state.step);
+        if(this.state.step === 3) {
+            this.setState({
+                step:1,
+                tyovuoro: "",
+                virhe: "",
+                lista: [{
+                    id: "",
+                    tyovuoro: "",
+                }],
+            })
+            console.dir(this.state)
+            this.paivitaLista()
+        }
     }
 
     //edellinen steppi
@@ -65,8 +113,8 @@ export default class VuoroPohja extends Component {
 
     render() {
         const { step } = this.state;
-        const { tyovuoro, virhe } = this.state
-        const values = { step, tyovuoro, virhe }
+        const { tyovuoro, virhe, lista } = this.state
+        const values = { step, tyovuoro, virhe, lista }
 
         switch(step) {
             case 1:
@@ -76,6 +124,7 @@ export default class VuoroPohja extends Component {
                         handleChange={this.handleChange}
                         values={values}
                         checkValues={this.checkValues}
+                        poistaVuoro={this.poistaVuoro}
                     />
                 )
             case 2:
@@ -86,14 +135,16 @@ export default class VuoroPohja extends Component {
                         values={values}
                     />
                 )
-            case 3:
-                return (
-                    <VuoroLomakeLahetetty/>
-                )
             default:
                 return (
-                    <VuoroLomakeTiedot/>
-                )        
+                    <VuoroLomakeTiedot
+                    nextStep={this.nextStep}
+                    handleChange={this.handleChange}
+                    values={values}
+                    checkValues={this.checkValues}
+                    poistaVuoro={this.poistaVuoro}
+                />
+                )       
         }
     }
 }

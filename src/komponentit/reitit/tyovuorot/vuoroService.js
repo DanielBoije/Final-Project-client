@@ -1,4 +1,5 @@
-const appURL = "http://localhost:3000/api/tyovuorot"
+const appURL = "http://localhost:3000/api/tyovuorot";
+const appURLtoteumat = "http://localhost:3000/api/toteumat";
 const axios = require('axios');
 
 
@@ -21,4 +22,19 @@ async function addVuoro(nimi) {
     });
  }
 
- export {addVuoro, getYksiVuoro, getVuorot};
+ async function deleteVuoro(id) {
+    console.log(id);
+    await axios.delete(`${appURL}/${id}`)
+    .then(res => {
+        console.dir(res);
+        console.log(res.data)
+        return res.data;
+    })
+}
+
+async function getToteumat() {
+    let res = await axios.get(`${appURLtoteumat}`)
+    return res.data;
+}
+
+ export {addVuoro, getYksiVuoro, getVuorot, deleteVuoro, getToteumat};

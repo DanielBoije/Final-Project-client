@@ -2,14 +2,51 @@ import React, { Component } from 'react'
 import LinjaLomakeTiedot from './LinjaLomakeTiedot';
 import LinjaLomakeLahetetty from './LinjaLomakeLahetetty';
 import LinjaLomakeVahvistus from './LinjaLomakeVahvistus';
-import { getLinjat } from './linjaService';
+import LinjaLista from './LinjaLista';
+import { getLinjat, deleteLinja, getToteumat } from './linjaService';
+import { deleteTuote } from '../tuotteet/tuoteService';
 
 export default class LinjaPohja extends Component {
     state = {
         step:1,
         nimi: "",
         virhe: "",
+        lista: [{
+            id: "",
+            nimi: "",
+        }],
     }
+
+    componentDidMount = () => {
+        this.paivitaLista();
+    }
+
+    paivitaLista = async () => {
+        let data = await getLinjat();
+        this.setState({lista: data});
+    }
+
+    poistaLinja = async (id) => {
+        console.log('poista');
+        let varatut = await getToteumat();
+        console.log('varatut:');
+        console.dir(varatut);
+        let onjo = false;
+        for(let i = 0; i < varatut.length; i++) {
+            if(id === varatut[i].linja_id) {
+                onjo = true;
+            }
+        }
+        console.log(onjo);
+        if(onjo) {
+            this.setState({ virhe: "Linja liittyy työhön, ei voi poistaa" })
+        } else {
+            await deleteLinja(id);
+            this.setState(this.state);
+            this.paivitaLista();
+        }
+    }
+
 
     //syötteiden tarkastaminen ja virheen määritys
      checkValues = async () => {
@@ -47,6 +84,20 @@ export default class LinjaPohja extends Component {
         this.setState({
             step: step + 1
         })
+        console.log(this.state.step);
+        if(this.state.step === 3) {
+            this.setState({
+                step:1,
+                nimi: "",
+                virhe: "",
+                lista: [{
+                    id: "",
+                    nimi: "",
+                }],
+            })
+            console.dir(this.state)
+            this.paivitaLista()
+        }
     }
 
     //edellinen steppi
@@ -65,8 +116,8 @@ export default class LinjaPohja extends Component {
 
     render() {
         const { step } = this.state;
-        const { nimi, virhe } = this.state
-        const values = { step, nimi, virhe }
+        const { nimi, virhe, lista } = this.state
+        const values = { step, nimi, virhe, lista }
 
         switch(step) {
             case 1:
@@ -76,6 +127,7 @@ export default class LinjaPohja extends Component {
                         handleChange={this.handleChange}
                         values={values}
                         checkValues={this.checkValues}
+                        poistaLinja={this.poistaLinja}
                     />
                 )
             case 2:
@@ -86,13 +138,15 @@ export default class LinjaPohja extends Component {
                         values={values}
                     />
                 )
-            case 3:
-                return (
-                    <LinjaLomakeLahetetty/>
-                )
             default:
                 return (
-                    <LinjaLomakeTiedot/>
+                    <LinjaLomakeTiedot
+                        nextStep={this.nextStep}
+                        handleChange={this.handleChange}
+                        values={values}
+                        checkValues={this.checkValues}
+                        poistaLinja={this.poistaLinja}
+                    />
                 )        
         }
     }

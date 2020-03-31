@@ -11,10 +11,10 @@ export default class VuoroLomakeVahvistus extends Component {
         tyovuoro: this.props.values.tyovuoro
     }
     
-    continue = e => {
+    continue = async (e) => {
         e.preventDefault();
         //lähetetään apiin
-        let tallennettu = addVuoro(this.vuoro);
+        let tallennettu = await addVuoro(this.vuoro);
         console.log(tallennettu);
         this.props.nextStep();
     }

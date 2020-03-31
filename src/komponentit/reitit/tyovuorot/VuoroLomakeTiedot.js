@@ -4,6 +4,7 @@ import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import TextField from '@material-ui/core/TextField';
 import RaisedButton from "material-ui/RaisedButton";
 import AppBar from "material-ui/AppBar";
+import VuoroLista from './VuoroLista';
 
 
 
@@ -51,6 +52,11 @@ export default class VuoroLomakeTiedot extends Component {
                             style={styles.button}
                             onClick={this.continue}
                         />
+                        <br></br>
+                        <VuoroLista
+                            lista={values.lista}
+                            poista={this.props.poistaVuoro}
+                         />
                     </div>
                 </div>
                 </React.Fragment>
@@ -60,7 +66,7 @@ export default class VuoroLomakeTiedot extends Component {
 }
 const padding = {
     padding: "70px",
-    height:"390px"
+    //height:"390px"
 }
 
 const shadow = {
@@ -83,4 +89,5 @@ const styles = {
 
 const punainen = {
     color: "red",
+    fontStyle: "italic"
 }

@@ -5,16 +5,17 @@ import TextField from '@material-ui/core/TextField';
 import AppBar from "material-ui/AppBar"
 import RaisedButton from "material-ui/RaisedButton"
 import { addHairio } from './hairioService';
+import HairioLista from './HairioLista';
 
 export default class HairioLomakeVahvistus extends Component {
     hairio = {
         hairio: this.props.values.hairio
     }
     
-    continue = e => {
+    continue = async(e) => {
         e.preventDefault();
         //lähetetään apiin
-        let tallennettu = addHairio(this.hairio);
+        let tallennettu = await addHairio(this.hairio);
         console.log(tallennettu);
         this.props.nextStep();
     }
@@ -51,6 +52,9 @@ export default class HairioLomakeVahvistus extends Component {
                             primary={true}
                             style={styles.button}
                             onClick={this.continue}
+                        />
+                        <HairioLista
+                            lista={values.lista}
                         />
                     </div>
                 </div>

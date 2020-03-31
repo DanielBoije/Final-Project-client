@@ -13,11 +13,11 @@ export default class TuotteetLomakeVahvistus extends Component {
         tuntitavoite: parseInt(this.props.values.tuntitavoite)
     }
     
-    continue = e => {
+    continue = async (e) => {
         e.preventDefault();
         //lähetetään apiin
         console.log(this.tuote);
-        let tallennettu = addTuotteet(this.tuote);
+        let tallennettu = await addTuotteet(this.tuote);
         console.log(tallennettu);
         this.props.nextStep();
     }

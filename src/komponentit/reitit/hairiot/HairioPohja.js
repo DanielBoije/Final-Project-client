@@ -2,14 +2,46 @@ import React, { Component } from 'react'
 import HairioLomakeTiedot from './HairioLomakeTiedot';
 import HairioLomakeLahetetty from './HairioLomakeLahetetty';
 import HairioLomakeVahvistus from './HairioLomakeVahvistus';
-import { getHairiot } from './hairioService';
+import HairioLista from './HairioLista';
+import { getHairiot, deleteHairio, getToteumaHairiot } from './hairioService';
 
 export default class HairioPohja extends Component {
     state = {
         step:1,
         hairio: "",
         virhe: "",
+        lista: [{
+            id: "",
+            hairio: "",
+        }],
     }
+
+    componentDidMount = () => {
+        this.paivitaLista();
+    }
+
+    paivitaLista = async () => {
+        let data = await getHairiot();
+        this.setState({lista: data});
+    }
+
+    poistaHairio = async (id) => {
+        let varatut = await getToteumaHairiot();
+        let onjo = false;
+        for(let i = 0; i < varatut.length; i++) {
+            if(id === varatut[i].hair_id) {
+                onjo = true;
+            }
+        }
+        if(onjo) {
+            this.setState({ virhe: "Häiriö liittyy työhön, ei voi poistaa" })
+        } else {
+            await deleteHairio(id);
+            this.setState(this.state);
+            this.paivitaLista();
+        }
+    }
+
 
     //syötteiden tarkastaminen ja virheen määritys
      checkValues = async () => {
@@ -47,6 +79,20 @@ export default class HairioPohja extends Component {
         this.setState({
             step: step + 1
         })
+        console.log(this.state.step);
+        if(this.state.step === 3) {
+            this.setState({
+                step:1,
+                hairio: "",
+                virhe: "",
+                lista: [{
+                    id: "",
+                    hairio: "",
+                }],
+            })
+            console.dir(this.state)
+            this.paivitaLista()
+        }
     }
 
     //edellinen steppi
@@ -65,8 +111,8 @@ export default class HairioPohja extends Component {
 
     render() {
         const { step } = this.state;
-        const { hairio, virhe } = this.state
-        const values = { step, hairio, virhe }
+        const { hairio, virhe, lista } = this.state
+        const values = { step, hairio, virhe, lista }
 
         switch(step) {
             case 1:
@@ -76,6 +122,7 @@ export default class HairioPohja extends Component {
                         handleChange={this.handleChange}
                         values={values}
                         checkValues={this.checkValues}
+                        poistaHairio={this.poistaHairio}
                     />
                 )
             case 2:
@@ -86,13 +133,15 @@ export default class HairioPohja extends Component {
                         values={values}
                     />
                 )
-            case 3:
-                return (
-                    <HairioLomakeLahetetty/>
-                )
             default:
                 return (
-                    <HairioLomakeTiedot/>
+                    <HairioLomakeTiedot
+                        nextStep={this.nextStep}
+                        handleChange={this.handleChange}
+                        values={values}
+                        checkValues={this.checkValues}
+                        poistaHairio={this.poistaHairio}
+                    />
                 )        
         }
     }
