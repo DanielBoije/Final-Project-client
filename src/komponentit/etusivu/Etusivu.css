@@ -17,6 +17,23 @@
     
   }
   
+  @media screen and (min-width: 0px) and (max-width: 320px) {
+    .otsikko {
+     
+      font-size: 30px;
+    }
+    }
+    @media screen and (min-width: 321px) and (max-width: 768px) {
+    .otsikko {
+     
+      font-size: 45px;
+    }
+    }
+    @media screen and (min-width: 769px) {
+    .otsikko{
+      font-size: 100;
+    }
+    }
  
   /* .MuiTypography-h1 {
     color:black;
