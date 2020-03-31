@@ -44,7 +44,6 @@ const useStyles = makeStyles(theme => ({
     }
     var importTuote= ()=>{
       getTuote().then(res => {
-        console.log('importTuote')
           console.log(res.data)
           setTuote({tuotenimi: res.data})
           });
