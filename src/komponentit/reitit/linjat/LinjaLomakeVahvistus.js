@@ -11,10 +11,10 @@ export default class LinjaLomakeVahvistus extends Component {
         nimi: this.props.values.nimi
     }
     
-    continue = e => {
+    continue = async(e) => {
         e.preventDefault();
         //lähetetään apiin
-        let tallennettu = addLinja(this.linja);
+        let tallennettu = await addLinja(this.linja);
         console.log(tallennettu);
         this.props.nextStep();
     }

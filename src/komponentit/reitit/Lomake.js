@@ -49,8 +49,6 @@ class Lomake extends Component {
     //lomakekentän muutokset
     handleChange = (input) => (e) => {
         console.log(e.target.value)
-        // console.log(e.target.name)
-        // console.log(e.target.id)
         this.setState({ [input]: e.target.value})
         // console.log(this.lahetys)
     }

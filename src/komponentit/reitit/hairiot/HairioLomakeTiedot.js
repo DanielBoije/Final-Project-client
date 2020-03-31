@@ -4,11 +4,11 @@ import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import TextField from '@material-ui/core/TextField';
 import RaisedButton from "material-ui/RaisedButton";
 import AppBar from "material-ui/AppBar";
-
-
+import HairioLista from './HairioLista';
+//import { deleteHairio } from './hairioService';
+//import { getHairiot } from './hairioService';
 
 export default class HairioLomakeTiedot extends Component {
-    
 
     //syötteiden tarkastaminen ja siirtyminen seuraavaan vaiheeseen
     //tai virheilmoituksen näyttäminen lomakkeella
@@ -25,7 +25,7 @@ export default class HairioLomakeTiedot extends Component {
     render() {
         const { values, handleChange } = this.props;     
 
-        return (            
+        return (           
             <MuiThemeProvider>
                 <React.Fragment>
                 <div style={shadow}>
@@ -51,6 +51,11 @@ export default class HairioLomakeTiedot extends Component {
                             style={styles.button}
                             onClick={this.continue}
                         />
+                        <br></br>
+                        <HairioLista
+                            lista={values.lista}
+                            poista={this.props.poistaHairio}
+                         />
                     </div>
                 </div>
                 </React.Fragment>
@@ -60,7 +65,7 @@ export default class HairioLomakeTiedot extends Component {
 }
 const padding = {
     padding: "70px",
-    height:"390px"
+    // height:"390px"
 }
 
 const shadow = {
@@ -81,4 +86,5 @@ const styles = {
 
 const punainen = {
     color: "red",
+    fontStyle: "italic"
 }

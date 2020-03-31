@@ -4,9 +4,7 @@ import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import TextField from '@material-ui/core/TextField';
 import RaisedButton from "material-ui/RaisedButton";
 import AppBar from "material-ui/AppBar";
-
-
-
+import TuotteetLista from './TuotteetLista';
 
 
 export default class TuotteetLomakeTiedot extends Component {
@@ -70,6 +68,11 @@ export default class TuotteetLomakeTiedot extends Component {
                             style={styles.button}
                             onClick={this.continue}
                         />
+                                                <br></br>
+                        <TuotteetLista
+                            lista={values.lista}
+                            poista={this.props.poistaTuote}
+                         />
                     </div>
                 </div> 
                 </React.Fragment>
@@ -80,7 +83,7 @@ export default class TuotteetLomakeTiedot extends Component {
 
 const padding = {
     padding: "70px",
-    
+    //height:"390px"
 }
 
 const shadow = {
@@ -101,4 +104,5 @@ const styles = {
 
 const punainen = {
     color: "red",
+    fontStyle: "italic"
 }
