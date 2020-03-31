@@ -67,7 +67,7 @@ const useStyles = makeStyles(theme => ({
           <Select
             labelId="vuoro"
             id="vuoro"
-            // onChange={props.handleChange("vuoro")}
+            onChange={props.handleChange("vuoro")}
             defaultValue={props.values.vuoro.id}
           >
             {vuorolista}
