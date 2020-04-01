@@ -1,31 +1,35 @@
 import React, { Component } from 'react';
 import Häiriöt from "./tilastot/Häiriöt"
-import Tavoitteet from "./tilastot/Tavoitteet"
+// import Tavoitteet from "./tilastot/Tavoitteet"
 import Pohjahaku from "./tilastot/Pohjahaku"
+import {addPiirakka} from "./tilastot/tilastoService"
 
 class tilastot extends Component {
     state= {
-        showkakku: false
+        showkakku: false,
+        piirakkavastaus: {}     
     }
-    
-    // handleChange = () => {
-    // }
 
-    naytaKakku = () => {
-        this.setState({showkakku:true})
+    lisääPiirakka = (data) => {
+        addPiirakka(data).then(async res => {
+            console.log(res)
+            await this.setState({showkakku: true, piirakkavastaus: res.data})
+            console.log(this.state)
+            })
     }
 
     render() {
-        // const linja = this.state.linja
+        const piirakkatiedot = this.state.piirakkavastaus
         return (
             <div>
                 <div style={divi}>
                     <Pohjahaku
                         handleChange={this.handleChange}
                         naytaKakku={this.naytaKakku}
+                        lisääPiirakka={this.lisääPiirakka}
                         // linja={linja}
                     />
-                    {this.state.showkakku ? <Häiriöt/> : ""}
+                    {this.state.showkakku ? <Häiriöt tiedot={piirakkatiedot}/> : ""}
                 </div>
                 {/* <Tavoitteet/> */}
             </div>

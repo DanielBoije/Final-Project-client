@@ -4,7 +4,8 @@ import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import TextField from '@material-ui/core/TextField';
 import RaisedButton from "material-ui/RaisedButton";
 import AppBar from "material-ui/AppBar";
-import SimpleSelect from "./LinjaSelect"
+import SimpleSelect from "./LinjaSelect";
+// import {addPiirakka} from "./tilastoService"
 
 
 
@@ -19,8 +20,12 @@ export default class Pohjahaku extends Component {
     //syötteiden tarkastaminen ja siirtyminen seuraavaan vaiheeseen
     //tai virheilmoituksen näyttäminen lomakkeella
     continue = async (e) => {
-        e.preventDefault();
-        this.props.naytaKakku();
+        await e.preventDefault();
+        console.log(this.state)
+        await this.props.lisääPiirakka(this.state)
+        // addPiirakka(this.state).then(res => console.log(res))
+        // this.props.naytaKakku();
+
         // let check = await this.props.checkValues();
         // if (check) {
         //     this.props.nextStep();
@@ -58,7 +63,7 @@ export default class Pohjahaku extends Component {
                         </p> */}
                         <br></br>
                         <RaisedButton
-                            label="Jatka"
+                            label="Näytä"
                             primary={true}
                             style={styles.button}
                             onClick={this.continue}
@@ -84,7 +89,8 @@ const shadow = {
     width: "fit-content",
     height: "fit-content",
     display: "inline-block",
-    boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"
+    boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
+    marginLeft: "300px"
 }
 
 const styles = {
