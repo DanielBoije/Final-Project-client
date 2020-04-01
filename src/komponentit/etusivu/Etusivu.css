@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Amatic+SC|Open+Sans+Condensed:300&display=swap');
 
 .otsikko {
-    background: 
-      url(a1.jpg) center
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+      url(original.jpg) center
         center/cover no-repeat;
     height: 100vh;
     position: relative;
@@ -12,7 +12,10 @@
     font-family: 'Open Sans Condensed', sans-serif;
     font-size: 100px;
     font-style: uppercase;
+    color: white;
+    letter-spacing: 0.3rem;
    
+    
 
     
   }
@@ -34,6 +37,7 @@
       font-size: 100;
     }
     }
+
  
   /* .MuiTypography-h1 {
     color:black;

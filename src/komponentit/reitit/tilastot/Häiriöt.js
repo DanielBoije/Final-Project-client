@@ -74,8 +74,10 @@ class Häiriöt extends Component {
 }
 
 const bar = {
+
     width:"700px",
     height:"300px"
+
 }
 
 export default Häiriöt;

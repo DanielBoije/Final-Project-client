@@ -54,7 +54,8 @@ class tilastot extends Component {
 
 const divi = {
     margin: "100px",
-    display: "flex"
+    display: "flex",
+   
 }
 const divi2 = {
     margin: "100px",

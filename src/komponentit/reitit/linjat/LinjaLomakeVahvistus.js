@@ -3,8 +3,10 @@ import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 //import TextField from "material-ui/TextField"
 import TextField from '@material-ui/core/TextField';
 import AppBar from "material-ui/AppBar"
-import RaisedButton from "material-ui/RaisedButton"
+// import RaisedButton from "material-ui/RaisedButton"
 import { addLinja } from './linjaService';
+import Button from '@material-ui/core/Button';
+import SaveIcon from '@material-ui/icons/Save';
 
 export default class LinjaLomakeVahvistus extends Component {
     linja = {
@@ -32,27 +34,33 @@ export default class LinjaLomakeVahvistus extends Component {
                 <React.Fragment>
                 <div style={shadow}>
                    
-                    <AppBar title="Linjat" showMenuIconButton={false}/>
-                    <div style={padding}>
+                    <AppBar style={{ background: '#212121' }} title="LINJAT" showMenuIconButton={false}/>
+                    <div className="vahlinjacss">
                         <TextField 
                             label="Linja" 
                             size="medium"
                             defaultValue={values.nimi}
                             InputProps={{ readOnly: true }}
                         />
-                            <br></br>
-                        <RaisedButton
-                            label="Takaisin"
-                            primary={false}
-                            style={styles.button}
-                            onClick={this.back}
-                        />
-                        <RaisedButton
-                            label="Vahvista"
-                            primary={true}
-                            style={styles.button}
-                            onClick={this.continue}
-                        />
+                            <br></br><br></br><br></br>
+                            <br></br><br></br>
+                            <Button
+                                variant="outlined"
+                                color="secondary"
+                                onClick={this.back}
+                                size="medium"
+                                style={styles.button}>
+                                TAKAISIN
+                            </Button>
+                         
+                            <Button
+                                variant="contained"
+                                color="primary"
+                                size="medium"
+                                onClick={this.continue}
+                                startIcon={<SaveIcon />}>
+                                TALLENNA
+                            </Button>
                         </div>
                     </div>
                
@@ -64,13 +72,14 @@ export default class LinjaLomakeVahvistus extends Component {
 
 
 
-const padding = {
-    padding: "20px 50px 50px 50px"
-}
+// const padding = {
+//     padding: "121px",
+//     height:"595px"
+// }
 
 const shadow = {
     textAlign: "center",
-    margin: "50px",
+    margin: "0px",
     borderRadius: "10px",
     width: "fit-content",
     height: "fit-content",

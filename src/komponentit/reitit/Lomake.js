@@ -86,6 +86,7 @@ class Lomake extends Component {
         switch(step) {
             case 1:
                 return (
+                    
                     <LomakeTiedot 
                         nextStep={this.nextStep}
                         handleChange={this.handleChange}

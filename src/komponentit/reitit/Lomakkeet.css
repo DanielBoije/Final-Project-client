@@ -1,18 +1,76 @@
 .test {
-    background: 
-      url(kuutio.jpg);
     
-    height: 100vh;
+   
+    height: 50vh;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index:1;
-  
+    z-index:3;
+   
     display: grid;
     grid-template-columns:repeat(4, 1fr);
-    grid-gap: 7em;
-    padding: 7em
+    grid-gap: 0.2em;
+    padding: 1.5em
+  
+    
     
 }
+
+.hairiocss {
+  
+  padding:105px;
+  height:597px;
+  width: 380px;
+}
+
+.linjacss {
+
+  padding:105px;
+  height:597px;
+  width: 380px;
+}
+
+.tyovuorotcss {
+
+  padding:110px;
+  height:597px;
+  width: 380px;
+}
+
+.tuotteetcss {
+  padding:105px;
+  height:597px;
+  width: 380px;
+}
+
+
+
+.vahhairiocss {
+  
+  padding:105px;
+  height:597px;
+  width: 380px;
+}
+
+.vahlinjacss {
+
+  padding:105px;
+  height:597px;
+  width: 380px;
+}
+
+.vahtyovuorotcss {
+
+  padding:110px;
+  height:597px;
+  width: 380px;
+}
+
+.vahtuotteetcss {
+  padding:105px;
+  height:597px;
+  width: 380px;
+}
+
 

@@ -1,25 +1,26 @@
 import React, { Component } from 'react'
-
+import Button from '@material-ui/core/Button';
+import DeleteIcon from '@material-ui/icons/Delete';
 export default class Vuoro extends Component {
     poista = () => {
-        this.props.poista(this.props.lista.id)
+        this.props.poista(this.props.lista.id) 
     }
     render() {
         return (
-            <tr style={list}>
+            
+            <tr>
+            
                 {/* <td>{this.props.lista.id}</td> */}
-                <td>{this.props.lista.tyovuoro}</td>
+             <td>{this.props.lista.tyovuoro}</td> <br/><br/>
                 {/* <td><button type="button">&#9998;</button></td> */}
-                <td><button style={poista} type="button" onClick={this.poista}>&#10005;</button></td>
+                <td><Button size="small"  variant="contained" color="secondary" onClick={this.poista} startIcon={<DeleteIcon />}>Poista</Button> </td>
             </tr>
+           
         )
     }
 }
 
-const list = {
-    textAlign: "left"
-}
 
-const poista = {
-    color: "red"
-}
+// const list = {
+//     textAlign: "left"
+// }

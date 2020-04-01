@@ -9,9 +9,9 @@ class Etusivu extends Component {
                 <p>PRODUCTION TRACKER</p>
             </div>
         );
-        
 
     }
+
 }
 
 export default Etusivu;
