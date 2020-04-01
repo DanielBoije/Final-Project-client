@@ -29,7 +29,7 @@ export default class TuotteetLomakeTiedot extends Component {
             <MuiThemeProvider>
                 <React.Fragment>
                     <div style={shadow}>
-                        <AppBar style={{ background: '#212121' }} title="TUOTTEET" showMenuIconButton={false} />
+                        <AppBar style={{ background: 'black' }} title="TUOTTEET" showMenuIconButton={false} />
                         <div className="tuotteetcss">
 
                             <TextField 
@@ -65,7 +65,7 @@ export default class TuotteetLomakeTiedot extends Component {
                            
                             <Button
                                 variant="contained"
-                                color="default"
+                                color="primary"
                                 onClick={this.continue}
                                 size="large"
                                 // label="Jatka"

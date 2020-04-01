@@ -76,7 +76,7 @@ class LomakeTiedot extends Component {
                         <div className="testi2">
                             <Paper>
                                 <div style={shadow}>
-                                    <AppBar style={{ background: '#212121' }} title="Tuotanto" showMenuIconButton={false} />
+                                    <AppBar style={{ background: 'black' }} title="Tuotanto" showMenuIconButton={false} />
                                     <div style={padding}>
                                         <DatePicker
                                             hintText="Päivämäärä*"
@@ -92,7 +92,7 @@ class LomakeTiedot extends Component {
                                         {/* <RaisedButton style={häiriö} label="Lisää häiriö" onClick={this.showModal}></RaisedButton> */}
 
                                         <Button
-                                            variant="outlined"
+                                            variant="contained"
                                             color="secondary"
                                             onClick={this.showModal}
                                             size="medium"
@@ -133,7 +133,7 @@ class LomakeTiedot extends Component {
                                         <br></br>
                                         <Button
                                             variant="contained"
-                                            color="default"
+                                            color="primary"
                                             onClick={this.continue}
                                             size="large"
                                             // style={styles.button}

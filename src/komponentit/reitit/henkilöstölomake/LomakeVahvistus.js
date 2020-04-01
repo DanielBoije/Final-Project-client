@@ -41,7 +41,7 @@ class LomakeVahvistus extends Component {
                     <div className="vahvistus">
                         <Paper>
                             <div style={shadow}>
-                                <AppBar style={{ background: '#212121' }} title="Tuotanto" showMenuIconButton={false} />
+                                <AppBar style={{ background: 'black' }} title="Tuotanto" showMenuIconButton={false} />
                                 <div style={padding}>
                                     <List>
                                         <ListItem
