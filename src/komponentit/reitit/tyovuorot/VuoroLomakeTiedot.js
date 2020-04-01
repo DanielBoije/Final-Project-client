@@ -8,6 +8,7 @@ import VuoroLista from './VuoroLista';
 import Button from '@material-ui/core/Button';
 
 
+
 export default class VuoroLomakeTiedot extends Component {
 
 
@@ -30,7 +31,7 @@ export default class VuoroLomakeTiedot extends Component {
             <MuiThemeProvider>
                 <React.Fragment>
                     <div style={shadow}>
-                        <AppBar style={{ background: '#212121' }} title="TYÖVUOROT" showMenuIconButton={false} />
+                        <AppBar style={{ background: 'black' }} title="TYÖVUOROT" showMenuIconButton={false} />
                         <div className="tyovuorotcss">
 
                             <TextField
@@ -51,7 +52,7 @@ export default class VuoroLomakeTiedot extends Component {
                             <Button
 
                                 variant="contained"
-                                color="default"
+                                color="primary"
                                 onClick={this.continue}
                                 size="large"
                                 // label="Jatka"

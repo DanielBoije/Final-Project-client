@@ -30,7 +30,7 @@ export default class LinjaLomakeTiedot extends Component {
             <MuiThemeProvider>
                 <React.Fragment>
                 <div style={shadow}>
-                    <AppBar style={{ background: '#212121' }} title="LINJAT" showMenuIconButton={false}/>
+                    <AppBar style={{ background: 'black' }} title="LINJAT" showMenuIconButton={false}/>
                     <div className="linjacss">
                         <TextField 
                             type="text"
@@ -48,7 +48,7 @@ export default class LinjaLomakeTiedot extends Component {
                         <br></br>
                         <Button
                                 variant="contained"
-                                color="default"
+                                color="primary"
                                 onClick={this.continue}
                                 size="large"
                                 // label="Jatka"

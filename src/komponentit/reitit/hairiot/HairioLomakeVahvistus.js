@@ -34,7 +34,7 @@ export default class HairioLomakeVahvistus extends Component {
             <MuiThemeProvider>
                 <React.Fragment>
                 <div style={shadow}>
-                    <AppBar style={{ background: '#212121' }} title="HÄIRIÖT" showMenuIconButton={false}/>
+                    <AppBar style={{ background: 'black' }} title="HÄIRIÖT" showMenuIconButton={false}/>
                     <div className="vahhairiocss">
                         <TextField 
                             label="Häiriö" 

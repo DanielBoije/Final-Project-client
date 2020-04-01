@@ -29,7 +29,7 @@ export default class HairioLomakeTiedot extends Component {
             <MuiThemeProvider>
                 <React.Fragment>
                 <div style={shadow}>
-                    <AppBar style={{ background: '#212121' }} title="HÄIRIÖT" showMenuIconButton={false}/>
+                    <AppBar style={{ background: 'black' }} title="HÄIRIÖT" showMenuIconButton={false}/>
                     <div className="hairiocss">
 
                         <TextField 
@@ -48,7 +48,7 @@ export default class HairioLomakeTiedot extends Component {
                         <br/>
                         <Button
                                 variant="contained"
-                                color="default"
+                                color="primary"
                                 onClick={this.continue}
                                 size="large"
                                 // label="Jatka"

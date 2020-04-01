@@ -33,7 +33,7 @@ export default class VuoroLomakeVahvistus extends Component {
             <MuiThemeProvider>
                 <React.Fragment>
                 <div style={shadow}>
-                    <AppBar style={{ background: '#212121' }} title="TYÖVUOROT" showMenuIconButton={false}/>
+                    <AppBar style={{ background: 'black' }} title="TYÖVUOROT" showMenuIconButton={false}/>
                     <div className="vahtyovuorotcss">
                         <TextField 
                             label="Vuoro" 

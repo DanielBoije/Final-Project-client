@@ -34,7 +34,7 @@ export default class LinjaLomakeVahvistus extends Component {
                 <React.Fragment>
                 <div style={shadow}>
                    
-                    <AppBar style={{ background: '#212121' }} title="LINJAT" showMenuIconButton={false}/>
+                    <AppBar style={{ background: 'black' }} title="LINJAT" showMenuIconButton={false}/>
                     <div className="vahlinjacss">
                         <TextField 
                             label="Linja" 
