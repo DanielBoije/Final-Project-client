@@ -49,6 +49,8 @@ class Lomake extends Component {
     //lomakekentän muutokset
     handleChange = (input) => (e) => {
         console.log(e.target.value)
+        console.log(e.target.nimi)
+        console.log(e.target.id)
         this.setState({ [input]: e.target.value})
         // console.log(this.lahetys)
     }
@@ -80,7 +82,7 @@ class Lomake extends Component {
         const { step } = this.state;
         const { pvm, vuoro, linja, tuote, lisääHäiriö, häiriönKesto, tehdytTunnit, viesti, tehdytKappaleet } = this.state
         const values = { step, pvm, vuoro, linja, tuote, lisääHäiriö, häiriönKesto, tehdytTunnit, viesti, tehdytKappaleet }
-        
+
         switch(step) {
             case 1:
                 return (
