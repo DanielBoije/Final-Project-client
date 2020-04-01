@@ -26,7 +26,9 @@ class LomakeTiedot extends Component {
 
      
     continue = e => {
-        if (this.props.values.pvm && this.props.values.vuoro && this.props.values.tuote && this.props.values.linja) {
+        if (this.props.values.pvm && this.props.values.vuoro && 
+            this.props.values.tuote && this.props.values.linja &&
+            this.props.values.tehdytTunnit && this.props.values.tehdytKappaleet) {
         e.preventDefault();
         console.log("kaikki ok")
         this.props.nextStep();
@@ -94,7 +96,7 @@ class LomakeTiedot extends Component {
                                             min="0"
                                             step="0.1"
                                             required
-                                            hintText="Tehdyt tunnit (0,1 = 6min)"
+                                            hintText="Tehdyt tunnit* (0,1 = 6min)"
                                             onChange={handleChange("tehdytTunnit")}
                                             defaultValue={values.tehdytTunnit}
                                         /><br></br>
@@ -103,7 +105,7 @@ class LomakeTiedot extends Component {
                                             min="0"
                                             step="1"
                                             required
-                                            hintText="Tehdyt kappaleet"
+                                            hintText="Tehdyt kappaleet*"
                                             onChange={handleChange("tehdytKappaleet")}
                                             defaultValue={values.tehdytKappaleet}
                                         /><br></br>

@@ -1,6 +1,7 @@
 var hairiotURL = "http://localhost:3000/api/hairiot"
 const linjatURL = "http://localhost:3000/api/linjat"
 const piirakkaURL = "http://localhost:3000/api/piirakka"
+const tavoiteURL = "http://localhost:3000/api/diagrammi"
 
 
 var axios = require('axios');
@@ -15,5 +16,8 @@ function getLinjat() {
 function addPiirakka(nq) {
        return  axios.post(piirakkaURL, nq)
 }
+function addTavoite(nq) {
+       return  axios.post(tavoiteURL, nq)
+}
 
-export {getHairio, getLinjat, addPiirakka};
+export {getHairio, getLinjat, addPiirakka, addTavoite};
