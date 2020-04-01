@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 //import TextField from "material-ui/TextField";
 import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
+// import Button from '@material-ui/core/Button';
 import AppBar from "material-ui/AppBar";
 import LinjaLista from './LinjaLista';
+import RaisedButton from "material-ui/RaisedButton";
 
 
 
@@ -30,7 +31,10 @@ export default class LinjaLomakeTiedot extends Component {
             <MuiThemeProvider>
                 <React.Fragment>
                 <div style={shadow}>
-                    <AppBar style={{ background: 'black' }} title="LINJAT" showMenuIconButton={false}/>
+
+                {/* style={{ background: 'black' }} */}
+
+                    <AppBar title="LINJAT" showMenuIconButton={false}/>
                     <div className="linjacss">
                         <TextField 
                             type="text"
@@ -46,15 +50,21 @@ export default class LinjaLomakeTiedot extends Component {
                         </p>
                         <br></br><br></br><br></br>
                         <br></br>
-                        <Button
+                        {/* <Button
                                 variant="contained"
                                 color="primary"
                                 onClick={this.continue}
                                 size="large"
-                                // label="Jatka"
-                                // default={true}
+                                 label="Jatka"
+                                default={true}
                                 style={styles.button}>
-                                   JATKA </Button>
+                                    JATKA </Button> */}
+
+                            <RaisedButton
+                            label="JATKA"
+                            primary={true}
+                            style={styles.button}
+                            onClick={this.continue}/>
 
                         <br></br><br></br><br>
                         </br><br></br>

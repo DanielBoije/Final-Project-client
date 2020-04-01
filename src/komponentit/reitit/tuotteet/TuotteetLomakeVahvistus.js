@@ -36,7 +36,7 @@ export default class TuotteetLomakeVahvistus extends Component {
             <MuiThemeProvider>
                 <React.Fragment>
                     <div style={shadow}>
-                        <AppBar style={{ background: 'black' }} title="TUOTTEET" showMenuIconButton={false} />
+                        <AppBar title="TUOTTEET" showMenuIconButton={false} />
                         <div className="vahtuotteetcss">
                             <TextField
                                 label="Tuotenumero"
