@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
-//import TextField from "material-ui/TextField";
-import TextField from '@material-ui/core/TextField';
 import RaisedButton from "material-ui/RaisedButton";
 import AppBar from "material-ui/AppBar";
 import SimpleSelect from "./LinjaSelect";
-// import {addPiirakka} from "./tilastoService"
 
 
 
@@ -23,20 +20,9 @@ export default class Pohjahaku extends Component {
         await e.preventDefault();
         console.log(this.state)
         await this.props.lisääPiirakka(this.state)
-        // addPiirakka(this.state).then(res => console.log(res))
-        // this.props.naytaKakku();
-
-        // let check = await this.props.checkValues();
-        // if (check) {
-        //     this.props.nextStep();
-        // } else {
-        //     console.log("syöte virheellinen tai vastaava linja löytyy jo kannasta");
-        // }
     }
 
     handleChange = async (e) => {
-        // console.log(e.target.value)
-        // console.log(this.props.linja)
         await this.setState({
             linja:e.target.value
         })
@@ -44,9 +30,6 @@ export default class Pohjahaku extends Component {
     }
     
     render() {
-        // const { handleChange } = this.props; 
-        // const { values, handleChange } = this.props;     
-
         return (            
             <MuiThemeProvider>
                 <React.Fragment>
@@ -54,13 +37,8 @@ export default class Pohjahaku extends Component {
                     <AppBar title="Hae häiriötilastot" showMenuIconButton={false}/>
                     <div style={padding}>
                         <SimpleSelect
-                            // values={values}
                             handleChange={this.handleChange}
                         />
-                        {/* <br></br>
-                        <p style={punainen}>
-                            {values.virhe}
-                        </p> */}
                         <br></br>
                         <RaisedButton
                             label="Näytä"
@@ -97,9 +75,4 @@ const styles = {
     button: {
         margin: 15
     }
-}
-
-const punainen = {
-    color: "red",
-    fontStyle: "italic"
 }

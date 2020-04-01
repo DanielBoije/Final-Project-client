@@ -44,7 +44,6 @@ const useStyles = makeStyles(theme => ({
             labelId="linja"
             id="linja"
             onChange={props.handleChange}
-            // defaultValue={props.values.linja}
           >
             {linjalista}
           </Select>

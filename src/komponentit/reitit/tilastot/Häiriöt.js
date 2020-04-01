@@ -1,26 +1,8 @@
 import React, { Component } from 'react';
 import {Pie} from "react-chartjs-2"
-import {getHairio} from "./tilastoService"
 
 class Häiriöt extends Component {
-    constructor(){
-        super();
-        this.state = {
-            chartData:[]
-        }
-    }
     
-    componentWillMount(){
-        this.getChartData();
-    }
-
-    getChartData(){
-        getHairio().then(res => {
-            console.log(res.data)
-            this.setState({chartData: res.data})
-            });
-    }
-
     render() {
         console.log(this.props.tiedot) // tässä kaikki tiedot
         var työaikayht = parseInt(this.props.tiedot.tyoaikayht)
@@ -33,15 +15,12 @@ class Häiriöt extends Component {
 
         hairiot.unshift("häiriötön aika")
         hairiotkesto.unshift(hairiotonaika)
-        // console.log(this.state.chartData)
-        // var hairiot = this.state.chartData.map( b => b.hairio );
-        // console.log(hairiot)
         var hairiodata = {
             labels: hairiot,
             datasets: [
                 {
                     label: "Häiriöt",
-                    data: hairiotkesto, //nämä pitää muuttaa että päivittyvät automaattisesti kun lisätään uutta
+                    data: hairiotkesto, 
                     backgroundColor: ['#00B3E6', '#FFB399', '#FF33FF', '#FFFF99', '#FF6633', 
                     '#E6B333', '#3366E6', '#999966', '#99FF99', '#B34D4D',
                     '#80B300', '#809900', '#E6B3B3', '#6680B3', '#66991A', 
