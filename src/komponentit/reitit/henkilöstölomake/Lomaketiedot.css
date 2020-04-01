@@ -1,7 +1,7 @@
 .testi {
    
     background: 
-      url(kuutio2.jpg) center
+      url(putki.jpg) center
         center/cover no-repeat;
     height: 100vh;
     position: relative;
@@ -9,15 +9,17 @@
     justify-content: center;
     align-items: center;
     z-index: 3;
-   
+    margin-top: 30px;
+    padding-top: 3rem;
+  
   }
 
   .vahvistus {
    
     background: 
-      url(kokop.jpg) center
+      url(putki.jpg) center
         center/cover no-repeat;
-    height: 100vh;
+    height: 140vh;
     position: relative;
     display: flex;
     justify-content: center;
@@ -26,10 +28,10 @@
    
   }
 
-  .lomakelahetetty {
+  .lomakelahetetty a {
    
     background: 
-      url(kokop.jpg) center
+      url(putki.jpg) center
         center/cover no-repeat;
     height: 100vh;
     position: relative;
@@ -37,9 +39,19 @@
     justify-content: center;
     align-items: center;
     z-index: 3;
-   
+    padding-top: 5rem;
+    text-decoration-line: none;
+    
   }
 
+  
+
+  
+  
+
+ 
+
+ 
 
 
 

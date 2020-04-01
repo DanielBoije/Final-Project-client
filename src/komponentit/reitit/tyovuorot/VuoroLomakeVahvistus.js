@@ -3,8 +3,10 @@ import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 //import TextField from "material-ui/TextField"
 import TextField from '@material-ui/core/TextField';
 import AppBar from "material-ui/AppBar"
-import RaisedButton from "material-ui/RaisedButton"
+// import RaisedButton from "material-ui/RaisedButton"
 import { addVuoro } from './vuoroService';
+import Button from '@material-ui/core/Button';
+import SaveIcon from '@material-ui/icons/Save';
 
 export default class VuoroLomakeVahvistus extends Component {
     vuoro = {
@@ -31,27 +33,33 @@ export default class VuoroLomakeVahvistus extends Component {
             <MuiThemeProvider>
                 <React.Fragment>
                 <div style={shadow}>
-                    <AppBar title="Työvuorot" showMenuIconButton={false}/>
-                    <div style={padding}>
+                    <AppBar style={{ background: '#212121' }} title="TYÖVUOROT" showMenuIconButton={false}/>
+                    <div className="vahtyovuorotcss">
                         <TextField 
                             label="Vuoro" 
                             size="medium"
                             defaultValue={values.tyovuoro}
                             InputProps={{ readOnly: true }}
                         />
-                            <br></br>
-                        <RaisedButton
-                            label="Takaisin"
-                            primary={false}
-                            style={styles.button}
-                            onClick={this.back}
-                        />
-                        <RaisedButton
-                            label="Vahvista"
-                            primary={true}
-                            style={styles.button}
-                            onClick={this.continue}
-                        />
+                            <br></br><br></br><br></br>
+                            <br></br><br></br>
+                            <Button
+                                variant="outlined"
+                                color="secondary"
+                                onClick={this.back}
+                                size="medium"
+                                style={styles.button}>
+                                TAKAISIN
+                            </Button>
+                         
+                            <Button
+                                variant="contained"
+                                color="primary"
+                                size="medium"
+                                onClick={this.continue}
+                                startIcon={<SaveIcon />}>
+                                TALLENNA
+                            </Button>
                     </div>
                 </div>
                 </React.Fragment>
@@ -59,13 +67,14 @@ export default class VuoroLomakeVahvistus extends Component {
         );
     }
 }
-const padding = {
-    padding: "20px 50px 50px 50px"
-}
+// const padding = {
+//     padding: "127px",
+//     height:"597px"
+// }
 
 const shadow = {
     textAlign: "center",
-    margin: "50px",
+    margin: "0px",
     borderRadius: "10px",
     width: "fit-content",
     height: "fit-content",

@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 //import TextField from "material-ui/TextField";
 import TextField from '@material-ui/core/TextField';
-import RaisedButton from "material-ui/RaisedButton";
+import Button from '@material-ui/core/Button';
 import AppBar from "material-ui/AppBar";
 import TuotteetLista from './TuotteetLista';
+import './Tuotteet.css';
 
 
 export default class TuotteetLomakeTiedot extends Component {
-    
+
     //syötteiden tarkastaminen ja siirtyminen seuraavaan vaiheeseen
     //tai virheilmoituksen näyttäminen lomakkeella
     continue = async (e) => {
@@ -20,18 +21,18 @@ export default class TuotteetLomakeTiedot extends Component {
             console.log("syöte virheellinen tai löytyy jo kannasta");
         }
     }
-    
-    render() {
-        const { values, handleChange } = this.props;     
 
-        return (            
+    render() {
+        const { values, handleChange } = this.props;
+
+        return (
             <MuiThemeProvider>
                 <React.Fragment>
-                <div style={shadow}>
-                    <AppBar title="Tuotteet" showMenuIconButton={false}/>
-                    <div style={padding}>
+                    <div style={shadow}>
+                        <AppBar style={{ background: '#212121' }} title="TUOTTEET" showMenuIconButton={false} />
+                        <div className="tuotteetcss">
 
-                        <TextField 
+                            <TextField 
                             type="number"
                             size="medium"
                             required
@@ -39,52 +40,58 @@ export default class TuotteetLomakeTiedot extends Component {
                             onChange={handleChange("tuotenro")}
                             defaultValue={values.tuotenro}
                         />
-                        <br></br>
-                        <TextField 
-                            type="text"
-                            size="medium"
-                            required
-                            label="Tuotenimi" 
-                            onChange={handleChange("tuotenimi")}
-                            defaultValue={values.tuotenimi}
-                        />
-                        <br></br>
-                        <TextField 
-                            type="number"
-                            size="medium"
-                            required
-                            label="Tuntitavoite" 
-                            onChange={handleChange("tuntitavoite")}
-                            defaultValue={values.tuntitavoite}
-                        />
-                        <br></br>
-                        <p style={punainen}>
-                            {values.virhe}
-                        </p>
-                        <br></br>
-                        <RaisedButton
-                            label="Jatka"
-                            primary={true}
-                            style={styles.button}
-                            onClick={this.continue}
-                        />
-                                                <br></br>
-                        <TuotteetLista
-                            lista={values.lista}
-                            poista={this.props.poistaTuote}
-                         />
+
+                            <TextField
+                                type="text"
+                                size="medium"
+                                required
+                                label="Tuotenimi"
+                                onChange={handleChange("tuotenimi")}
+                                defaultValue={values.tuotenimi}
+                            />
+
+                            <TextField
+                                type="number"
+                                size="medium"
+                                required
+                                label="Tuntitavoite"
+                                onChange={handleChange("tuntitavoite")}
+                                defaultValue={values.tuntitavoite}
+                            />
+
+                            <p style={punainen}>
+                                {values.virhe}
+                            </p>
+                           
+                            <Button
+                                variant="contained"
+                                color="default"
+                                onClick={this.continue}
+                                size="large"
+                                // label="Jatka"
+                                // default={true}
+                                style={styles.button}>
+                                   JATKA </Button>
+
+                            <br></br><br/>
+                            
+
+                            <TuotteetLista
+                                lista={values.lista}
+                                poista={this.props.poistaTuote}
+                            />
+                        </div>
                     </div>
-                </div> 
                 </React.Fragment>
             </MuiThemeProvider>
         );
     }
 }
 
-const padding = {
-    padding: "70px",
-    //height:"390px"
-}
+// const padding = {
+//     padding: "110px",
+//     height:"583px"
+// }
 
 const shadow = {
     textAlign: "center",

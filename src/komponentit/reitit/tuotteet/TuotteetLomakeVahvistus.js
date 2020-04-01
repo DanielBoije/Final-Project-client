@@ -3,8 +3,10 @@ import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 //import TextField from "material-ui/TextField"
 import TextField from '@material-ui/core/TextField';
 import AppBar from "material-ui/AppBar"
-import RaisedButton from "material-ui/RaisedButton"
+// import RaisedButton from "material-ui/RaisedButton"
 import { addTuotteet } from './tuoteService';
+import Button from '@material-ui/core/Button';
+import SaveIcon from '@material-ui/icons/Save';
 
 export default class TuotteetLomakeVahvistus extends Component {
     tuote = {
@@ -12,7 +14,7 @@ export default class TuotteetLomakeVahvistus extends Component {
         tuotenimi: this.props.values.tuotenimi,
         tuntitavoite: parseInt(this.props.values.tuntitavoite)
     }
-    
+
     continue = async (e) => {
         e.preventDefault();
         //lähetetään apiin
@@ -26,60 +28,67 @@ export default class TuotteetLomakeVahvistus extends Component {
         e.preventDefault();
         this.props.prevStep();
     }
-    
+
     render() {
         const { values } = this.props;
-        
-        return (            
+
+        return (
             <MuiThemeProvider>
                 <React.Fragment>
-                <div style={shadow}>
-                    <AppBar title="Tuotteet" showMenuIconButton={false}/>
-                    <div style={padding}>
-                        <TextField 
-                            label="Tuotenumero" 
-                            size="medium"
-                            defaultValue={values.tuotenro}
-                            InputProps={{ readOnly: true }}
-                        />
+                    <div style={shadow}>
+                        <AppBar style={{ background: '#212121' }} title="TUOTTEET" showMenuIconButton={false} />
+                        <div className="vahtuotteetcss">
+                            <TextField
+                                label="Tuotenumero"
+                                size="medium"
+                                defaultValue={values.tuotenro}
+                                InputProps={{ readOnly: true }}
+                            />
                             <br></br>
-                        <TextField 
-                            label="Tuotteen nimi" 
-                            size="medium"
-                            defaultValue={values.tuotenimi}
-                            InputProps={{ readOnly: true }}
-                        />
+                            <TextField
+                                label="Tuotteen nimi"
+                                size="medium"
+                                defaultValue={values.tuotenimi}
+                                InputProps={{ readOnly: true }}
+                            />
                             <br></br>
-                        <TextField 
-                            label="Tuntitavoite kpl/tunti" 
-                            size="medium"
-                            defaultValue={values.tuntitavoite}
-                            InputProps={{ readOnly: true }}
-                        />
+                            <TextField
+                                label="Tuntitavoite kpl/tunti"
+                                size="medium"
+                                defaultValue={values.tuntitavoite}
+                                InputProps={{ readOnly: true }}
+                            />
                             <br></br>
-                        <RaisedButton
-                            label="Takaisin"
-                            primary={false}
-                            style={styles.button}
-                            onClick={this.back}
-                        />
-                        <RaisedButton
-                            label="Vahvista"
-                            primary={true}
-                            style={styles.button}
-                            onClick={this.continue}
-                        />
+                            <Button
+                                variant="outlined"
+                                color="secondary"
+                                onClick={this.back}
+                                size="medium"
+                                style={styles.button}>
+                                TAKAISIN
+                            </Button>
+                         
+                            <Button
+                                variant="contained"
+                                color="primary"
+                                size="medium"
+                                onClick={this.continue}
+                                startIcon={<SaveIcon />}>
+                                TALLENNA
+                            </Button>
+                        
+                        </div>
                     </div>
-                </div>
                 </React.Fragment>
             </MuiThemeProvider>
         );
     }
 }
-const padding = {
-    padding: "20px 50px 50px 50px",
-    
-}
+// const padding = {
+//     padding: "121px",
+//     height: "595px"
+
+// }
 
 const shadow = {
     textAlign: "center",

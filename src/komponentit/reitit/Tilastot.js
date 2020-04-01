@@ -15,7 +15,8 @@ class tilastot extends Component {
 
 const divi = {
     margin: "100px",
-    display: "flex"
+    display: "flex",
+   
 }
 
 export default tilastot;

@@ -12,6 +12,7 @@ class Lomakkeet extends Component {
             <div>
                 <br></br>
                 <h3>Pohjatietoja</h3>
+                <div className="kuva">
                 <div className="test">
                     <Paper>
                         <VuoroPohja />
@@ -25,9 +26,9 @@ class Lomakkeet extends Component {
                     <Paper>
                         <HairioPohja />
                     </Paper>
+                
                 </div>
-
-
+                </div>
             </div>
         );
     }

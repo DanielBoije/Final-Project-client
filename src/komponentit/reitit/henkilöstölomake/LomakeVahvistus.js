@@ -5,6 +5,8 @@ import RaisedButton from "material-ui/RaisedButton"
 import AppBar from "material-ui/AppBar"
 import { Paper } from '@material-ui/core';
 import './Lomaketiedot.css'
+import Button from '@material-ui/core/Button';
+import SaveIcon from '@material-ui/icons/Save';
 
 class LomakeVahvistus extends Component {
     state = {
@@ -39,7 +41,7 @@ class LomakeVahvistus extends Component {
                     <div className="vahvistus">
                         <Paper>
                             <div style={shadow}>
-                                <AppBar title="Tuotanto" showMenuIconButton={false} />
+                                <AppBar style={{ background: '#212121' }} title="Tuotanto" showMenuIconButton={false} />
                                 <div style={padding}>
                                     <List>
                                         <ListItem
@@ -79,18 +81,23 @@ class LomakeVahvistus extends Component {
                                             secondaryText={values.viesti}
                                         />
                                     </List>
-                                    <RaisedButton
-                                        label="Takaisin"
-                                        primary={false}
-                                        style={styles.button}
-                                        onClick={this.back}
-                                    />
-                                    <RaisedButton
-                                        label="Vahvista"
-                                        primary={true}
-                                        style={styles.button}
-                                        onClick={this.continue}
-                                    />
+                                    <Button
+                                variant="outlined"
+                                color="secondary"
+                                onClick={this.back}
+                                size="medium"
+                                style={styles.button}>
+                                TAKAISIN
+                            </Button>
+                         
+                            <Button
+                                variant="contained"
+                                color="primary"
+                                size="medium"
+                                onClick={this.continue}
+                                startIcon={<SaveIcon />}>
+                                TALLENNA
+                            </Button>
                                 </div>
                             </div>
                         </Paper>

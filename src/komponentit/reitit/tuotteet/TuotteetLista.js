@@ -8,7 +8,8 @@ export default class TuotteetLista extends Component {
         })
         return (
                 <table> 
-                    <thead><td>tuote</td><td>tavoite</td></thead>
+                    <br/><br/>
+                    {/* <thead><td>TUOTE</td><td>TAVOITE</td></thead> */}
                         <tbody>{tulosta}</tbody>
                 </table>
         )

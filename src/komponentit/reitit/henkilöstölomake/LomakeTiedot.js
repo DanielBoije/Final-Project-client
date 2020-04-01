@@ -8,6 +8,8 @@ import SimpleSelect from "./Select"
 import LisääHäiriö from "./LisaaHairio"
 import { Paper } from '@material-ui/core';
 import './Lomaketiedot.css'
+import Button from '@material-ui/core/Button';
+import SaveIcon from '@material-ui/icons/Save';
 
 
 
@@ -24,39 +26,40 @@ class LomakeTiedot extends Component {
         // }        
     }
 
-     
+
     continue = e => {
         if (this.props.values.pvm && this.props.values.vuoro && this.props.values.tuote && this.props.values.linja) {
-        e.preventDefault();
-        console.log("kaikki ok")
-        this.props.nextStep();
+            e.preventDefault();
+            console.log("kaikki ok")
+            this.props.nextStep();
         } else {
             e.preventDefault();
-            this.setState({virhe: "Tarkista pakolliset kentät"})
+            this.setState({ virhe: "Tarkista pakolliset kentät" })
             console.log("tarkista")
-            console.log(this.props.values)           
+            console.log(this.props.values)
         }
     }
 
     showModal = async () => {
-        await this.setState({ 
-        modalShow: true,
-        // vahvistettu: {
-        //     pvm:this.props.values.pvm,
-        //     vuoro_id:this.props.values.vuoro,
-        //     tuotenro:this.props.values.tuote,
-        //     linja_id:this.props.values.linja
-        //     }
-        // })
-        // console.log(this.state.vahvistettu)
-        // this.props.laheta(this.state.vahvistettu);    //lähetetään apiin   
-    })}
+        await this.setState({
+            modalShow: true,
+            // vahvistettu: {
+            //     pvm:this.props.values.pvm,
+            //     vuoro_id:this.props.values.vuoro,
+            //     tuotenro:this.props.values.tuote,
+            //     linja_id:this.props.values.linja
+            //     }
+            // })
+            // console.log(this.state.vahvistettu)
+            // this.props.laheta(this.state.vahvistettu);    //lähetetään apiin   
+        })
+    }
 
     message = ""; //muuttuu modalClose funktiossa
 
     render() {
         const { values, handleChange, handleDateChange } = this.props;
-        
+
         let modalClose = () => {
             this.setState({ modalShow: false })
             if (values.lisääHäiriö && values.häiriönKesto) { this.message = <i>Häiriö lisätty</i> }
@@ -69,7 +72,7 @@ class LomakeTiedot extends Component {
                         <div className="testi2">
                             <Paper>
                                 <div style={shadow}>
-                                    <AppBar title="Tuotanto" showMenuIconButton={false} />
+                                    <AppBar style={{ background: '#212121' }} title="Tuotanto" showMenuIconButton={false} />
                                     <div style={padding}>
                                         <DatePicker
                                             hintText="Päivämäärä*"
@@ -82,7 +85,17 @@ class LomakeTiedot extends Component {
                                             handleChange={handleChange}
                                         />
                                         {this.message}<br></br>
-                                        <RaisedButton style={häiriö} label="Lisää häiriö" onClick={this.showModal}></RaisedButton>
+                                        {/* <RaisedButton style={häiriö} label="Lisää häiriö" onClick={this.showModal}></RaisedButton> */}
+
+                                        <Button
+                                            variant="outlined"
+                                            color="secondary"
+                                            onClick={this.showModal}
+                                            size="medium"
+                                            // style={styles.button}
+                                           > LISÄÄ HÄIRIÖ
+                                        </Button>
+
                                         <LisääHäiriö
                                             values={values}
                                             handleChange={handleChange}
@@ -111,18 +124,20 @@ class LomakeTiedot extends Component {
                                             hintText="Viesti"
                                             onChange={handleChange("viesti")}
                                             defaultValue={values.viesti} />
-                                            <br></br>                                        
+                                        <br></br>
                                         <i style={punainen}>{this.state.virhe}</i>
                                         <br></br>
-                                        <RaisedButton
-                                            label="Jatka"
-                                            primary={true}
-                                            style={styles.button}
+                                        <Button
+                                            variant="contained"
+                                            color="default"
                                             onClick={this.continue}
-                                        />
+                                            size="large"
+                                            // style={styles.button}
+                                           > JATKA
+                                        </Button>
                                     </div>
                                 </div>
-                            </Paper> 
+                            </Paper>
                         </div>
                     </div>
                 </React.Fragment>
@@ -137,15 +152,18 @@ const punainen = {
 }
 
 const häiriö = {
-    opacity: "50%"
+    opacity: "60%",
+    // background:"black"
 }
 
 const padding = {
-    padding: "10px",
-    width:"400px"
+    padding: "0px",
+    width: "400px",
+    height: "550px"
 }
 
 const shadow = {
+
     textAlign: "center",
     margin: "0px",
     borderRadius: "10px",
@@ -157,11 +175,13 @@ const shadow = {
 
 }
 
-const styles = {
-    button: {
-        margin: 15
-    }
-}
+// const styles = {
+//     button: {
+//         margin-top: 0,
+
+
+//     }
+
 
 
 

@@ -3,9 +3,11 @@ import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 //import TextField from "material-ui/TextField"
 import TextField from '@material-ui/core/TextField';
 import AppBar from "material-ui/AppBar"
-import RaisedButton from "material-ui/RaisedButton"
+// import RaisedButton from "material-ui/RaisedButton"
 import { addHairio } from './hairioService';
 import HairioLista from './HairioLista';
+import Button from '@material-ui/core/Button';
+import SaveIcon from '@material-ui/icons/Save';
 
 export default class HairioLomakeVahvistus extends Component {
     hairio = {
@@ -32,27 +34,33 @@ export default class HairioLomakeVahvistus extends Component {
             <MuiThemeProvider>
                 <React.Fragment>
                 <div style={shadow}>
-                    <AppBar title="Häiriöt" showMenuIconButton={false}/>
-                    <div style={padding}>
+                    <AppBar style={{ background: '#212121' }} title="HÄIRIÖT" showMenuIconButton={false}/>
+                    <div className="vahhairiocss">
                         <TextField 
                             label="Häiriö" 
                             size="medium"
                             defaultValue={values.hairio}
                             InputProps={{ readOnly: true }}
                         />
-                            <br></br>
-                        <RaisedButton
-                            label="Takaisin"
-                            primary={false}
-                            style={styles.button}
-                            onClick={this.back}
-                        />
-                        <RaisedButton
-                            label="Vahvista"
-                            primary={true}
-                            style={styles.button}
-                            onClick={this.continue}
-                        />
+                            <br></br> <br></br> <br></br>
+                            <br></br><br></br>
+                            <Button
+                                variant="outlined"
+                                color="secondary"
+                                onClick={this.back}
+                                size="medium"
+                                style={styles.button}>
+                                TAKAISIN
+                            </Button>
+                         
+                            <Button
+                                variant="contained"
+                                color="primary"
+                                size="medium"
+                                onClick={this.continue}
+                                startIcon={<SaveIcon />}>
+                                TALLENNA
+                            </Button>
                         <HairioLista
                             lista={values.lista}
                         />
@@ -63,13 +71,14 @@ export default class HairioLomakeVahvistus extends Component {
         );
     }
 }
-const padding = {
-    padding: "20px 50px 50px 50px"
-}
+// const padding = {
+//     padding: "127px",
+//     height: "595px"
+// }
 
 const shadow = {
     textAlign: "center",
-    margin: "50px",
+    margin: "0px",
     borderRadius: "10px",
     width: "fit-content",
     height: "fit-content",
