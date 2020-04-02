@@ -13,10 +13,10 @@ import './Navigaatio.css'
                 <NavLink to="/">Koti</NavLink> 
                 </li>
                 <li>
-                <NavLink to="/lomakkeet">Johto</NavLink> 
+                <NavLink to="/lomakkeet">Pohjatiedot</NavLink> 
                 </li>
                 <li>
-                <NavLink to="/lomake">Henkilöstö</NavLink>
+                <NavLink to="/lomake">Seurantalomake</NavLink>
                 </li>
                 <li>
                 <NavLink to="/tilastot">Tilastot</NavLink>
