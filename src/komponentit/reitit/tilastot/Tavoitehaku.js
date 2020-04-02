@@ -4,14 +4,23 @@ import RaisedButton from "material-ui/RaisedButton";
 import AppBar from "material-ui/AppBar";
 import SimpleSelect from "./LinjaSelect";
 
-
+let tanaan = new Date();
+let dd = String(tanaan.getDate()).padStart(2, '0');
+let mm = String(tanaan.getMonth() + 1).padStart(2, '0'); //January is 0!
+let yyyy = tanaan.getFullYear();
+tanaan = `${yyyy}-${mm}-${dd}`;
 
 export default class Tavoitehaku extends Component {
 
     state = {
         linja: null,
         alkupvm: "2020-02-01",
-        loppupvm: "2020-04-02"
+        loppupvm: tanaan
+    }
+
+    componentDidMount = () => {
+        console.log(tanaan)
+        console.log(this.state)
     }
     
     //syötteiden tarkastaminen ja siirtyminen seuraavaan vaiheeseen
