@@ -29,7 +29,6 @@ export default class HairioLomakeTiedot extends Component {
             <MuiThemeProvider>
                 <React.Fragment>
                 <div style={shadow}>
-                {/* style={{ background:'#bdbdbd'}} */}
                     <AppBar title="HÄIRIÖT" showMenuIconButton={false}/>
                     <div className="hairiocss">
                         <TextField 
@@ -45,25 +44,12 @@ export default class HairioLomakeTiedot extends Component {
                             {values.virhe}
                         </p>
                         <br></br>
-                       
-                        {/* <Button
-                                variant="contained"
-                                color="default"
-                                onClick={this.cont}
-                                size="large"
-                                label="Jatka"
-                                default={true}
-                                style={styles.button}>
-                                  > JATKA </Button> */}
-
-                            <RaisedButton
+                        <RaisedButton
                             label="JATKA"
                             primary={true}
-                            // style={styles.button}
-                            onClick={this.cont}/>
-
+                            onClick={this.cont}
+                        />
                         <br></br><br></br>
-                        
                         <HairioLista
                             lista={values.lista}
                             poista={this.props.poistaHairio}
@@ -75,10 +61,6 @@ export default class HairioLomakeTiedot extends Component {
         );
     }
 }
-// const padding = {
-//     padding: "127px",
-//     height:"583px"
-// }
 
 const shadow = {
     textAlign: "center",
@@ -89,12 +71,6 @@ const shadow = {
     display: "inline-block",
     boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"
 }
-
-// const styles = {
-//     button: {
-//         margin: 1
-//     }
-// }
 
 const punainen = {
     color: "red",

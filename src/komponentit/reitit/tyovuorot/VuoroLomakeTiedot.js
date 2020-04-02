@@ -29,7 +29,6 @@ export default class VuoroLomakeTiedot extends Component {
             <MuiThemeProvider>
                 <React.Fragment>
                     <div style={shadow}>
-                    {/* style={{ background: '#bdbdbd' }} */}
                         <AppBar title="TYÖVUOROT" showMenuIconButton={false} />
                         <div className="tyovuorotcss">
                             <TextField
@@ -45,21 +44,12 @@ export default class VuoroLomakeTiedot extends Component {
                                 {values.virhe}
                             </p>
                             <br></br><br></br>
-                           
                             <RaisedButton
-                            label="JATKA"
-                            primary={true}
-                            style={styles.button}
-                            onClick={this.cont}/>
-
-                            {/* <Button
-                                variant="contained"
-                                color="default"
+                                label="JATKA"
+                                primary={true}
+                                style={styles.button}
                                 onClick={this.cont}
-                                size="large"
-                            > JATKA
-                            </Button> */}
-
+                            />
                             <br></br><br></br><br></br>
                             <br></br>
                             <VuoroLista
@@ -73,10 +63,6 @@ export default class VuoroLomakeTiedot extends Component {
         );
     }
 }
-// const padding = {
-//     padding: "110px",
-//     height:"583px"
-// }
 
 const shadow = {
     textAlign: "center",
@@ -91,8 +77,6 @@ const shadow = {
 const styles = {
     button: {
         margin: 1
-        
-
     }
 }
 

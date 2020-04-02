@@ -7,11 +7,10 @@ export default class TuotteetLista extends Component {
             return (<Tuotteet lista={tuote} poista={this.props.poista} key={tuote.tuotenro}/>)
         })
         return (
-                <table> 
-                    <br/><br/>
-                    {/* <thead><td>TUOTE</td><td>TAVOITE</td></thead> */}
-                        <tbody>{tulosta}</tbody>
-                </table>
+            <table> 
+                <br/><br/>
+                    <tbody>{tulosta}</tbody>
+            </table>
         )
     }
 }

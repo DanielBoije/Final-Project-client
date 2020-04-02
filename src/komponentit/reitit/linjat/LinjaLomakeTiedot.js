@@ -29,7 +29,6 @@ export default class LinjaLomakeTiedot extends Component {
             <MuiThemeProvider>
                 <React.Fragment>
                 <div style={shadow}>
-                {/* style={{ background:'#bdbdbd'}} */}
                     <AppBar title="LINJAT" showMenuIconButton={false}/>
                     <div className="linjacss">
                         <TextField 
@@ -45,27 +44,14 @@ export default class LinjaLomakeTiedot extends Component {
                             {values.virhe}
                         </p>
                         <br></br><br></br>
-                        
-                        {/* <Button
-                                variant="contained"
-                                color="default"
-                                onClick={this.cont}
-                                size="large" */}
-                                {/* //  label="Jatka"
-                                // default={true}
-                                // style={styles.button}>
-                                //   >  JATKA </Button> */}
-
-                            <RaisedButton
+                        <RaisedButton
                             label="JATKA"
                             primary={true}
                             style={styles.button}
-                            onClick={this.cont}/>
-
-                        <br></br><br></br><br>
-                        </br><br></br>
-                        
-                      
+                            onClick={this.cont}
+                        />
+                        <br></br><br></br>
+                        <br></br><br></br>
                         <LinjaLista
                             lista={values.lista}
                             poista={this.props.poistaLinja}
@@ -77,12 +63,6 @@ export default class LinjaLomakeTiedot extends Component {
         );
     }
 }
-
-
-// const padding = {
-//     padding: "110px",
-//     height:"583px"
-// }
 
 const shadow = {
     textAlign: "center",

@@ -67,22 +67,12 @@ export default class TuotteetLomakeVahvistus extends Component {
                                 style={styles.button}>
                                 TAKAISIN
                             </Button>
-
                             <RaisedButton
-                              label="TALLENNA"
-                              primary={true}
-                              style={styles.button}
-                              onClick={this.cont}
-                            />
-                         
-                            {/* <Button
-                                variant="contained"
-                                color="default"
-                                size="large"
+                                label="TALLENNA"
+                                primary={true}
+                                style={styles.button}
                                 onClick={this.cont}
-                                startIcon={<SaveIcon />}>
-                                TALLENNA
-                            </Button> */}
+                            />
                         </div>
                     </div>
                 </React.Fragment>
@@ -90,11 +80,6 @@ export default class TuotteetLomakeVahvistus extends Component {
         );
     }
 }
-// const padding = {
-//     padding: "121px",
-//     height: "595px"
-
-// }
 
 const shadow = {
     textAlign: "center",
