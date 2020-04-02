@@ -2,10 +2,6 @@ import React from 'react';
 import {NavLink} from 'react-router-dom';
 import './Navigaatio.css'
 
-
-// class Navigaatio extends Component {
-//     render() {
-
     const Navigaatio = props => {
         return (
             <ul className='nav-links'>

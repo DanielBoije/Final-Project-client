@@ -47,9 +47,7 @@ const useStyles = makeStyles(theme => ({
             defaultValue={props.values.lisääHäiriö}
           >
             {häiriölista}
-            {/* <MenuItem value={"häiriö1"}>häiriö 1</MenuItem>
-            <MenuItem value={"häiriö2"}>häiriö 2</MenuItem>
-            <MenuItem value={"häiriö3"}>häiriö 3</MenuItem> */}
+          
           </Select>
         </FormControl>
         </div>

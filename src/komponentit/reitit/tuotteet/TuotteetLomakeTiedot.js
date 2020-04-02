@@ -5,7 +5,7 @@ import TextField from '@material-ui/core/TextField';
 // import Button from '@material-ui/core/Button';
 import AppBar from "material-ui/AppBar";
 import TuotteetLista from './TuotteetLista';
-import './Tuotteet.css';
+// import './Tuotteet.css';
 import RaisedButton from "material-ui/RaisedButton";
 
 

@@ -4,9 +4,9 @@ import TuotteetLomakeVahvistus from './TuotteetLomakeVahvistus';
 import { getYksiTuote, getTuotteet, deleteTuote, getToteumat } from './tuoteService';
 
 export default class TuotteetPohja extends Component {
-    
+
     state = {
-        step:1,
+        step: 1,
         tuotenro: "",
         tuotenimi: "",
         tuntitavoite: "",
@@ -24,18 +24,18 @@ export default class TuotteetPohja extends Component {
 
     paivitaLista = async () => {
         let data = await getTuotteet();
-        this.setState({lista: data});
+        this.setState({ lista: data });
     }
 
     poistaTuote = async (id) => {
         let varatut = await getToteumat();
         let onjo = false;
-        for(let i = 0; i < varatut.length; i++) {
-            if(id === varatut[i].tuotenro) {
+        for (let i = 0; i < varatut.length; i++) {
+            if (id === varatut[i].tuotenro) {
                 onjo = true;
             }
         }
-        if(onjo) {
+        if (onjo) {
             this.setState({ virhe: "Tuote liittyy työhön, ei voi poistaa" })
         } else {
             await deleteTuote(id);
@@ -56,7 +56,7 @@ export default class TuotteetPohja extends Component {
                 this.setState({ virhe: "Tuotenumero puuttuu tai virheellinen" });
                 return false;
             } else if (tnimi.length < 1 || tnimi.length > 50) {
-                this.setState({ virhe: "Tuotenimi puuttuu, tai yli 50 merkkiä pitkä"})
+                this.setState({ virhe: "Tuotenimi puuttuu, tai yli 50 merkkiä pitkä" })
                 return false;
             } else if (tavoite < 0 || isNaN(tavoite) || tavoite.match(/e/gi) || tavoite === "") {
                 this.setState({ virhe: "Tavoite puuttuu tai virheellinen" })
@@ -73,9 +73,9 @@ export default class TuotteetPohja extends Component {
 
     //seuraava steppi
     nextStep = () => {
-        if(this.state.step === 2) {
+        if (this.state.step === 2) {
             this.setState({
-                step:1,
+                step: 1,
                 tuotenro: "",
                 tuotenimi: "",
                 tuntitavoite: "",
@@ -96,7 +96,7 @@ export default class TuotteetPohja extends Component {
             })
             console.log(this.state.step);
         }
-     }
+    }
 
     //edellinen steppi
     prevStep = () => {
@@ -109,7 +109,7 @@ export default class TuotteetPohja extends Component {
     //lomakekentän muutokset
     handleChange = input => e => {
         console.log(e.target.value)
-        this.setState({ [input]: e.target.value})
+        this.setState({ [input]: e.target.value })
     }
 
     render() {
@@ -117,7 +117,7 @@ export default class TuotteetPohja extends Component {
         const { tuotenro, tuotenimi, tuntitavoite, virhe, lista } = this.state
         const values = { step, tuotenro, tuotenimi, tuntitavoite, virhe, lista }
 
-        switch(step) {
+        switch (step) {
             case 1:
                 return (
                     <TuotteetLomakeTiedot
