@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 //import TextField from "material-ui/TextField";
 import TextField from '@material-ui/core/TextField';
-import RaisedButton from "material-ui/RaisedButton";
+// import RaisedButton from "material-ui/RaisedButton";
 import AppBar from "material-ui/AppBar";
 import VuoroLista from './VuoroLista';
-// import Button from '@material-ui/core/Button';
+import Button from '@material-ui/core/Button';
 
 
 
@@ -31,8 +31,8 @@ export default class VuoroLomakeTiedot extends Component {
             <MuiThemeProvider>
                 <React.Fragment>
                     <div style={shadow}>
-                    {/* style={{ background: 'black' }} */}
-                        <AppBar title="TYÖVUOROT" showMenuIconButton={false} />
+
+                        <AppBar style={{ background: '#bdbdbd' }} title="TYÖVUOROT" showMenuIconButton={false} />
                         <div className="tyovuorotcss">
 
                             <TextField
@@ -50,15 +50,16 @@ export default class VuoroLomakeTiedot extends Component {
                             <br></br><br></br>
                             <br></br><br></br>
 
-                            <RaisedButton
-                            size="large"
-                            label="JATKA"
-                            primary={true}
-                            style={styles.button}
-                            onClick={this.continue}/>
-                            
+                            <Button
+                                variant="contained"
+                                color="default"
+                                onClick={this.continue}
+                                size="large"
+                            > JATKA
+                            </Button>
+
                             <br></br><br></br><br></br>
-                            <br></br>
+                            <br></br><br></br><br></br>
                             <VuoroLista
                                 lista={values.lista}
                                 poista={this.props.poistaVuoro}

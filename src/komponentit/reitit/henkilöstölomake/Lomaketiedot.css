@@ -1,7 +1,7 @@
 .testi {
    
-    background: 
-      url(putki.jpg) center
+    background:
+      url(big.jpg) center
         center/cover no-repeat;
     height: 100vh;
     position: relative;
@@ -11,13 +11,14 @@
     z-index: 3;
     margin-top: 30px;
     padding-top: 3rem;
+    
   
   }
 
   .vahvistus {
    
     background: 
-      url(putki.jpg) center
+      url(big.jpg) center
         center/cover no-repeat;
     height: 140vh;
     position: relative;
@@ -31,7 +32,7 @@
   .lomakelahetetty a {
    
     background: 
-      url(putki.jpg) center
+      url(big.jpg) center
         center/cover no-repeat;
     height: 100vh;
     position: relative;

@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 //import TextField from "material-ui/TextField";
 import TextField from '@material-ui/core/TextField';
-// import Button from '@material-ui/core/Button';
+import Button from '@material-ui/core/Button';
 import AppBar from "material-ui/AppBar";
 import LinjaLista from './LinjaLista';
-import RaisedButton from "material-ui/RaisedButton";
+// import RaisedButton from "material-ui/RaisedButton";
 
 
 
@@ -32,9 +32,9 @@ export default class LinjaLomakeTiedot extends Component {
                 <React.Fragment>
                 <div style={shadow}>
 
-                {/* style={{ background: 'black' }} */}
+             
 
-                    <AppBar title="LINJAT" showMenuIconButton={false}/>
+                    <AppBar style={{ background:'#bdbdbd'}} title="LINJAT" showMenuIconButton={false}/>
                     <div className="linjacss">
                         <TextField 
                             type="text"
@@ -50,24 +50,25 @@ export default class LinjaLomakeTiedot extends Component {
                         </p>
                         <br></br><br></br><br></br>
                         <br></br>
-                        {/* <Button
+                        <Button
                                 variant="contained"
-                                color="primary"
+                                color="default"
                                 onClick={this.continue}
                                 size="large"
-                                 label="Jatka"
-                                default={true}
-                                style={styles.button}>
-                                    JATKA </Button> */}
+                                //  label="Jatka"
+                                // default={true}
+                                // style={styles.button}>
+                                  >  JATKA </Button>
 
-                            <RaisedButton
+                            {/* <RaisedButton
                             label="JATKA"
                             primary={true}
                             style={styles.button}
-                            onClick={this.continue}/>
+                            onClick={this.continue}/> */}
 
                         <br></br><br></br><br>
-                        </br><br></br>
+                        </br><br></br><br></br>
+                        <br></br>
                       
                         <LinjaLista
                             lista={values.lista}
