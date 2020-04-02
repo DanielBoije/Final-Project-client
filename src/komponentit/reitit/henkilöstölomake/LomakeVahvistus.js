@@ -6,7 +6,7 @@ import AppBar from "material-ui/AppBar"
 import { Paper } from '@material-ui/core';
 import './Lomaketiedot.css'
 import Button from '@material-ui/core/Button';
-import SaveIcon from '@material-ui/icons/Save';
+// import SaveIcon from '@material-ui/icons/Save';
 
 class LomakeVahvistus extends Component {
     state = {
@@ -41,7 +41,7 @@ class LomakeVahvistus extends Component {
                     <div className="vahvistus">
                         <Paper>
                             <div style={shadow}>
-                                <AppBar style={{ background:'#bdbdbd'}} title="TUOTANTO" showMenuIconButton={false} />
+                                <AppBar title="TUOTANTO" showMenuIconButton={false} />
                                 <div style={padding}>
                                     <List>
                                         <ListItem
@@ -89,15 +89,21 @@ class LomakeVahvistus extends Component {
                                 style={styles.button}>
                                 TAKAISIN
                             </Button>
+
+                            <RaisedButton
+                            label="TALLENNA"
+                            primary={true}
+                            style={styles.button}
+                            onClick={this.continue}/>
                          
-                            <Button
+                            {/* <Button
                                 variant="contained"
                                 color="primary"
                                 size="medium"
                                 onClick={this.continue}
                                 startIcon={<SaveIcon />}>
                                 TALLENNA
-                            </Button>
+                            </Button> */}
                                 </div>
                             </div>
                         </Paper>

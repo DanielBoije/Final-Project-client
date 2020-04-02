@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 //import TextField from "material-ui/TextField";
 import TextField from '@material-ui/core/TextField';
-// import RaisedButton from "material-ui/RaisedButton";
+import RaisedButton from "material-ui/RaisedButton";
 import AppBar from "material-ui/AppBar";
 import VuoroLista from './VuoroLista';
-import Button from '@material-ui/core/Button';
+// import Button from '@material-ui/core/Button';
 
 
 
@@ -32,7 +32,9 @@ export default class VuoroLomakeTiedot extends Component {
                 <React.Fragment>
                     <div style={shadow}>
 
-                        <AppBar style={{ background: '#bdbdbd' }} title="TYÖVUOROT" showMenuIconButton={false} />
+                    {/* style={{ background: '#bdbdbd' }} */}
+
+                        <AppBar title="TYÖVUOROT" showMenuIconButton={false} />
                         <div className="tyovuorotcss">
 
                             <TextField
@@ -48,18 +50,23 @@ export default class VuoroLomakeTiedot extends Component {
                                 {values.virhe}
                             </p>
                             <br></br><br></br>
-                            <br></br><br></br>
+                           
+                            <RaisedButton
+                            label="JATKA"
+                            primary={true}
+                            style={styles.button}
+                            onClick={this.continue}/>
 
-                            <Button
+                            {/* <Button
                                 variant="contained"
                                 color="default"
                                 onClick={this.continue}
                                 size="large"
                             > JATKA
-                            </Button>
+                            </Button> */}
 
                             <br></br><br></br><br></br>
-                            <br></br><br></br><br></br>
+                            <br></br>
                             <VuoroLista
                                 lista={values.lista}
                                 poista={this.props.poistaVuoro}
@@ -88,8 +95,8 @@ const shadow = {
 
 const styles = {
     button: {
-        margin: 15,
-        font: "fantacy"
+        margin: 1
+        
 
     }
 }
