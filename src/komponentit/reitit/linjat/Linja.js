@@ -9,7 +9,7 @@ export default class Linja extends Component {
         return (
             <tr style={list}>
                 {/* <td>{this.props.lista.id}</td> */}
-                <td>{this.props.lista.nimi}</td><br/><br/>
+                <td style={tilaa}>{this.props.lista.nimi}</td><br/><br/>
                 {/* <td><button type="button">&#9998;</button></td> */}
                 <td><Button size="small"  variant="contained" color="secondary" onClick={this.poista} startIcon={<DeleteIcon />}>Poista</Button> </td>
             </tr>
@@ -23,4 +23,8 @@ const list = {
 
 const poista = {
     color: "red"
+}
+
+const tilaa = {
+    padding: "10px"
 }
