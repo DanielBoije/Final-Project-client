@@ -3,10 +3,10 @@ import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 //import TextField from "material-ui/TextField"
 import TextField from '@material-ui/core/TextField';
 import AppBar from "material-ui/AppBar"
-// import RaisedButton from "material-ui/RaisedButton"
+import RaisedButton from "material-ui/RaisedButton"
 import { addLinja } from './linjaService';
 import Button from '@material-ui/core/Button';
-import SaveIcon from '@material-ui/icons/Save';
+// import SaveIcon from '@material-ui/icons/Save';
 
 export default class LinjaLomakeVahvistus extends Component {
     linja = {
@@ -34,7 +34,7 @@ export default class LinjaLomakeVahvistus extends Component {
                 <React.Fragment>
                 <div style={shadow}>
                    
-                    <AppBar style={{ background:'#bdbdbd'}} title="LINJAT" showMenuIconButton={false}/>
+                    <AppBar title="LINJAT" showMenuIconButton={false}/>
                     <div className="vahlinjacss">
                         <TextField 
                             label="Linja" 
@@ -46,21 +46,27 @@ export default class LinjaLomakeVahvistus extends Component {
                             <br></br><br></br>
                             <Button
                                 variant="contained"
-                                color="primary"
+                                color="default"
                                 onClick={this.back}
-                                size="large"
+                                size="medium"
                                 style={styles.button}>
                                 TAKAISIN
                             </Button>
+
+                            <RaisedButton
+                            label="TALLENNA"
+                            primary={true}
+                            style={styles.button}
+                            onClick={this.continue}/>
                          
-                            <Button
+                            {/* <Button
                                 variant="contained"
                                 color="default"
                                 size="large"
                                 onClick={this.continue}
                                 startIcon={<SaveIcon />}>
                                 TALLENNA
-                            </Button>
+                            </Button> */}
                         </div>
                     </div>
                

@@ -3,11 +3,11 @@ import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 //import TextField from "material-ui/TextField"
 import TextField from '@material-ui/core/TextField';
 import AppBar from "material-ui/AppBar"
-// import RaisedButton from "material-ui/RaisedButton"
+import RaisedButton from "material-ui/RaisedButton"
 import { addHairio } from './hairioService';
 import HairioLista from './HairioLista';
 import Button from '@material-ui/core/Button';
-import SaveIcon from '@material-ui/icons/Save';
+// import SaveIcon from '@material-ui/icons/Save';
 
 export default class HairioLomakeVahvistus extends Component {
     hairio = {
@@ -34,7 +34,7 @@ export default class HairioLomakeVahvistus extends Component {
             <MuiThemeProvider>
                 <React.Fragment>
                 <div style={shadow}>
-                    <AppBar style={{ background:'#bdbdbd'}}  title="HÄIRIÖT" showMenuIconButton={false}/>
+                    <AppBar title="HÄIRIÖT" showMenuIconButton={false}/>
                     <div className="vahhairiocss">
                         <TextField 
                             label="Häiriö" 
@@ -42,25 +42,32 @@ export default class HairioLomakeVahvistus extends Component {
                             defaultValue={values.hairio}
                             InputProps={{ readOnly: true }}
                         />
-                            <br></br> <br></br> <br></br>
-                            <br></br><br></br>
+                            
+                            
                             <Button
                                 variant="contained"
-                                color="primary"
+                                color="default"
                                 onClick={this.back}
-                                size="large"
+                                size="medium"
                                 style={styles.button}>
                                 TAKAISIN
                             </Button>
+
+                            <RaisedButton
+                            label="TALLENNA"
+                            primary={true}
+                            style={styles.button}
+                            onClick={this.continue}/>
                          
-                            <Button
+                            {/* <Button
                                 variant="contained"
                                 color="default"
                                 size="large"
                                 onClick={this.continue}
                                 startIcon={<SaveIcon />}>
                                 TALLENNA
-                            </Button>
+                            </Button> */}
+
                         <HairioLista
                             lista={values.lista}
                         />
