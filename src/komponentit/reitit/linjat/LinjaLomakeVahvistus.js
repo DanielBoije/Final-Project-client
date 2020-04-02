@@ -34,7 +34,7 @@ export default class LinjaLomakeVahvistus extends Component {
                 <React.Fragment>
                 <div style={shadow}>
                    
-                    <AppBar title="LINJAT" showMenuIconButton={false}/>
+                    <AppBar style={{ background:'#bdbdbd'}} title="LINJAT" showMenuIconButton={false}/>
                     <div className="vahlinjacss">
                         <TextField 
                             label="Linja" 
@@ -45,18 +45,18 @@ export default class LinjaLomakeVahvistus extends Component {
                             <br></br><br></br><br></br>
                             <br></br><br></br>
                             <Button
-                                variant="outlined"
-                                color="secondary"
+                                variant="contained"
+                                color="primary"
                                 onClick={this.back}
-                                size="medium"
+                                size="large"
                                 style={styles.button}>
                                 TAKAISIN
                             </Button>
                          
                             <Button
                                 variant="contained"
-                                color="primary"
-                                size="medium"
+                                color="default"
+                                size="large"
                                 onClick={this.continue}
                                 startIcon={<SaveIcon />}>
                                 TALLENNA

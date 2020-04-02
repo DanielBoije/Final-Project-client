@@ -36,7 +36,7 @@ export default class TuotteetLomakeVahvistus extends Component {
             <MuiThemeProvider>
                 <React.Fragment>
                     <div style={shadow}>
-                        <AppBar title="TUOTTEET" showMenuIconButton={false} />
+                        <AppBar style={{ background:'#bdbdbd'}} title="TUOTTEET" showMenuIconButton={false} />
                         <div className="vahtuotteetcss">
                             <TextField
                                 label="Tuotenumero"
@@ -60,18 +60,18 @@ export default class TuotteetLomakeVahvistus extends Component {
                             />
                             <br></br>
                             <Button
-                                variant="outlined"
-                                color="secondary"
+                                variant="contained"
+                                color="primary"
                                 onClick={this.back}
-                                size="medium"
+                                size="large"
                                 style={styles.button}>
                                 TAKAISIN
                             </Button>
                          
                             <Button
                                 variant="contained"
-                                color="primary"
-                                size="medium"
+                                color="default"
+                                size="large"
                                 onClick={this.continue}
                                 startIcon={<SaveIcon />}>
                                 TALLENNA

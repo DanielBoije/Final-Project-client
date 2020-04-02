@@ -33,7 +33,7 @@ export default class VuoroLomakeVahvistus extends Component {
             <MuiThemeProvider>
                 <React.Fragment>
                 <div style={shadow}>
-                    <AppBar title="TYÖVUOROT" showMenuIconButton={false}/>
+                    <AppBar style={{ background:'#bdbdbd'}} title="TYÖVUOROT" showMenuIconButton={false}/>
                     <div className="vahtyovuorotcss">
                         <TextField 
                             label="Vuoro" 
@@ -44,18 +44,18 @@ export default class VuoroLomakeVahvistus extends Component {
                             <br></br><br></br><br></br>
                             <br></br><br></br>
                             <Button
-                                variant="outlined"
-                                color="secondary"
+                                variant="contained"
+                                color="primary"
                                 onClick={this.back}
-                                size="medium"
+                                size="large"
                                 style={styles.button}>
                                 TAKAISIN
                             </Button>
                          
                             <Button
                                 variant="contained"
-                                color="primary"
-                                size="medium"
+                                color="default"
+                                size="large"
                                 onClick={this.continue}
                                 startIcon={<SaveIcon />}>
                                 TALLENNA
