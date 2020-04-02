@@ -8,9 +8,8 @@ export default class Tuotteet extends Component {
     render() {
         return (
             <tr style={list}>
-                <td>{this.props.lista.tuotenro}<br></br>
-                {this.props.lista.tuotenimi}</td>
-                <td>{this.props.lista.tuntitavoite}</td><br/><br/>
+                <td style={tilaa}>{this.props.lista.tuotenimi}</td>
+                <td style={tilaa}>{this.props.lista.tuntitavoite}</td><br/><br/>
                 {/* <td><button type="button">&#9998;</button></td> */}
                 <td><Button size="small"  variant="contained" color="secondary" onClick={this.poista} startIcon={<DeleteIcon />}>Poista</Button> </td>
             </tr>
@@ -24,4 +23,8 @@ const list = {
 
 const poista = {
     color: "red"
+}
+
+const tilaa = {
+    padding: "10px"
 }
