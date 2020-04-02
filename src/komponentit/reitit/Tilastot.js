@@ -5,6 +5,7 @@ import Häiriöhaku from "./tilastot/Häiriöhaku"
 import Tavoitehaku from "./tilastot/Tavoitehaku"
 import {addPiirakka, addTavoite} from "./tilastot/tilastoService"
 import './Tilastot.css'
+import { Paper } from '@material-ui/core';
 class tilastot extends Component {
     state= {
         showpiirakka: false,
@@ -35,20 +36,31 @@ class tilastot extends Component {
             <div className="koko">
                 {/* <div style={divi}> */}
                 <div className="tilastot1">
+                    <Paper>
                     <Häiriöhaku
                         handleChange={this.handleChange}
                         lisääPiirakka={this.lisääPiirakka}
-                    />
+                    /> </Paper>
+                    <div className="tilastot3">
+                    <Paper>
                     {this.state.showpiirakka ? <Häiriöt tiedot={piirakkatiedot}/> : ""}
+                    </Paper>
+                    </div>
                 </div>
+                
                 <br/>
                 {/* <div style={divi2}> */}
                 <div className="tilastot2">
+                    <Paper>
                     <Tavoitehaku
                         handleChange={this.handleChange}
                         lisääTavoite={this.lisääTavoite}
-                    />
+                    /></Paper>
+                    <div className="tilastot4">
+                    <Paper>
                     {this.state.showtavoite ? <Tavoitteet tiedot={tavoitetiedot}/> : ""}
+                    </Paper>
+                    </div>
                 </div>
             </div>
         );

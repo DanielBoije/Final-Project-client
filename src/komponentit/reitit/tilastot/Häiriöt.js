@@ -75,8 +75,8 @@ class Häiriöt extends Component {
 
 const bar = {
 
-    width:"700px",
-    height:"300px"
+    width:"670px",
+    height:"342px"
 
 }
 

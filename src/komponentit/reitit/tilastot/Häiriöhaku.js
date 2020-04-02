@@ -60,7 +60,7 @@ export default class Pohjahaku extends Component {
 
 
 const padding = {
-    padding: "70px",
+    padding: "55px",
     //height:"390px"
 }
 
@@ -71,8 +71,8 @@ const shadow = {
     width: "fit-content",
     height: "fit-content",
     display: "inline-block",
-    boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
-    marginLeft: "300px"
+    // boxShadow: "0 2px 2px 0 rgba(0, 0, 0, 0.2), 0 0px 0px 0 rgba(0, 0, 0, 0.10)",
+    // marginLeft: "300px"
 }
 
 const styles = {
