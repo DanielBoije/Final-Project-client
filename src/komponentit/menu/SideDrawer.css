@@ -5,12 +5,12 @@
     top: 0;
     z-index: 10;
     height: 120vh;
-    width: 15%;
+    width: 20%;
     background:white;
     background-image: url(PT.png);
     background-repeat: no-repeat;
-    background-size: 240px 200px;
+    background-size: 250px 210px;
     background-position-x: center;
-    margin-top: 0px;
+    /* margin-top: 0px; */
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
 }
