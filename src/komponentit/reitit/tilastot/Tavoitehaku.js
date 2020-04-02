@@ -57,7 +57,7 @@ export default class Tavoitehaku extends Component {
 
 
 const padding = {
-    padding: "70px",
+    padding: "55px",
 }
 
 const shadow = {
@@ -67,8 +67,8 @@ const shadow = {
     width: "fit-content",
     height: "fit-content",
     display: "inline-block",
-    boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
-    marginLeft: "300px"
+    // boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
+    // marginLeft: "300px"
 }
 
 const styles = {
