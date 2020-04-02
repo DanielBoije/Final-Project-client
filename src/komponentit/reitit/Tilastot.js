@@ -4,7 +4,7 @@ import Tavoitteet from "./tilastot/Tavoitteet"
 import Häiriöhaku from "./tilastot/Häiriöhaku"
 import Tavoitehaku from "./tilastot/Tavoitehaku"
 import {addPiirakka, addTavoite} from "./tilastot/tilastoService"
-
+import './Tilastot.css'
 class tilastot extends Component {
     state= {
         showpiirakka: false,
@@ -32,15 +32,18 @@ class tilastot extends Component {
         const piirakkatiedot = this.state.piirakkavastaus
         const tavoitetiedot = this.state.tavoitevastaus
         return (
-            <div>
-                <div style={divi}>
+            <div className="koko">
+                {/* <div style={divi}> */}
+                <div className="tilastot1">
                     <Häiriöhaku
                         handleChange={this.handleChange}
                         lisääPiirakka={this.lisääPiirakka}
                     />
                     {this.state.showpiirakka ? <Häiriöt tiedot={piirakkatiedot}/> : ""}
                 </div>
-                <div style={divi2}>
+                <br/>
+                {/* <div style={divi2}> */}
+                <div className="tilastot2">
                     <Tavoitehaku
                         handleChange={this.handleChange}
                         lisääTavoite={this.lisääTavoite}
@@ -52,14 +55,14 @@ class tilastot extends Component {
     }
 }
 
-const divi = {
-    margin: "100px",
-    display: "flex",
+// const divi = {
+//     margin: "100px",
+//     display: "flex",
    
-}
-const divi2 = {
-    margin: "100px",
-    display: "flex"
-}
+// }
+// const divi2 = {
+//     margin: "100px",
+//     display: "flex"
+// }
 
 export default tilastot;
