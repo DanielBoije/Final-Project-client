@@ -7,14 +7,12 @@ import AppBar from "material-ui/AppBar";
 import VuoroLista from './VuoroLista';
 // import Button from '@material-ui/core/Button';
 
-
-
 export default class VuoroLomakeTiedot extends Component {
 
 
     //syötteiden tarkastaminen ja siirtyminen seuraavaan vaiheeseen
     //tai virheilmoituksen näyttäminen lomakkeella
-    continue = async (e) => {
+    cont = async (e) => {
         e.preventDefault();
         let check = await this.props.checkValues();
         if (check) {
@@ -31,12 +29,9 @@ export default class VuoroLomakeTiedot extends Component {
             <MuiThemeProvider>
                 <React.Fragment>
                     <div style={shadow}>
-
                     {/* style={{ background: '#bdbdbd' }} */}
-
                         <AppBar title="TYÖVUOROT" showMenuIconButton={false} />
                         <div className="tyovuorotcss">
-
                             <TextField
                                 type="text"
                                 size="medium"
@@ -55,12 +50,12 @@ export default class VuoroLomakeTiedot extends Component {
                             label="JATKA"
                             primary={true}
                             style={styles.button}
-                            onClick={this.continue}/>
+                            onClick={this.cont}/>
 
                             {/* <Button
                                 variant="contained"
                                 color="default"
-                                onClick={this.continue}
+                                onClick={this.cont}
                                 size="large"
                             > JATKA
                             </Button> */}

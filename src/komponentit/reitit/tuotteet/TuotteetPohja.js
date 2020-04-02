@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import TuotteetLomakeTiedot from './TuotteetLomakeTiedot';
-//import TuotteetLomakeLahetetty from './TuotteetLomakeLahetetty';
 import TuotteetLomakeVahvistus from './TuotteetLomakeVahvistus';
 import { getYksiTuote, getTuotteet, deleteTuote, getToteumat } from './tuoteService';
 
@@ -72,15 +71,9 @@ export default class TuotteetPohja extends Component {
     }
 
     //seuraava steppi
-    nextStep = async() => {
-        this.setState({ virhe: "" })
-        const { step } = this.state;
-        this.setState({
-            step: step + 1
-        })
-        console.log(this.state.step);
-        if(this.state.step === 3) {
-            await this.setState({
+    nextStep = () => {
+        if(this.state.step === 2) {
+            this.setState({
                 step:1,
                 tuotenro: "",
                 tuotenimi: "",
@@ -94,8 +87,15 @@ export default class TuotteetPohja extends Component {
             })
             console.dir(this.state)
             this.paivitaLista()
+        } else {
+            const { step } = this.state;
+            this.setState({
+                step: step + 1,
+                virhe: ""
+            })
+            console.log(this.state.step);
         }
-    }
+     }
 
     //edellinen steppi
     prevStep = () => {

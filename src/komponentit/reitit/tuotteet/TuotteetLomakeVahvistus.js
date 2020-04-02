@@ -15,7 +15,7 @@ export default class TuotteetLomakeVahvistus extends Component {
         tuntitavoite: parseInt(this.props.values.tuntitavoite)
     }
 
-    continue = async (e) => {
+    cont = async (e) => {
         e.preventDefault();
         //lähetetään apiin
         console.log(this.tuote);
@@ -69,20 +69,20 @@ export default class TuotteetLomakeVahvistus extends Component {
                             </Button>
 
                             <RaisedButton
-                            label="TALLENNA"
-                            primary={true}
-                            style={styles.button}
-                            onClick={this.continue}/>
+                              label="TALLENNA"
+                              primary={true}
+                              style={styles.button}
+                              onClick={this.cont}
+                            />
                          
                             {/* <Button
                                 variant="contained"
                                 color="default"
                                 size="large"
-                                onClick={this.continue}
+                                onClick={this.cont}
                                 startIcon={<SaveIcon />}>
                                 TALLENNA
                             </Button> */}
-                        
                         </div>
                     </div>
                 </React.Fragment>

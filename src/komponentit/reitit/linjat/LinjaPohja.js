@@ -1,10 +1,7 @@
 import React, { Component } from 'react'
 import LinjaLomakeTiedot from './LinjaLomakeTiedot';
-import LinjaLomakeLahetetty from './LinjaLomakeLahetetty';
 import LinjaLomakeVahvistus from './LinjaLomakeVahvistus';
-import LinjaLista from './LinjaLista';
 import { getLinjat, deleteLinja, getToteumat } from './linjaService';
-import { deleteTuote } from '../tuotteet/tuoteService';
 
 export default class LinjaPohja extends Component {
     state = {
@@ -47,7 +44,6 @@ export default class LinjaPohja extends Component {
         }
     }
 
-
     //syötteiden tarkastaminen ja virheen määritys
      checkValues = async () => {
         const nimi = this.state.nimi.trim();
@@ -79,13 +75,7 @@ export default class LinjaPohja extends Component {
 
     //seuraava steppi
     nextStep = () => {
-        this.setState({ virhe: "" })
-        const { step } = this.state;
-        this.setState({
-            step: step + 1
-        })
-        console.log(this.state.step);
-        if(this.state.step === 3) {
+        if(this.state.step === 2) {
             this.setState({
                 step:1,
                 nimi: "",
@@ -94,11 +84,18 @@ export default class LinjaPohja extends Component {
                     id: "",
                     nimi: "",
                 }],
+         })
+         console.dir(this.state)
+         this.paivitaLista()
+        } else {
+            const { step } = this.state;
+            this.setState({
+                step: step + 1,
+                virhe: ""
             })
-            console.dir(this.state)
-            this.paivitaLista()
+            console.log(this.state.step);
         }
-    }
+     }
 
     //edellinen steppi
     prevStep = () => {

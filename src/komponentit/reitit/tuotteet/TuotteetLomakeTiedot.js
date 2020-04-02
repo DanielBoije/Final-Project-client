@@ -13,7 +13,7 @@ export default class TuotteetLomakeTiedot extends Component {
 
     //syötteiden tarkastaminen ja siirtyminen seuraavaan vaiheeseen
     //tai virheilmoituksen näyttäminen lomakkeella
-    continue = async (e) => {
+    cont = async (e) => {
         e.preventDefault();
         let check = await this.props.checkValues();
         if (check) {
@@ -35,16 +35,14 @@ export default class TuotteetLomakeTiedot extends Component {
 
                         <AppBar title="TUOTTEET" showMenuIconButton={false} />
                         <div className="tuotteetcss">
-
                             <TextField 
-                            type="number"
-                            size="medium"
-                            required
-                            label="Tuotenumero"
-                            onChange={handleChange("tuotenro")}
-                            defaultValue={values.tuotenro}
-                        />
-
+                                type="number"
+                                size="medium"
+                                required
+                                label="Tuotenumero"
+                                onChange={handleChange("tuotenro")}
+                                defaultValue={values.tuotenro}
+                            />
                             <TextField
                                 type="text"
                                 size="medium"
@@ -53,7 +51,6 @@ export default class TuotteetLomakeTiedot extends Component {
                                 onChange={handleChange("tuotenimi")}
                                 defaultValue={values.tuotenimi}
                             />
-
                             <TextField
                                 type="number"
                                 size="medium"
@@ -62,15 +59,13 @@ export default class TuotteetLomakeTiedot extends Component {
                                 onChange={handleChange("tuntitavoite")}
                                 defaultValue={values.tuntitavoite}
                             />
-
                             <p style={punainen}>
                                 {values.virhe}
-                            </p>
-                           
+                            </p>                           
                             {/* <Button
                                 variant="contained"
                                 color="default"
-                                onClick={this.continue}
+                                onClick={this.cont}
                                 size="large" */}
                                 {/* // label="Jatka"
                                 // default={true}
@@ -81,7 +76,7 @@ export default class TuotteetLomakeTiedot extends Component {
                             label="JATKA"
                             primary={true}
                             style={styles.button}
-                            onClick={this.continue}/>
+                            onClick={this.cont}/>
 
                             <TuotteetLista
                                 lista={values.lista}

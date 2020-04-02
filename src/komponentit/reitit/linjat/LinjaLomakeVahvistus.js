@@ -13,11 +13,10 @@ export default class LinjaLomakeVahvistus extends Component {
         nimi: this.props.values.nimi
     }
     
-    continue = async(e) => {
+    cont = async(e) => {
         e.preventDefault();
         //lähetetään apiin
-        let tallennettu = await addLinja(this.linja);
-        console.log(tallennettu);
+        await addLinja(this.linja);
         this.props.nextStep();
     }
 
@@ -42,34 +41,34 @@ export default class LinjaLomakeVahvistus extends Component {
                             defaultValue={values.nimi}
                             InputProps={{ readOnly: true }}
                         />
-                            <br></br><br></br><br></br>
-                            <br></br><br></br>
-                            <Button
-                                variant="contained"
-                                color="default"
-                                onClick={this.back}
-                                size="medium"
-                                style={styles.button}>
-                                TAKAISIN
-                            </Button>
+                        <br></br><br></br><br></br>
+                        <br></br><br></br>
+                        <Button
+                            variant="contained"
+                            color="default"
+                            onClick={this.back}
+                            size="medium"
+                            style={styles.button}>
+                            TAKAISIN
+                        </Button>
 
-                            <RaisedButton
-                            label="TALLENNA"
-                            primary={true}
-                            style={styles.button}
-                            onClick={this.continue}/>
-                         
-                            {/* <Button
-                                variant="contained"
-                                color="default"
-                                size="large"
-                                onClick={this.continue}
-                                startIcon={<SaveIcon />}>
-                                TALLENNA
-                            </Button> */}
+                        <RaisedButton
+                        label="TALLENNA"
+                        primary={true}
+                        style={styles.button}
+                        onClick={this.cont}/>
+
+                        {/* <Button
+                            variant="contained"
+                            color="default"
+                            size="large"
+                            onClick={this.cont}
+                            startIcon={<SaveIcon />}>
+                            TALLENNA
+                        </Button> */}
                         </div>
                     </div>
-               
+                </div>
                 </React.Fragment>
             </MuiThemeProvider>
         );

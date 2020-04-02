@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import HairioLomakeTiedot from './HairioLomakeTiedot';
-import HairioLomakeLahetetty from './HairioLomakeLahetetty';
 import HairioLomakeVahvistus from './HairioLomakeVahvistus';
-import HairioLista from './HairioLista';
 import { getHairiot, deleteHairio, getToteumaHairiot } from './hairioService';
 
 export default class HairioPohja extends Component {
@@ -74,13 +72,7 @@ export default class HairioPohja extends Component {
 
     //seuraava steppi
     nextStep = () => {
-        this.setState({ virhe: "" })
-        const { step } = this.state;
-        this.setState({
-            step: step + 1
-        })
-        console.log(this.state.step);
-        if(this.state.step === 3) {
+       if(this.state.step === 2) {
             this.setState({
                 step:1,
                 hairio: "",
@@ -90,9 +82,16 @@ export default class HairioPohja extends Component {
                     hairio: "",
                 }],
             })
-            console.dir(this.state)
-            this.paivitaLista()
-        }
+        console.dir(this.state)
+        this.paivitaLista()
+       } else {
+            const { step } = this.state;
+            this.setState({
+                step: step + 1,
+                virhe: ""
+            })
+            console.log(this.state.step);
+       }
     }
 
     //edellinen steppi
