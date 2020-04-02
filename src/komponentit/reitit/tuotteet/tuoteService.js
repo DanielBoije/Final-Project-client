@@ -10,6 +10,7 @@ async function getTuotteet() {
 
 async function getYksiTuote(tnro) {
     let res = await axios.get(`${appURL}/${tnro}`)
+    console.log(res)
     return res.data;
 }
 

@@ -7,23 +7,13 @@ export default class Vuoro extends Component {
     }
     render() {
         return (
-            
             <tr>
-            
-                {/* <td>{this.props.lista.id}</td> */}
-             <td style={tilaa}>{this.props.lista.tyovuoro}</td> <br/><br/>
-                {/* <td><button type="button">&#9998;</button></td> */}
+                <td style={tilaa}>{this.props.lista.tyovuoro}</td> <br/><br/>
                 <td><Button size="small"  variant="outlined" color="secondary" onClick={this.poista} startIcon={<DeleteIcon />}>Poista</Button> </td>
             </tr>
-           
         )
     }
 }
-
-
-// const list = {
-//     textAlign: "left"
-// }
 
 const tilaa = {
     padding: "10px"

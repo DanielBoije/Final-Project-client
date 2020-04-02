@@ -10,8 +10,15 @@ export default class Tuotteet extends Component {
             <tr style={list}>
                 <td style={tilaa}>{this.props.lista.tuotenimi}</td>
                 <td style={tilaa}>{this.props.lista.tuntitavoite}</td><br/><br/>
-                {/* <td><button type="button">&#9998;</button></td> */}
-                <td><Button size="small"  variant="outlined" color="secondary" onClick={this.poista} startIcon={<DeleteIcon />}>Poista</Button> </td>
+                <td>
+                    <Button 
+                        size="small"  
+                        variant="outlined" 
+                        color="secondary" 
+                        onClick={this.poista} 
+                        startIcon={<DeleteIcon />}>Poista
+                    </Button> 
+                </td>
             </tr>
         )
     }

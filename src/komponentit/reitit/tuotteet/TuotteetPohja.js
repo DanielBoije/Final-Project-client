@@ -51,7 +51,7 @@ export default class TuotteetPohja extends Component {
         const tavoite = this.state.tuntitavoite;
         const kannantuotteet = await getYksiTuote(tnro)
         //annettua tuotenumeroa ei ole vielä tietokannassa
-        if (kannantuotteet.length === 0) {
+        if (tnro === "" || kannantuotteet.length === 0) {
             if (tnro < 1 || isNaN(tnro) || tnro.match(/e/gi) || tnro === "") {
                 this.setState({ virhe: "Tuotenumero puuttuu tai virheellinen" });
                 return false;
@@ -66,6 +66,7 @@ export default class TuotteetPohja extends Component {
             }
         } else {
             this.setState({ virhe: "Tuotenumero löytyy jo tietokannasta" })
+            console.dir(kannantuotteet)
             return false;
         }
     }

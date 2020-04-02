@@ -8,9 +8,7 @@ export default class Hairio extends Component {
     render() {
         return (
             <tr style={list}>
-                {/* <td>{this.props.lista.id}</td> */}
                 <td style={tilaa}>{this.props.lista.hairio}</td><br/><br/>
-                {/* <td><button type="button">&#9998;</button></td> */}
                 <td><Button size="small"  variant="outlined" color="secondary" onClick={this.poista} startIcon={<DeleteIcon />}>Poista</Button> </td>
             </tr>
         )

@@ -30,9 +30,6 @@ export default class TuotteetLomakeTiedot extends Component {
             <MuiThemeProvider>
                 <React.Fragment>
                     <div style={shadow}>
-
-                    {/* style={{ background:'#bdbdbd'}} */}
-
                         <AppBar title="TUOTTEET" showMenuIconButton={false} />
                         <div className="tuotteetcss">
                             <TextField 
@@ -61,23 +58,13 @@ export default class TuotteetLomakeTiedot extends Component {
                             />
                             <p style={punainen}>
                                 {values.virhe}
-                            </p>                           
-                            {/* <Button
-                                variant="contained"
-                                color="default"
-                                onClick={this.cont}
-                                size="large" */}
-                                {/* // label="Jatka"
-                                // default={true}
-                                // style={styles.button}>
-                                //   > JATKA </Button> */}
-
+                            </p>
                             <RaisedButton
-                            label="JATKA"
-                            primary={true}
-                            style={styles.button}
-                            onClick={this.cont}/>
-
+                                label="JATKA"
+                                primary={true}
+                                style={styles.button}
+                                onClick={this.cont}
+                            />
                             <TuotteetLista
                                 lista={values.lista}
                                 poista={this.props.poistaTuote}
@@ -89,11 +76,6 @@ export default class TuotteetLomakeTiedot extends Component {
         );
     }
 }
-
-// const padding = {
-//     padding: "110px",
-//     height:"583px"
-// }
 
 const shadow = {
     textAlign: "center",
