@@ -5,8 +5,6 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import AppBar from "material-ui/AppBar";
 import HairioLista from './HairioLista';
-//import { deleteHairio } from './hairioService';
-//import { getHairiot } from './hairioService';
 // import RaisedButton from "material-ui/RaisedButton";
 
 
@@ -14,7 +12,7 @@ export default class HairioLomakeTiedot extends Component {
 
     //syötteiden tarkastaminen ja siirtyminen seuraavaan vaiheeseen
     //tai virheilmoituksen näyttäminen lomakkeella
-    continue = async (e) => {
+    cont = async (e) => {
         e.preventDefault();
         let check = await this.props.checkValues();
         if (check) {
@@ -31,9 +29,6 @@ export default class HairioLomakeTiedot extends Component {
             <MuiThemeProvider>
                 <React.Fragment>
                 <div style={shadow}>
-
-              
-
                     <AppBar style={{ background:'#bdbdbd'}} title="HÄIRIÖT" showMenuIconButton={false}/>
                     <div className="hairiocss">
 
@@ -54,7 +49,7 @@ export default class HairioLomakeTiedot extends Component {
                         <Button
                                 variant="contained"
                                 color="default"
-                                onClick={this.continue}
+                                onClick={this.cont}
                                 size="large"
                                 // label="Jatka"
                                 // default={true}

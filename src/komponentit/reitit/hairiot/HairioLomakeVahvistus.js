@@ -5,7 +5,6 @@ import TextField from '@material-ui/core/TextField';
 import AppBar from "material-ui/AppBar"
 // import RaisedButton from "material-ui/RaisedButton"
 import { addHairio } from './hairioService';
-import HairioLista from './HairioLista';
 import Button from '@material-ui/core/Button';
 import SaveIcon from '@material-ui/icons/Save';
 
@@ -14,7 +13,7 @@ export default class HairioLomakeVahvistus extends Component {
         hairio: this.props.values.hairio
     }
     
-    continue = async(e) => {
+    cont = async(e) => {
         e.preventDefault();
         //lähetetään apiin
         let tallennettu = await addHairio(this.hairio);
@@ -42,28 +41,25 @@ export default class HairioLomakeVahvistus extends Component {
                             defaultValue={values.hairio}
                             InputProps={{ readOnly: true }}
                         />
-                            <br></br> <br></br> <br></br>
-                            <br></br><br></br>
-                            <Button
-                                variant="contained"
-                                color="primary"
-                                onClick={this.back}
-                                size="large"
-                                style={styles.button}>
-                                TAKAISIN
-                            </Button>
+                        <br></br> <br></br> <br></br>
+                        <br></br><br></br>
+                        <Button
+                            variant="contained"
+                            color="primary"
+                            onClick={this.back}
+                            size="large"
+                            style={styles.button}>
+                            TAKAISIN
+                        </Button>
                          
-                            <Button
-                                variant="contained"
-                                color="default"
-                                size="large"
-                                onClick={this.continue}
-                                startIcon={<SaveIcon />}>
-                                TALLENNA
-                            </Button>
-                        <HairioLista
-                            lista={values.lista}
-                        />
+                        <Button
+                            variant="contained"
+                            color="default"
+                            size="large"
+                            onClick={this.cont}
+                            startIcon={<SaveIcon />}>
+                            TALLENNA
+                        </Button>
                     </div>
                 </div>
                 </React.Fragment>

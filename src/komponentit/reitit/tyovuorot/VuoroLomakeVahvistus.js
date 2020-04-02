@@ -13,7 +13,7 @@ export default class VuoroLomakeVahvistus extends Component {
         tyovuoro: this.props.values.tyovuoro
     }
     
-    continue = async (e) => {
+    cont = async (e) => {
         e.preventDefault();
         //lähetetään apiin
         let tallennettu = await addVuoro(this.vuoro);
@@ -41,25 +41,25 @@ export default class VuoroLomakeVahvistus extends Component {
                             defaultValue={values.tyovuoro}
                             InputProps={{ readOnly: true }}
                         />
-                            <br></br><br></br><br></br>
-                            <br></br><br></br>
-                            <Button
-                                variant="contained"
-                                color="primary"
-                                onClick={this.back}
-                                size="large"
-                                style={styles.button}>
-                                TAKAISIN
-                            </Button>
-                         
-                            <Button
-                                variant="contained"
-                                color="default"
-                                size="large"
-                                onClick={this.continue}
-                                startIcon={<SaveIcon />}>
-                                TALLENNA
-                            </Button>
+                        <br></br><br></br><br></br>
+                        <br></br><br></br>
+                        <Button
+                            variant="contained"
+                            color="primary"
+                            onClick={this.back}
+                            size="large"
+                            style={styles.button}>
+                            TAKAISIN
+                        </Button>
+                        
+                        <Button
+                            variant="contained"
+                            color="default"
+                            size="large"
+                            onClick={this.cont}
+                            startIcon={<SaveIcon />}>
+                            TALLENNA
+                        </Button>
                     </div>
                 </div>
                 </React.Fragment>

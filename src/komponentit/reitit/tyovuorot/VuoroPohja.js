@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import VuoroLomakeTiedot from './VuoroLomakeTiedot';
-//import VuoroLomakeLahetetty from './VuoroLomakeLahetetty';
 import VuoroLomakeVahvistus from './VuoroLomakeVahvistus';
 import { getVuorot, deleteVuoro, getToteumat } from './vuoroService';
 
@@ -76,13 +75,7 @@ export default class VuoroPohja extends Component {
 
     //seuraava steppi
     nextStep = () => {
-        this.setState({ virhe: "" })
-        const { step } = this.state;
-        this.setState({
-            step: step + 1
-        })
-        console.log(this.state.step);
-        if(this.state.step === 3) {
+        if(this.state.step === 2) {
             this.setState({
                 step:1,
                 tyovuoro: "",
@@ -94,8 +87,15 @@ export default class VuoroPohja extends Component {
             })
             console.dir(this.state)
             this.paivitaLista()
+        } else {
+            const { step } = this.state;
+            this.setState({
+                step: step + 1,
+                virhe: ""
+            })
+            console.log(this.state.step);
         }
-    }
+     }
 
     //edellinen steppi
     prevStep = () => {
@@ -138,12 +138,12 @@ export default class VuoroPohja extends Component {
             default:
                 return (
                     <VuoroLomakeTiedot
-                    nextStep={this.nextStep}
-                    handleChange={this.handleChange}
-                    values={values}
-                    checkValues={this.checkValues}
-                    poistaVuoro={this.poistaVuoro}
-                />
+                        nextStep={this.nextStep}
+                        handleChange={this.handleChange}
+                        values={values}
+                        checkValues={this.checkValues}
+                        poistaVuoro={this.poistaVuoro}
+                    />
                 )       
         }
     }

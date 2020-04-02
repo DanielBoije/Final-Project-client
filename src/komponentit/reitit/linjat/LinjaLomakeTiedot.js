@@ -7,14 +7,12 @@ import AppBar from "material-ui/AppBar";
 import LinjaLista from './LinjaLista';
 // import RaisedButton from "material-ui/RaisedButton";
 
-
-
 export default class LinjaLomakeTiedot extends Component {
     
 
     //syötteiden tarkastaminen ja siirtyminen seuraavaan vaiheeseen
     //tai virheilmoituksen näyttäminen lomakkeella
-    continue = async (e) => {
+    cont = async (e) => {
         e.preventDefault();
         let check = await this.props.checkValues();
         if (check) {
@@ -31,9 +29,6 @@ export default class LinjaLomakeTiedot extends Component {
             <MuiThemeProvider>
                 <React.Fragment>
                 <div style={shadow}>
-
-             
-
                     <AppBar style={{ background:'#bdbdbd'}} title="LINJAT" showMenuIconButton={false}/>
                     <div className="linjacss">
                         <TextField 
@@ -51,14 +46,15 @@ export default class LinjaLomakeTiedot extends Component {
                         <br></br><br></br><br></br>
                         <br></br>
                         <Button
-                                variant="contained"
-                                color="default"
-                                onClick={this.continue}
-                                size="large"
-                                //  label="Jatka"
-                                // default={true}
-                                // style={styles.button}>
-                                  >  JATKA </Button>
+                            variant="contained"
+                            color="default"
+                            onClick={this.cont}
+                            size="large"
+                            //  label="Jatka"
+                            // default={true}
+                            // style={styles.button}>
+                                >  JATKA 
+                        </Button>
 
                             {/* <RaisedButton
                             label="JATKA"
