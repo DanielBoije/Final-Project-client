@@ -10,8 +10,8 @@
    
     display: grid;
     grid-template-columns:repeat(4, 1fr);
-    grid-gap: 0.2em;
-    padding: 1.5em
+    grid-gap: 1em;
+    padding: 2em
     
   
     
@@ -21,23 +21,24 @@
 .hairiocss {
   margin-top: 3px;
   padding:103px;
-  height:560px;
-  width: 380px;
+  height:545px;
+  width: 363px;
 }
 
 .linjacss {
   margin-top:3px;
   padding:103px;
-  height:560px;
-  width: 380px;
+  height:545px;
+  width: 363px;
 }
 
 .tyovuorotcss {
 
+  padding-top: 10px;
   margin-top: 3px;
   padding:103px;
-  height:560px;
-  width: 380px;
+  height:545px;
+  width: 363px;
   
 }
 
@@ -45,8 +46,8 @@
 
   margin-top: 3px;
   padding:103px;
-  height:560px;
-  width: 380px;
+  height:545px;
+  width: 363px;
 }
 
 
@@ -55,31 +56,31 @@
   
   margin-top: 3px;
   padding:103px;
-  height:560px;
-  width: 380px;
+  height:545px;
+  width: 363px;
 }
 
 .vahlinjacss {
 
   margin-top: 3px;
   padding:103px;
-  height:560px;
-  width: 380px;
+  height:545px;
+  width: 363px;
 }
 
 .vahtyovuorotcss {
 
   margin-top: 3px;
   padding:103px;
-  height:560px;
-  width: 380px;
+  height:545px;
+  width: 363px;
 }
 
 .vahtuotteetcss {
   margin-top: 3px;
   padding:103px;
-  height:560px;
-  width: 380px;
+  height:545px;
+  width: 363px;
 }
 
 

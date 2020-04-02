@@ -40,7 +40,9 @@ export default class HairioLomakeVahvistus extends Component {
                             size="medium"
                             defaultValue={values.hairio}
                             InputProps={{ readOnly: true }}
-                        />                           
+                        />  
+                        <br/><br/><br/>    
+                        <br/><br/>                     
                         <Button
                             variant="contained"
                             color="default"
