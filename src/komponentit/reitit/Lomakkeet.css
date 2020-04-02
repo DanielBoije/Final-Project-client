@@ -19,30 +19,33 @@
 }
 
 .hairiocss {
-  
-  padding:105px;
-  height:597px;
+  margin-top: 3px;
+  padding:103px;
+  height:560px;
   width: 380px;
 }
 
 .linjacss {
-
-  padding:105px;
-  height:597px;
+  margin-top:3px;
+  padding:103px;
+  height:560px;
   width: 380px;
 }
 
 .tyovuorotcss {
 
-  padding:110px;
-  height:597px;
+  margin-top: 3px;
+  padding:103px;
+  height:560px;
   width: 380px;
   
 }
 
 .tuotteetcss {
-  padding:105px;
-  height:597px;
+
+  margin-top: 3px;
+  padding:103px;
+  height:560px;
   width: 380px;
 }
 
@@ -50,28 +53,32 @@
 
 .vahhairiocss {
   
-  padding:105px;
-  height:597px;
+  margin-top: 3px;
+  padding:103px;
+  height:560px;
   width: 380px;
 }
 
 .vahlinjacss {
 
-  padding:105px;
-  height:597px;
+  margin-top: 3px;
+  padding:103px;
+  height:560px;
   width: 380px;
 }
 
 .vahtyovuorotcss {
 
-  padding:110px;
-  height:597px;
+  margin-top: 3px;
+  padding:103px;
+  height:560px;
   width: 380px;
 }
 
 .vahtuotteetcss {
-  padding:105px;
-  height:597px;
+  margin-top: 3px;
+  padding:103px;
+  height:560px;
   width: 380px;
 }
 

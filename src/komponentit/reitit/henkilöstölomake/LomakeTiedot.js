@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import TextField from "material-ui/TextField"
 import DatePicker from "material-ui/DatePicker";
-// import RaisedButton from "material-ui/RaisedButton"
+import RaisedButton from "material-ui/RaisedButton"
 import AppBar from "material-ui/AppBar"
 import SimpleSelect from "./Select"
 import LisääHäiriö from "./LisaaHairio"
@@ -27,7 +27,7 @@ class LomakeTiedot extends Component {
     }
 
 
-    continue = e => {
+    jatka = e => {
 
         if (this.props.values.pvm && this.props.values.vuoro && 
             this.props.values.tuote && this.props.values.linja &&
@@ -77,9 +77,9 @@ class LomakeTiedot extends Component {
                             <Paper>
                                 <div style={shadow}>
 
-                               
+                                {/* style={{ background:'#bdbdbd'}} */}
 
-                                    <AppBar  style={{ background:'#bdbdbd'}}  title="TUOTANTO" showMenuIconButton={false} />
+                                    <AppBar  title="TUOTANTO" showMenuIconButton={false} />
                                     <div style={padding}>
                                         <DatePicker
                                             hintText="Päivämäärä*"
@@ -95,7 +95,7 @@ class LomakeTiedot extends Component {
                                         {/* <RaisedButton style={häiriö} label="Lisää häiriö" onClick={this.showModal}></RaisedButton> */}
 
                                         <Button
-                                            variant="contained"
+                                            variant="outlined"
                                             color="secondary"
                                             onClick={this.showModal}
                                             size="medium"
@@ -135,19 +135,17 @@ class LomakeTiedot extends Component {
                                         <br></br>
                                         <i style={punainen}>{this.state.virhe}</i>
                                         <br></br>
-                                        <Button
+                                        {/* <Button
                                             variant="contained"
                                             color="default"
-                                            onClick={this.continue}
+                                            onClick={this.jatka}
                                             size="large"
                                            > JATKA
-                                        </Button>
-
-                            {/* <RaisedButton
-                            label="JATKA"
-                            primary={true}
-                            onClick={this.continue}/> */}
-
+                                        </Button> */}
+                                        <RaisedButton
+                                        label="JATKA"
+                                        primary={true}
+                                        onClick={this.jatka}/> 
                                     </div>
                                 </div>
                             </Paper>

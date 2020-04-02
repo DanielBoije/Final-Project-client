@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 //import TextField from "material-ui/TextField";
 import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
+// import Button from '@material-ui/core/Button';
 import AppBar from "material-ui/AppBar";
 import TuotteetLista from './TuotteetLista';
 import './Tuotteet.css';
-// import RaisedButton from "material-ui/RaisedButton";
+import RaisedButton from "material-ui/RaisedButton";
 
 
 export default class TuotteetLomakeTiedot extends Component {
@@ -31,9 +31,9 @@ export default class TuotteetLomakeTiedot extends Component {
                 <React.Fragment>
                     <div style={shadow}>
 
-                    
+                    {/* style={{ background:'#bdbdbd'}} */}
 
-                        <AppBar style={{ background:'#bdbdbd'}} title="TUOTTEET" showMenuIconButton={false} />
+                        <AppBar title="TUOTTEET" showMenuIconButton={false} />
                         <div className="tuotteetcss">
                             <TextField 
                                 type="number"
@@ -61,26 +61,22 @@ export default class TuotteetLomakeTiedot extends Component {
                             />
                             <p style={punainen}>
                                 {values.virhe}
-                            </p>
-                            <Button
+                            </p>                           
+                            {/* <Button
                                 variant="contained"
                                 color="default"
                                 onClick={this.cont}
-                                size="large"
-                                // label="Jatka"
+                                size="large" */}
+                                {/* // label="Jatka"
                                 // default={true}
                                 // style={styles.button}>
-                                  > JATKA 
-                            </Button>
+                                //   > JATKA </Button> */}
 
-                            {/* <RaisedButton
+                            <RaisedButton
                             label="JATKA"
                             primary={true}
                             style={styles.button}
-                            onClick={this.continue}/> */}
-
-                            <br></br><br/>
-                            <br></br><br/>
+                            onClick={this.cont}/>
 
                             <TuotteetLista
                                 lista={values.lista}
@@ -111,7 +107,7 @@ const shadow = {
 
 const styles = {
     button: {
-        margin: 15
+        margin: 1
     }
 }
 

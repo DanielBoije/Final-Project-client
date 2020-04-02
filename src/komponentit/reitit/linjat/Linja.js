@@ -11,7 +11,7 @@ export default class Linja extends Component {
                 {/* <td>{this.props.lista.id}</td> */}
                 <td style={tilaa}>{this.props.lista.nimi}</td><br/><br/>
                 {/* <td><button type="button">&#9998;</button></td> */}
-                <td><Button size="small"  variant="contained" color="secondary" onClick={this.poista} startIcon={<DeleteIcon />}>Poista</Button> </td>
+                <td><Button size="small"  variant="outlined" color="secondary" onClick={this.poista} startIcon={<DeleteIcon />}>Poista</Button> </td>
             </tr>
         )
     }

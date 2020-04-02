@@ -3,10 +3,10 @@ import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 //import TextField from "material-ui/TextField"
 import TextField from '@material-ui/core/TextField';
 import AppBar from "material-ui/AppBar"
-// import RaisedButton from "material-ui/RaisedButton"
+import RaisedButton from "material-ui/RaisedButton"
 import { addVuoro } from './vuoroService';
 import Button from '@material-ui/core/Button';
-import SaveIcon from '@material-ui/icons/Save';
+// import SaveIcon from '@material-ui/icons/Save';
 
 export default class VuoroLomakeVahvistus extends Component {
     vuoro = {
@@ -33,7 +33,8 @@ export default class VuoroLomakeVahvistus extends Component {
             <MuiThemeProvider>
                 <React.Fragment>
                 <div style={shadow}>
-                    <AppBar style={{ background:'#bdbdbd'}} title="TYÖVUOROT" showMenuIconButton={false}/>
+
+                    <AppBar style title="TYÖVUOROT" showMenuIconButton={false}/>
                     <div className="vahtyovuorotcss">
                         <TextField 
                             label="Vuoro" 
@@ -41,25 +42,33 @@ export default class VuoroLomakeVahvistus extends Component {
                             defaultValue={values.tyovuoro}
                             InputProps={{ readOnly: true }}
                         />
+
                         <br></br><br></br><br></br>
                         <br></br><br></br>
                         <Button
                             variant="contained"
-                            color="primary"
+                            color="default"
                             onClick={this.back}
-                            size="large"
+                            size="medium"
                             style={styles.button}>
                             TAKAISIN
                         </Button>
-                        
-                        <Button
+
+                        <RaisedButton
+                            label="TALLENNA"
+                            primary={true}
+                            style={styles.button}
+                            onClick={this.cont}
+                        />
+
+                        {/* <Button
                             variant="contained"
                             color="default"
                             size="large"
                             onClick={this.cont}
                             startIcon={<SaveIcon />}>
                             TALLENNA
-                        </Button>
+                        </Button> */}
                     </div>
                 </div>
                 </React.Fragment>

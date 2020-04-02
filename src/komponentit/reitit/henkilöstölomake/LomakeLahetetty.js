@@ -23,7 +23,7 @@ class LomakeLahetetty extends Component {
                             <Button
                                 size="large"
                                 variant="contained"
-                                color="default"
+                                color="primary"
                                 startIcon={<CloudUploadIcon />}
                             >
                                 LATAA LISTA
