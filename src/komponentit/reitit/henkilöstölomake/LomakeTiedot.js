@@ -27,7 +27,7 @@ class LomakeTiedot extends Component {
     }
 
 
-    continue = e => {
+    jatka = e => {
 
         if (this.props.values.pvm && this.props.values.vuoro && 
             this.props.values.tuote && this.props.values.linja &&
@@ -138,16 +138,14 @@ class LomakeTiedot extends Component {
                                         {/* <Button
                                             variant="contained"
                                             color="default"
-                                            onClick={this.continue}
+                                            onClick={this.jatka}
                                             size="large"
                                            > JATKA
                                         </Button> */}
-
-                            <RaisedButton
-                            label="JATKA"
-                            primary={true}
-                            onClick={this.continue}/>
-
+                                        <RaisedButton
+                                        label="JATKA"
+                                        primary={true}
+                                        onClick={this.jatka}/> 
                                     </div>
                                 </div>
                             </Paper>
