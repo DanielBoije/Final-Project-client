@@ -66,7 +66,6 @@ export default class LinjaLomakeVahvistus extends Component {
                             startIcon={<SaveIcon />}>
                             TALLENNA
                         </Button> */}
-                        </div>
                     </div>
                 </div>
                 </React.Fragment>

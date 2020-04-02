@@ -64,10 +64,6 @@ export default class HairioLomakeVahvistus extends Component {
                             startIcon={<SaveIcon />}>
                             TALLENNA
                         </Button> */}
-
-                    <HairioLista
-                        lista={values.lista}
-                    />
                     </div>
                 </div>
                 </React.Fragment>
