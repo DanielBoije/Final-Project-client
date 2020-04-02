@@ -11,7 +11,7 @@ export default class Tavoitehaku extends Component {
     state = {
         linja: null,
         alkupvm: "2020-02-01",
-        loppupvm: "2020-03-31"
+        loppupvm: "2020-04-02"
     }
     
     //syötteiden tarkastaminen ja siirtyminen seuraavaan vaiheeseen
