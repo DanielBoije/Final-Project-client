@@ -29,12 +29,12 @@ class LomakeTiedot extends Component {
 
     jatka = e => {
 
-        if (this.props.values.pvm && this.props.values.vuoro && 
+        if (this.props.values.pvm && this.props.values.vuoro &&
             this.props.values.tuote && this.props.values.linja &&
             this.props.values.tehdytTunnit && this.props.values.tehdytKappaleet) {
-        e.preventDefault();
-        console.log("kaikki ok")
-        this.props.nextStep();
+            e.preventDefault();
+            console.log("kaikki ok")
+            this.props.nextStep();
 
         } else {
             e.preventDefault();
@@ -76,10 +76,7 @@ class LomakeTiedot extends Component {
                         <div className="testi2">
                             <Paper>
                                 <div style={shadow}>
-
-                                {/* style={{ background:'#bdbdbd'}} */}
-
-                                    <AppBar  title="TUOTANTO" showMenuIconButton={false} />
+                                    <AppBar title="TUOTANTO" showMenuIconButton={false} />
                                     <div style={padding}>
                                         <DatePicker
                                             hintText="Päivämäärä*"
@@ -92,16 +89,13 @@ class LomakeTiedot extends Component {
                                             handleChange={handleChange}
                                         />
                                         {this.message}<br></br>
-                                        {/* <RaisedButton style={häiriö} label="Lisää häiriö" onClick={this.showModal}></RaisedButton> */}
-
                                         <Button
                                             variant="outlined"
                                             color="secondary"
                                             onClick={this.showModal}
                                             size="medium"
-                                            opacity="0.5"
-                                            // style={styles.button}
-                                           > LISÄÄ HÄIRIÖ
+                                            opacity="0.5">
+                                            LISÄÄ HÄIRIÖ
                                         </Button>
 
                                         <LisääHäiriö
@@ -135,17 +129,10 @@ class LomakeTiedot extends Component {
                                         <br></br>
                                         <i style={punainen}>{this.state.virhe}</i>
                                         <br></br>
-                                        {/* <Button
-                                            variant="contained"
-                                            color="default"
-                                            onClick={this.jatka}
-                                            size="large"
-                                           > JATKA
-                                        </Button> */}
                                         <RaisedButton
-                                        label="JATKA"
-                                        primary={true}
-                                        onClick={this.jatka}/> 
+                                            label="JATKA"
+                                            primary={true}
+                                            onClick={this.jatka} />
                                     </div>
                                 </div>
                             </Paper>

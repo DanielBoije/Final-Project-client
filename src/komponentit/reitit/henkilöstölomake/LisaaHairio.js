@@ -24,7 +24,7 @@ class LisaaHairio extends Component {
         // })
         // addTot_hai(this.state)
     }
-    
+
     render() {
         const { values, handleChange } = this.props;
         return (

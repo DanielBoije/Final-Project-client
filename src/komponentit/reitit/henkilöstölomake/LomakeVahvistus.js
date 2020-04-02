@@ -14,9 +14,9 @@ class LomakeVahvistus extends Component {
         vuoro_id: this.props.values.vuoro,
         tuotenro: this.props.values.tuote,
         tehtytunnit: parseFloat(this.props.values.tehdytTunnit),
-        tehdytkappaleet: parseInt(this.props.values.tehdytKappaleet), 
-        viesti:this.props.values.viesti,
-        linja_id:this.props.values.linja
+        tehdytkappaleet: parseInt(this.props.values.tehdytKappaleet),
+        viesti: this.props.values.viesti,
+        linja_id: this.props.values.linja
     }
 
     continue = e => {
@@ -82,28 +82,19 @@ class LomakeVahvistus extends Component {
                                         />
                                     </List>
                                     <Button
-                                variant="outlined"
-                                color="secondary"
-                                onClick={this.back}
-                                size="medium"
-                                style={styles.button}>
-                                TAKAISIN
+                                        variant="outlined"
+                                        color="secondary"
+                                        onClick={this.back}
+                                        size="medium"
+                                        style={styles.button}>
+                                        TAKAISIN
                             </Button>
 
-                            <RaisedButton
-                            label="TALLENNA"
-                            primary={true}
-                            style={styles.button}
-                            onClick={this.continue}/>
-                         
-                            {/* <Button
-                                variant="contained"
-                                color="primary"
-                                size="medium"
-                                onClick={this.continue}
-                                startIcon={<SaveIcon />}>
-                                TALLENNA
-                            </Button> */}
+                                    <RaisedButton
+                                        label="TALLENNA"
+                                        primary={true}
+                                        style={styles.button}
+                                        onClick={this.continue} />
                                 </div>
                             </div>
                         </Paper>

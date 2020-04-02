@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
-//import TextField from "material-ui/TextField";
 import TextField from '@material-ui/core/TextField';
 import RaisedButton from "material-ui/RaisedButton";
 import AppBar from "material-ui/AppBar";
 import VuoroLista from './VuoroLista';
-// import Button from '@material-ui/core/Button';
+
 
 export default class VuoroLomakeTiedot extends Component {
 

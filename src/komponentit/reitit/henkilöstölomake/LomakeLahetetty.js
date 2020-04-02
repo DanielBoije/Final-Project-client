@@ -12,20 +12,14 @@ class LomakeLahetetty extends Component {
         return (
             <div className="lomakelahetetty">
 
-                {/* <br></br><br></br><br></br><br></br>
-                <h2> Tiedot lähetetty! </h2>
-                <br></br><br></br><br></br><br></br> */}
-
                 <Paper>
-                    
-                    <MuiThemeProvider>      
+                    <MuiThemeProvider>
                         <NavLink to="/lista">
                             <Button
                                 size="large"
                                 variant="contained"
                                 color="primary"
-                                startIcon={<CloudUploadIcon />}
-                            >
+                                startIcon={<CloudUploadIcon />} >
                                 LATAA LISTA
                             </Button>
                         </NavLink>

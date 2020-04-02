@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
-//import TextField from "material-ui/TextField"
 import TextField from '@material-ui/core/TextField';
 import AppBar from "material-ui/AppBar"
 import RaisedButton from "material-ui/RaisedButton"
 import { addLinja } from './linjaService';
 import Button from '@material-ui/core/Button';
-// import SaveIcon from '@material-ui/icons/Save';
+
 
 export default class LinjaLomakeVahvistus extends Component {
     linja = {

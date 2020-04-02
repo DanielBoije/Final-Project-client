@@ -38,7 +38,6 @@ const MainNavigation = props => {
                     <Link to='/'>Production Tracker</Link>
                 </h1>
                 <nav className='main-navigation__header-nav' >
-                    {/* <Navigaatio /> */}
                 </nav>
             </MainHeader>
         </React.Fragment>

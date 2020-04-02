@@ -5,11 +5,11 @@ import { CSSTransition } from 'react-transition-group'; // erillinen kirjasto la
 import './SideDrawer.css';
 
 const SideDrawer = props => {
-    const content = ( 
-    
-    <CSSTransition in={props.show}  classNames='slide-in-left' mountOnEnter unmountOnExit>
-    <aside className='side-drawer' onClick={props.onClick}>{props.children}</aside>
-    </CSSTransition>
+    const content = (
+
+        <CSSTransition in={props.show} classNames='slide-in-left' mountOnEnter unmountOnExit>
+            <aside className='side-drawer' onClick={props.onClick}>{props.children}</aside>
+        </CSSTransition>
     );
     return ReactDom.createPortal(content, document.getElementById('drawer-hook'));
 };

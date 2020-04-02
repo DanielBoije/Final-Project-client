@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { getData } from "./listaService"
 import moment from "moment"
-// import { colors } from 'material-ui/styles';
 import './ListaTiedot.css'
 import { Table } from "react-bootstrap"
-// import { Paper } from '@material-ui/core';
+
 
 
 class ListaPohja extends Component {
